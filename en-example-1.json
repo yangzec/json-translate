@@ -1,0 +1,1784 @@
+{
+	"aitools": {
+		"seeMore": "See more",
+		"debitOrCreditCard": "Debit or credit card",
+		"chooseAStyleFromLibrary": "Choose a style from library",
+		"noHistory": "No history",
+		"chooseAModel": "Choose a model",
+		"Preference": "Preference",
+		"chooseAStyle": "Choose a style",
+		"selectOriginalFile": "Select original file",
+		"selectOriginalImage": "Select original image",
+		"selectOriginalGIF": "Select original GIF",
+		"selectOriginalVideo": "Select original video",
+		"holdOnTight": "Hold on tight. The result will surprise you...",
+		"justAMoment": "Just a moment—your creation is almost ready",
+		"describeYourWantToSee": "Describe what you want to see",
+		"dragOrSelect": "Drag or select",
+		"upload": "Upload",
+		"generate": "Generate",
+		"selectRatio": "Aspect ratio",
+		"brush": "Brush",
+		"saveImage": "Save image",
+		"tryAgain": "Try again",
+		"optional": "(Optional)",
+		"sizeOfImages": "Size of Images",
+		"numberOfImages": "Number of Images",
+		"pro": "PRO",
+		"faceSwap": {
+			"swap": "Swap",
+			"swipWith": "Swap with",
+			"saveImage": "Save",
+			"tryAgain": "Try again",
+			"functionTitle": "High Quality AI Face Swapper for Free",
+			"functionDescription": "Swap faces in just 3 easy clicks! Enjoy watermark-free final results. Upload your photos or videos to get started now!",
+			"createCartoonTitle": "Create Studio Quality Face Swap Photos & Videos with FaceMe",
+			"createCartoonDescription": "Unleash your creativity and see what you can achieve with our free face editor.",
+			"faqTitle": "Hot FAQs on FaceMe AI Face Swapping",
+			"faqQuestion1": "What is AI Face Swap?",
+			"faqAnswer1": "AI face swap is a technology that uses AI and deep learning to replace one person's face with another in photos or videos. It analyzes facial features to ensure the swap looks realistic, making it popular for creating fun content and memes.",
+			"faqQuestion2": "Can I Swap Face In Any Videos and Photos?",
+			"faqAnswer2": "Yes, you can swap faces in many videos and photos. For the best results, use images where the faces are clear and well-lit. FaceMe supports common formats like JPEG and PNG for images, as well as MP4 and GIF for videos.",
+			"faqQuestion3": "FaceMe Face Swapping is Totally Free?",
+			"faqAnswer3": "FaceMe offers a free version for face swapping. You can use basic features at no cost, but some advanced options, like face swap videos, require payment.",
+			"faqQuestion4": "Is Face Swap Online Safe?",
+			"faqAnswer4": "Using online face swap tools is generally safe if you choose a reputable site. FaceMe has always respected and protected user privacy. All content you upload and generate is only visible to you.",
+			"faqQuestion5": "Can I Face Swap on My Phone?",
+			"faqAnswer5": "Yes, you can face swap on your phone with FaceMe. It can be used on iPhone, Android, Windows, and Mac. Swap faces as you like on any device!",
+			"turnPhotoButton": "Swap Face Now",
+			"howToUseTitle": "How to Use FaceMe Face Swap",
+			"howToUseDesc": "3 simple steps to create stunning face swap photos, GIFs and videos",
+			"howToUse": {
+				"step1": {
+					"title": "Upload video/photo/GIF",
+					"desc": "Click the “Upload” button to select a video, photo, or GIF from your device. Choose a file where the faces are clear."
+				},
+				"step2": {
+					"title": "Add a target face",
+					"desc": "Click “Add Face” to upload a new face or pick one from your library. Make sure the target face is positioned correctly and looks good."
+				},
+				"step3": {
+					"title": "Preview and download",
+					"desc": "Preview to see how it looks. If you like it, click \"Download\" to save your face swap without watermarks. Your creation is ready to share!"
+				}
+			},
+			"faceOptions": "Face Options",
+			"noFaces": "No faces uploaded yet",
+			"manageFaces": "Manage Faces"
+		},
+		"allInOne": {
+			"title": "Find Multiple AI Tools in One Place",
+			"description": "Save time and unleash your creativity in one place. Experience effortless original content creation with the magic of AI now.",
+			"tryItNow": "Try It Now",
+			"features": {
+				"faceSwap": {
+					"title": "Face Swap",
+					"description": "Swap faces in photos easily with just 3 clicks."
+				},
+				"aiGirl": {
+					"title": "AI Girl Generator",
+					"description": "Bring your dream girl to life in a fun and creative way."
+				},
+				"clothSwap": {
+					"title": "Cloth Swap",
+					"description": "Try on different dresses and outfits to find your perfect style."
+				},
+				"faceAgeChanger": {
+					"title": "Face Age Changer",
+					"description": "Change your age to see how you would look younger or older."
+				},
+				"aiArtGenerator": {
+					"title": "AI Art Generator",
+					"description": "Enter a prompt and let our AI create stunning art images for you."
+				},
+				"aiHeadshot": {
+					"title": "AI Headshot Generator",
+					"description": "Generate LinkedIn profiles and social media avatars in seconds."
+				},
+				"aiCartoon": {
+					"title": "AI Cartoon Generator",
+					"description": "Turn your photo into a charming cartoon style easily."
+				},
+				"aiPainting": {
+					"title": "AI Painting Generator",
+					"description": "Transform your photo into a beautiful painting."
+				},
+				"aiBaby": {
+					"title": "AI Baby Generator",
+					"description": "See your future baby with 3 simple steps."
+				},
+				"halloweenFilter": {
+					"title": "Halloween Filter",
+					"description": "Make your photo spooky with our Halloween filter."
+				},
+				"ghibliFilter": {
+					"title": "Ghibli Filter",
+					"description": "Give your images a magical Ghibli style."
+				},
+				"bodyShaper": {
+					"title": "Body Shaper",
+					"description": "Easily enhance your figure with the body shaper tool."
+				},
+				"aiObjectRemover": {
+					"title": "AI Object Remover",
+					"description": "Remove unwanted objects from your photos easily."
+				},
+				"aiReplace": {
+					"title": "AI Replace",
+					"description": "Quickly swap out objects in your photos with AI replacer."
+				},
+				"hairstyleChanger": {
+					"title": "Hairstyle Changer",
+					"description": "See how various styles look on you before making a decision."
+				},
+				"imageEnlarger": {
+					"title": "Image Enlarger",
+					"description": "Make your images larger without losing quality."
+				},
+				"imageEnhancer": {
+					"title": "Image Enhancer",
+					"description": "Brighten and boost your photos with the Image enhancer."
+				},
+				"backgroundRemover": {
+					"title": "Background Remover",
+					"description": "Remove backgrounds from your images quickly."
+				},
+				"blurBackground": {
+					"title": "Blur Background",
+					"description": "Add a nice blur effect to the background of your photos."
+				},
+				"colorRestorer": {
+					"title": "Color Restorer",
+					"description": "Bring faded photos back to life with the color restorer tool."
+				}
+			}
+		},
+		"textToImage": {
+			"enterPrompt": "Enter prompt",
+			"promptPlaceholder": "Enter AI image generation prompt",
+			"history": "History",
+			"generate": "Generate"
+		},
+		"babyGender": {
+			"selectGender": "Select your baby's gender",
+			"boy": "Boy",
+			"girl": "Girl"
+		},
+		"aiCartoonGenerator": {
+			"turnPhotoButton": "Turn Photo into Cartoon",
+			"functionTitle": "Free AI Cartoon Generator Online",
+			"functionDescription": "Turn your photo into a cartoon style with just one click! Enjoy the final result without any watermarks. Try it now and explore creative possibilities!",
+			"createCartoonTitle": "Create Cartoon Photo & Avatar with Free AI Cartoon Generator",
+			"createCartoonDescription": "Transform your photo or your pet's photo into a cartoon style. Enjoy a quick and fun way to add creativity to your favorite memories!",
+			"faqTitle": "FAQs about AI Cartoon Generator Online",
+			"faqQuestion1": "What Is an AI Cartoon Generator?",
+			"faqAnswer1": "An AI cartoon generator is a tool that transforms your photos into fun, cartoon-style images using artificial intelligence. By applying various artistic filters and styles, it makes it easy to create unique, playful versions of your pictures without any advanced skills.",
+			"faqQuestion2": "How Does the AI Turn Your Photo into a Cartoon?",
+			"faqAnswer2": "The AI cartoon generator analyzes your photo and identifies key features like facial shapes and colors. It then applies algorithms that create a cartoon effect, simplifying details and enhancing colors to produce a vibrant, stylized image that captures the essence of your original photo.",
+			"faqQuestion3": "What Can AI Cartoon Photos Be Used for?",
+			"faqAnswer3": "AI cartoon photos can be used for various purposes, including social media profiles, personalized gifts, fun artwork, or even marketing materials. They add a playful touch to your online presence and are great for sharing with friends and family.",
+			"faqQuestion4": "Is FaceMe's AI Cartoon Generator Free to Use?",
+			"faqAnswer4": "Yes, FaceMe's AI cartoon generator is free to use! When you sign up, you'll get free credits to create cartoon-style images. Just upload your photo, use your credits, and watch the magic happen!",
+			"imageAlt1": "image 1",
+			"imageAlt2": "image 2",
+			"imageAlt3": "image 3",
+			"imageAlt4": "image 4",
+			"imageAlt5": "image 5",
+			"imageAlt6": "image 6",
+			"imageAlt7": "image 7",
+			"imageAlt8": "image 8",
+			"imageAlt9": "image 9",
+			"imageAlt10": "image 10",
+			"howToUse": {
+				"title": "How to Use AI Cartoon Generator",
+				"desc": "Upload your photo, and it supports common formats, including PNG, JPG, and WEBP",
+				"step1": {
+					"title": "Upload your photo",
+					"desc": "Upload your photo, and it supports common formats, including PNG, JPG, and WEBP"
+				},
+				"step2": {
+					"title": "Click \"Generate\" Button",
+					"desc": "Simply click the \"Generate\" button. Then, relax for a few seconds while the AI processes your image and creates your cartoon version."
+				},
+				"step3": {
+					"title": "Preview and Download",
+					"desc": "After the generation process is complete, download your cartoon image."
+				}
+			}
+		},
+		"imageEnlarger": {
+			"upscale": "Upscale",
+			"functionTitle": "Upscale Your Images with Free AI Tool",
+			"functionDescription": "Easily enlarge your images with our free AI-powered tool. No technical skills or downloads needed—just upload and go!",
+			"examplesTitle": "Upscale Your Photos Up to 2x or 4x",
+			"examplesDescription": "With our AI photo upscaling tool, you can transform your images in exciting new ways. Whether you're preparing photos for large prints, detailed presentations, or simply improving their quality for personal use, this tool ensures sharper and more vibrant results.",
+			"upscaleButton": "Upscale Image",
+			"howToUse": {
+				"title": "How to Use AI Image Enlarger",
+				"desc": "Transform your photos in three simple steps",
+				"step1": {
+					"title": "Upload an Image",
+					"desc": "Start by uploading the image or photo you want to enlarge."
+				},
+				"step2": {
+					"title": "Choose 2x or 4x",
+					"desc": "Choose either 2x or 4x and click the \"Upscale\" button."
+				},
+				"step3": {
+					"title": "Get an Enlarged Image",
+					"desc": "Preview your enlarged image and download it. Feel free to try different sizes to find the one that works best for you."
+				}
+			},
+			"faqTitle": "Popular FAQs about AI Image Enlarger",
+			"faqQuestion1": "What Is an AI Image Enlarger?",
+			"faqAnswer1": "An AI Image Enlarger is a tool that increases the size of an image while improving its quality. It uses artificial intelligence to make images larger without losing clarity, making it perfect for enhancing photos for personal or professional use.",
+			"faqQuestion2": "How Does AI Image Enlarger Work?",
+			"faqAnswer2": "AI image enlargers use smart algorithms to analyze your photo. When you upload an image, the AI identifies patterns and details, allowing it to fill in missing information as it enlarges the picture. This results in a clear and sharp enlarged image.",
+			"faqQuestion3": "Can I Enlarge Images in Batches on FaceMe?",
+			"faqAnswer3": "This feature is coming soon! At the moment, you can only enlarge one image at a time. We understand that being able to process multiple images would be more convenient, and we're working hard to implement this functionality. Stay tuned for updates, as we aim to enhance your experience and make it easier for you to work with your images!",
+			"faqQuestion4": "How to Get a Better Enlarged Image?",
+			"faqAnswer4": "To achieve the best enlarged image, start with a clear, high-quality original photo. Choose an appropriate enlargement factor, such as 2x or 4x, based on your needs. It's also helpful to experiment with different settings to find what works best for your image.",
+			"imageAlt1": "Image enlarger example 1",
+			"imageAlt2": "Image enlarger example 2",
+			"imageAlt3": "Image enlarger example 3"
+		},
+		"imageEnhancer": {
+			"functionTitle": "Enhance Your Photo Quality Online with AI",
+			"functionDescription": " Quickly turn ordinary photos into stunning images ready for sharing or printing with Free AI photo enhancer.",
+			"examplesTitle": "Explore the Possibilities of FaceMe's Photo Enhancer",
+			"examplesDescription": "Unlock the full potential of your images with FaceMe's Photo Enhancer and breathe new life into your old photos",
+			"enhanceButton": "Enhance Photo",
+			"howToUse": {
+				"title": "How to Use AI Image Enhancer Free",
+				"desc": "Transform your photos in just three simple steps",
+				"step1": {
+					"title": "Upload a Photo",
+					"desc": "Upload a low-resolution or blurry image that you want to enhance."
+				},
+				"step2": {
+					"title": "Hit the \"Enhance\" Button",
+					"desc": "Click the \"Enhance\" button, and the AI will automatically improve the resolution and quality of your photo."
+				},
+				"step3": {
+					"title": "Get an HD Photo",
+					"desc": "Preview your enhanced photo and download it if you're satisfied. If you're not happy with the result, feel free to try again!"
+				}
+			},
+			"faqTitle": "FAQs about AI Image Enhancer Online",
+			"faqQuestion1": "What Is an AI Image Enhancer?",
+			"faqAnswer1": "An AI Image Enhancer is a tool that improves the quality of your photos using artificial intelligence. It can enhance details, sharpen images, adjust lighting, and even remove noise to make your pictures look more professional and visually appealing.",
+			"faqQuestion2": "How Does AI Image Enhancer Work?",
+			"faqAnswer2": "The AI Image Enhancer works by analyzing the details of your image and making intelligent adjustments. It improves clarity, enhances colors, fixes exposure, and sharpens the image, all with just a few clicks.",
+			"faqQuestion3": "Is FaceMe's AI Photo Enhancer Free to Use?",
+			"faqAnswer3": "Yes, FaceMe's AI Photo Enhancer is free to use. When you sign up, you receive free credits that allow you to enhance your photos without any upfront cost.",
+			"faqQuestion4": "How to Use AI Photo Enhancer on My Phone?",
+			"faqAnswer4": "Using FaceMe's AI Photo Enhancer on your phone is simple. Just upload the photo you want to enhance, click the \"Enhance\" button, and wait a few seconds for the improved version to be ready."
+		},
+		"backgroundRemover": {
+			"replaceButton": "Replace Background",
+			"functionTitle": "Free AI Image Background Remover Online",
+			"functionDescription": "Remove unwanted backgrounds from your images in seconds with the FaceMe platform. Easily create transparent backgrounds, making it simple to highlight the main subject of your photo.",
+			"workbenchTitle": "Free AI Image Background Remover for Photos",
+			"workbenchDescription": "Remove backgrounds from your photos quickly with our free AI tool. Just upload your image, and in a few clicks, you'll have a clean background.",
+			"examplesTitle": "Explore Background Removal Examples",
+			"examplesDescription": "Check out our examples of background removal to see the difference it can make. From product images to portraits, our AI tool can transform your photos by eliminating unwanted backgrounds.",
+			"removeButton": "Remove Background",
+			"howToUse": {
+				"title": "How to Use AI Background Remover Online",
+				"desc": "Remove backgrounds in three simple steps",
+				"step1": {
+					"title": "Signup on FaceMe",
+					"desc": "Sign up on FaceMe to receive your free credits."
+				},
+				"step2": {
+					"title": "Upload an Image",
+					"desc": "Once you’re signed in, upload a photo that contains an unwanted background."
+				},
+				"step3": {
+					"title": "Remove Background",
+					"desc": "Click \"Remove,\" and in just a few seconds, you’ll have a clear photo without the background."
+				}
+			},
+			"faqTitle": "FAQs about FaceMe's AI Background Remover",
+			"faqQuestion1": "What Is an AI Background Remover?",
+			"faqAnswer1": "An AI Background Remover is a tool that automatically removes the background from your photos using artificial intelligence. It identifies the main subject in the image and erases the background, making it easier to create transparent images or add new backgrounds.",
+			"faqQuestion2": "How Does the AI Background Remover Work?",
+			"faqAnswer2": "The AI Background Remover analyzes your image and detects the primary object or person. It then carefully isolates the subject from the background by using smart algorithms, ensuring clean and accurate cutouts, even for complex edges like hair or intricate details.",
+			"faqQuestion3": "How Long Does it Take to Remove a Backgound?",
+			"faqAnswer3": "Removing a background with AI is quick and efficient. Typically, it only takes a few seconds for the AI to process your image and deliver the final result, depending on the complexity of the image and your internet speed.",
+			"faqQuestion4": "What Are the Differences Between Photoshop and an AI Background Remover?",
+			"faqAnswer4": "Photoshop is a professional tool that lets you manually remove backgrounds, but it takes time and skill to use. An AI Background Remover, on the other hand, automatically removes backgrounds in seconds with no expertise needed. Photoshop offers more control, but AI tools are quicker and easier for everyday tasks."
+		},
+		"blurBackgroundGenerator": {
+			"functionTitle": "AI Blur Background Generator for Free",
+			"functionDescription": "Effortlessly blur the background of your photo to make your subject stand out. With a few steps, you can get what you want.",
+			"workbenchTitle": "Free Blur Background Online for Photos",
+			"workbenchDescription": "Effortlessly achieve a professional look by blurring the background of your photos. With our AI tool, you can instantly blur backgrounds.",
+			"examplesTitle": "Explore Background Blur Examples",
+			"examplesDescription": "Discover how blurring the background can enhance your photos. Check out our collection of examples showcasing various images with blurred backgrounds, from portraits to product shots.",
+			"blurButton": "Blur Background",
+			"howToUse": {
+				"title": "How to Blur Your Photo Background",
+				"desc": "Transform your photos in three simple steps",
+				"step1": {
+					"title": "Upload a Photo",
+					"desc": "Upload your photo. Choose a clear image that you want to enhance."
+				},
+				"step2": {
+					"title": "Click the \"Generate\" Button",
+					"desc": "Click the \"Blur Background\" button. Our AI will quickly apply a blur effect to the background, keeping your main subject sharp."
+				},
+				"step3": {
+					"title": "Preview and Download",
+					"desc": "Preview your blurred background image. If you like the result, just download it to your device. Enjoy your polished photo."
+				}
+			},
+			"faqTitle": "FAQs about AI Blur Background Generator",
+			"faqQuestion1": "What Is an AI Blur Background Generator?",
+			"faqAnswer1": "An AI Blur Background Generator is a tool that automatically blurs the background of your images using artificial intelligence. It helps enhance your photos by keeping the main subject in focus while creating a soft, blurred effect behind it, giving your images a professional look.",
+			"faqQuestion2": "What Can an AI Blur Background Generator Be Used For?",
+			"faqAnswer2": "You can use an AI Blur Background Generator to enhance various types of images, including portraits, product photos, and event snapshots. This tool is perfect for creating visually appealing images for social media, marketing materials, or personal projects.",
+			"faqQuestion3": "Can I Blur Background Photos in Batches?",
+			"faqAnswer3": "No, currently, the AI Blur Background Generator only supports single photo processing at a time.",
+			"faqQuestion4": "Can I Use This AI Blur Background Generator Online?",
+			"faqAnswer4": "Yes, you can use the AI Blur Background Generator online, and it is also accessible on your phone for easy editing on the go!"
+		},
+		"aiPaintingGenerator": {
+			"reshapeButton": "Turn Photo into Painting",
+			"functionTitle": "Free AI Painting Generator Online - FaceMe",
+			"functionDescription": "Easily turn your photo into a painting! With FaceMe's AI painting generator, you can convert your pictures into artwork with just one click.",
+			"workbenchTitle": "Free AI Photo to Painting Converter",
+			"workbenchDescription": "Enjoy the fun of creating beautiful paintings in seconds! Upload your photo to give it a try.",
+			"examplesTitle": "Turn Picture into Different Painting Styles",
+			"examplesDescription": "Discover what you can create with our AI painting generator! Transform your photo into famous painting styles for a fun and unique experience.",
+			"paintButton": "Turn Photo into Painting",
+			"howToUse": {
+				"title": "How to Generate Painting Photos",
+				"step1": {
+					"title": "Upload a Photo",
+					"desc": "Begin by uploading the photo you want to transform into a painting."
+				},
+				"step2": {
+					"title": "Choose a Style",
+					"desc": "Pick your favorite painting style from the options available. Take a moment to explore and select the one that you like best for your photo."
+				},
+				"step3": {
+					"title": "Get Your Painting Photo",
+					"desc": "Press the \"Generate\" button and wait a few moments for your stunning painting to be created!"
+				}
+			},
+			"faqTitle": "FAQs about AI Painting Generator Online",
+			"faqQuestion1": "What Is an AI Painting Generator?",
+			"faqAnswer1": "An AI painting generator is a tool that uses artificial intelligence to turn your photos into different painting styles. It analyzes your images and creates unique artwork that looks like traditional paintings.",
+			"faqQuestion2": "How Does an AI Painting Generator Work?",
+			"faqAnswer2": "AI painting generators work by using algorithms to learn from existing artworks. When you upload a photo, the AI applies these artistic techniques to create a new image in your chosen style. It processes your photo to produce creative and beautiful results.",
+			"faqQuestion3": "How to Get a Better AI-Generated Painting Image?",
+			"faqAnswer3": "To get better results, upload high-resolution images with clear details. Try experimenting with different styles and settings to see what works best for your photo.",
+			"faqQuestion4": "Is FaceMe's AI Painting Generator Worth a Try?",
+			"faqAnswer4": "Yes! FaceMe offers a free trial, so you can test it out without any cost. With its high-quality results and easy-to-use features, it's definitely worth trying if you want to create amazing digital paintings."
+		},
+		"colorRestorer": {
+			"functionTitle": "Free AI Photo Colorizer to Restore Old Photo",
+			"functionDescription": "Revive your old black and white photos with our free AI Photo Colorizer. In just a few seconds, you can transform faded images into vibrant color pictures.",
+			"workbenchTitle": "Free AI Photo Colorizer to Restore Old Photo",
+			"workbenchDescription": "Revive your old black and white photos with our free AI Photo Colorizer. In just a few seconds, you can transform faded images into vibrant color pictures.",
+			"examplesTitle": "Experience the Magic of AI Photo Colorizer",
+			"examplesDescription": "Explore examples of how our AI Photo Colorizer can turn black and white photos into vibrant, colorful images.",
+			"restoreButton": "Restore Colors",
+			"howToUse": {
+				"title": "How to Use AI Photo Colorizer",
+				"desc": "Transform your black and white photos into vibrant images in three simple steps",
+				"step1": {
+					"title": "Upload a Photo",
+					"desc": "Upload your black and white photo. A clear image will get a better result."
+				},
+				"step2": {
+					"title": "Click the \"Restore\" Button",
+					"desc": "Click the \"Restore Colors\" button. The AI will process your photo and add realistic colors."
+				},
+				"step3": {
+					"title": "Get the Colorized Image",
+					"desc": "Preview the colorized image. If you’re happy with the result, simply download it to your device and enjoy your restored photo."
+				}
+			},
+			"faqTitle": "Hot FAQs about FaceMe's AI Photo Colorizer",
+			"faqQuestion1": "What Is an AI Photo Colorizer?",
+			"faqAnswer1": "An AI Photo Colorizer is a tool that uses artificial intelligence to add color to black and white photos. It analyzes the image and applies realistic colors, transforming old or faded pictures into vibrant visuals.",
+			"faqQuestion2": "How Does AI Photo Colorizer Work?",
+			"faqAnswer2": "The AI Photo Colorizer works by using advanced algorithms to understand the elements of a photo. It identifies objects, backgrounds, and lighting, then applies appropriate colors to create a natural and appealing result.",
+			"faqQuestion3": "How about FaceMe's AI Photo Colorizer?",
+			"faqAnswer3": "FaceMe's AI Photo Colorizer is user-friendly and efficient, allowing you to easily upload your black and white images and see them transformed in seconds. The tool focuses on delivering high-quality results with minimal effort.",
+			"faqQuestion4": "How Does FaceMe Handle My Upload and Generated Files?",
+			"faqAnswer4": "FaceMe ensures your privacy by securely processing your uploaded images and generated files. Once the colorization is complete, you can download your results, and your original files are deleted from our servers to protect your data."
+		},
+		"faceAgeChanger": {
+			"functionTitle": "Discover Your Past and Future Self",
+			"functionDescription": "Easily change the age of your photo with our free AI Age Changer.",
+			"examplesTitle": "Try the AI Age Changer to effortlessly see yourself at any age",
+			"examplesDescription": "Explore your appearance at any age effortlessly with FaceMe's AI face age changer",
+			"tryNowButton": "Change Age Now",
+			"howToUse": {
+				"title": "How to Use AI Face Age Changer",
+				"desc": "3 simple steps to create stunning face swap photos, GIFs and videos",
+				"step1": {
+					"title": "Upload a Photo",
+					"desc": "Upload a clear photo of yourself to begin."
+				},
+				"step2": {
+					"title": "Select an Age Stage",
+					"desc": "Take your time to choose your preferred age stage from the available options, whether you want to see yourself younger or older."
+				},
+				"step3": {
+					"title": "Press the Generate",
+					"desc": "Click \"Change Age\" to reveal your stunning transformation."
+				}
+			},
+			"faqTitle": "FAQs about AI Face Age Changer",
+			"faqQuestion1": "What Is AI Age Changer?",
+			"faqAnswer1": "AI Age Changer is a popular tool that uses artificial intelligence to modify photos, allowing you to see how you would look at different ages—both younger and older. By analyzing facial features, the AI creates realistic transformations, making it easy to visualize changes over time.",
+			"faqQuestion2": "Is FaceMe's AI Age Changer Free to Use?",
+			"faqAnswer2": "Yes, FaceMe offers its AI Age Changer for free. You can access basic features without any cost, although some advanced options may require payment.",
+			"faqQuestion3": "How Accurate Are the Age-changed Results?",
+			"faqAnswer3": "The accuracy of age-changed results can vary based on factors such as the quality of the input photo and the algorithms used. While not perfect, age changer aims to provide realistic and natural-looking results for you.",
+			"faqQuestion4": "Can I Use the AI Face Changer on My Phone?",
+			"faqAnswer4": "Absolutely! The AI Face Changer is compatible with mobile devices, allowing you to easily transform photos on your phone, whether you're using an iPhone or Android."
+		},
+		"ghibliFilter": {
+			"functionTitle": "Studio Ghibli Filter Online Free for Photo",
+			"functionDescription": "Upload a photo and effortlessly generate stunning Ghibli-style images online for free!",
+			"workbenchTitle": "Studio Ghibli Filter Online Free for Photo",
+			"workbenchDescription": "Upload a photo and effortlessly generate stunning Ghibli-style images online for free!",
+			"examplesTitle": "Add a Studio Ghibli Filter to Your Photos",
+			"examplesDescription": "Transform your photos into magical scenes with our free online Studio Ghibli filter. Immerse yourself in the whimsical world of Studio Ghibli with every image you create!",
+			"transformButton": "Transform Your Image",
+			"howToUse": {
+				"title": "How to Use AI Studio Ghibli Filter?",
+				"desc": "Transform your photos into magical Ghibli art in three simple steps",
+				"step1": {
+					"title": "Upload a Photo",
+					"desc": "Start by uploading a clear, full-face photo to the AI Studio Ghibli filter."
+				},
+				"step2": {
+					"title": "Click the \"Generate\" Button",
+					"desc": "Press the \"Generate\" button and let the AI work its magic for a few moments."
+				},
+				"step3": {
+					"title": "See Your Ghibli-style Image",
+					"desc": "Once the transformation is complete, preview your Ghibli-style image. If you're not satisfied, feel free to try again!"
+				}
+			},
+			"faqTitle": "FAQs about FaceMe's AI Studio Ghibli Filter",
+			"faqQuestion1": "What Is a Studio Ghibli Filter?",
+			"faqAnswer1": "A Studio Ghibli filter is an AI-powered tool that transforms your photos into enchanting images inspired by the iconic animation style of Studio Ghibli.",
+			"faqQuestion2": "How to Use the AI Ghibli Filter for Free?",
+			"faqAnswer2": "To use the AI Ghibli filter for free, simply sign up on FaceMe. Once registered, you'll receive free credits that you can use to generate stunning Ghibli-style images from your photos.",
+			"faqQuestion3": "Can I Use the AI Ghibli Filter on My Phone?",
+			"faqAnswer3": "Yes, you can easily use the AI Ghibli filter on your phone! The tool is web-based and compatible with mobile devices, allowing you to transform your photos into Ghibli art anytime, anywhere.",
+			"faqQuestion4": "Why Choose FaceMe for Generating Ghibli Style Images?",
+			"faqAnswer4": "FaceMe stands out for its user-friendly interface and high-quality results. With a variety of templates and styles to choose from, you can effortlessly create captivating Ghibli-inspired images."
+		},
+		"hairstyleChanger": {
+			"chooseAHairstyle": "Choose a Hairstyle",
+			"functionTitle": "Free AI Hairstyle Generator Online",
+			"functionDescription": "Instantly change your hairstyle with the AI Hairstyle Changer! Unlock a new look in just seconds.",
+			"workbenchTitle": "Free AI Hairstyle Generator Online",
+			"workbenchDescription": "Instantly change your hairstyle with the AI Hairstyle Changer! Unlock a new look in just seconds.",
+			"examplesTitle": "Different Hairstyles Available In FaceMe's Hairstyle Generator",
+			"examplesDescription": "Explore a wide variety of hairstyles with FaceMe's Hairstyle Generator. With just a few clicks, you can visualize how each hairstyle will look on you.",
+			"changeButton": "Change Hairstyle",
+			"howToUse": {
+				"title": "How to Change Hairstyle Online",
+				"desc": "Transform your look with a new hairstyle in three simple steps",
+				"step1": {
+					"title": "Upload a Photo",
+					"desc": "Upload a photo where you'd like to change your hairstyle."
+				},
+				"step2": {
+					"title": "Choose a Hairstyle",
+					"desc": "Select your gender and pick a hairstyle that catches your eye from the options provided."
+				},
+				"step3": {
+					"title": "Unlock Your New Look",
+					"desc": "Press the \"Generate\" button to see a preview of your new hairstyle and discover how it enhances your look."
+				}
+			},
+			"faqTitle": "FAQs about AI Hairstyle Changer for Photo",
+			"faqQuestion1": "What Is an AI Hairstyle Changer?",
+			"faqAnswer1": "An AI Hairstyle Changer is a tool that allows you to experiment with different hairstyles by digitally altering your photo. Using artificial intelligence, the tool can apply various haircuts, colors, and styles to your image, letting you see how you'd look with a new hairstyle without making any real changes.",
+			"faqQuestion2": "Why Should I Choose FaceMe for Changing Hairstyles?",
+			"faqAnswer2": "FaceMe offers a free, high-quality AI Hairstyle Changer with a wide variety of hairstyles to choose from. Whether you're looking for something trendy, classic, or bold, FaceMe provides rich options that are easy to apply and fun to explore.",
+			"faqQuestion3": "Do I Need Technical Skills to Use the AI Hairstyle Generator?",
+			"faqAnswer3": "No, you don't need any technical skills to use the AI Hairstyle Generator. The tool is designed to be user-friendly, making it accessible for everyone to try out different looks effortlessly.",
+			"faqQuestion4": "Where Can I Use the AI Hairstyle Generator?",
+			"faqAnswer4": "The AI Hairstyle Generator can be used for personal styling, trying out new looks for social media profiles, or even before making an actual hair change. It's great for visualizing potential hairstyles for special occasions, professional headshots, or just for fun!"
+		},
+		"halloweenFilter": {
+			"functionTitle": "Free AI Halloween Filters for Your Photos",
+			"functionDescription": "Create awesome Halloween-themed pictures with just one click! On FaceMe, you can easily discover what you would look like in a spooky or festive style.",
+			"workbenchTitle": "Unlock Your Halloween Look with FaceMe",
+			"workbenchDescription": "Get ready to elevate your Halloween experience! Simply upload your selfies and watch as you transform into iconic Halloween characters.",
+			"examplesTitle": "Reveal Your Spooky Side with Our AI Halloween Filter",
+			"examplesDescription": "Discover a wide range of vibrant AI Halloween templates and choose the perfect one to transform your photo into a festive masterpiece!",
+			"tryFilterButton": "Try Halloween Filter",
+			"howToUse": {
+				"title": "How to Create a Perfect Halloween Photo?",
+				"desc": "Transform your photos into spooky masterpieces in three simple steps",
+				"step1": {
+					"title": "Upload a Photo",
+					"desc": "Begin by uploading a high-quality photo that clearly shows your face."
+				},
+				"step2": {
+					"title": "Pick Your Preferred Style",
+					"desc": "Browse through our selection of Halloween templates and pick the one you like best."
+				},
+				"step3": {
+					"title": "Get Your Halloween Photo",
+					"desc": "Hit the \"Generate\" button and let the AI surprise you with a fantastic Halloween transformation!"
+				}
+			},
+			"faqTitle": "FAQs about Online AI Halloween Filter",
+			"faqQuestion1": "What Is an AI Halloween Filter?",
+			"faqAnswer1": "An AI Halloween filter is a digital tool that transforms your photos with spooky and festive effects. These filters can add elements like masks, costumes, and Halloween-themed decorations, allowing you to create fun and creative images perfect for the season.",
+			"faqQuestion2": "How Does the AI Halloween Filter Work?",
+			"faqAnswer2": "The AI Halloween filter analyzes your uploaded photo and applies various algorithms to add Halloween-themed effects. It detects facial features and enhances them with spooky elements, creating a fun and engaging transformation.",
+			"faqQuestion3": "How Quickly Can I Get My Halloween Photo?",
+			"faqAnswer3": "You can get your Halloween photo in just a few seconds after uploading your image. The AI processes your photo quickly, allowing you to enjoy your spooky transformation almost instantly!",
+			"faqQuestion4": "What Can I Do If I'm not Satisfied with the Result?",
+			"faqAnswer4": "If you're not satisfied with the result, you can easily try again by uploading a different photo or adjusting the filter settings. Plus, feel free to contact us and share your feedback to help us improve!"
+		},
+		"aiObjectRemover": {
+			"functionTitle": "Easily Remove Objects from Your Photos Online for Free",
+			"functionDescription": "You can effortlessly remove any unwanted objects from your photos with just a few simple clicks. Transform your images and achieve the perfect look in no time!",
+			"workbenchTitle": "Remove Unwanted Object Online with AI",
+			"workbenchDescription": "Easily remove objects, backgrounds, text, and other unwanted elements with AI Object Remover.",
+			"examplesTitle": "Explore the Possibilities of AI Object Remover",
+			"examplesDescription": "AI object removal tools have revolutionized photo editing, allowing you to effortlessly eliminate unwanted elements from your images.",
+			"removeButton": "Remove Object Now",
+			"howToUse": {
+				"title": "How to Use Free AI Object Remover",
+				"desc": "Transform your photos in three simple steps",
+				"step1": {
+					"title": "Upload a Photo",
+					"desc": "Upload a photo that contains unwanted objects or elements."
+				},
+				"step2": {
+					"title": "Choose the Unwanted Object",
+					"desc": "Once your photo is uploaded, use the brush tool to carefully paint over the areas you want to eliminate."
+				},
+				"step3": {
+					"title": "Get a New Image",
+					"desc": "Hit the \"Generate\" button to create your new photo without the unwanted elements."
+				}
+			},
+			"faqTitle": "FAQs about AI Object Remover",
+			"faqQuestion1": "What Is an AI Object Remover?",
+			"faqAnswer1": "An AI Object Remover is a tool that uses artificial intelligence to identify and erase unwanted objects from your photos. Whether it's a person, a sign, or any distracting element, the AI can seamlessly remove it, leaving the rest of your image intact and natural-looking.",
+			"faqQuestion2": "How to Perfectly Remove Unwanted Objects?",
+			"faqAnswer2": "To perfectly remove unwanted objects, start by uploading a high-quality image. Use the AI brush to highlight the object you wish to remove, and the AI will automatically fill in the space, blending it with the surrounding area to create a clean, polished result.",
+			"faqQuestion3": "How Do I Select Objects for Removal?",
+			"faqAnswer3": "Selecting objects for removal is simple. Just use the tool to draw over the object you want to erase. The AI will recognize the highlighted area and remove it from the image, ensuring the rest of the photo remains unaffected.",
+			"faqQuestion4": "Can I Use FaceMe's AI Object Remover on My Phone?",
+			"faqAnswer4": "Yes, you can easily use FaceMe's AI Object Remover on your phone. The tool is fully mobile-friendly, allowing you to edit your images directly from your smartphone without any downloads."
+		},
+		"aiHeadshotGenerator": {
+			"chooseAHeadshotStyle": "Choose a Headshot Style",
+			"functionTitle": "Free Studio-Quality AI Headshot Generator",
+			"functionDescription": "Create impressive professional headshots with FaceMe. Perfect for social avatars, business profiles and more.",
+			"workbenchTitle": "Generating Kinds of Popular Headshots by FaceMe",
+			"workbenchDescription": "With the growing need for high-quality images for social media profiles, job applications, and personal branding, FaceMe offers an easy solution. Quickly generate stunning headshots that showcase your style and professionalism, helping you stand out online without the hassle of traditional photo sessions.",
+			"createButton": "Create Your Headshot",
+			"howToUse": {
+				"title": "How to Generate Professional Headshots",
+				"desc": "Transform your photos into professional headshots in three simple steps",
+				"step1": {
+					"title": "Upload a Photo",
+					"desc": "Upload a self-portrait from your devices. For the best results, ensure your uploaded image is clear and front-facing."
+				},
+				"step2": {
+					"title": "Select a Headshot Style",
+					"desc": "Begin by selecting a headshot style from the templates provided by FaceMe."
+				},
+				"step3": {
+					"title": "Get Your AI Headshot",
+					"desc": "Click \"Generate\" and wait for a few seconds for your final headshot."
+				}
+			},
+			"faqTitle": "Hot FAQs about AI Headshot Generator Online",
+			"faqQuestion1": "What Is an AI Headshot Generator?",
+			"faqAnswer1": "An AI headshot generator is a tool that creates professional headshots using artificial intelligence. You upload a photo, and the AI enhances it to give you a polished image perfect for social media, job applications, or personal branding.",
+			"faqQuestion2": "Which Photo Format Does FaceMe Support?",
+			"faqAnswer2": "FaceMe supports common photo formats like JPEG, PNG, WEBP. Make sure your uploaded image is in one of these formats for the best results.",
+			"faqQuestion3": "Can I Use AI-Generated Headshot for Commercial Use?",
+			"faqAnswer3": "Yes, you can use AI-generated headshots from FaceMe for commercial purposes, such as marketing or business profiles. Just check the specific licensing terms to be sure.",
+			"faqQuestion4": "Can I Use FaceMe's AI Headshot on My Phone?",
+			"faqAnswer4": "Yes! FaceMe works on mobile devices, allowing you to generate headshots right from your phone. Upload your photo, choose a style, and get your finished headshot easily on the go!"
+		},
+		"aiReplace": {
+			"functionTitle": "Free AI Replace Tool Online for Photo",
+			"functionDescription": "Easily change objects in your photos with the AI Replacer tool! With FaceMe's AI, you can make your images look perfect in just a few clicks. Try it now!",
+			"workbenchTitle": "Free AI Object Replacer for Photo",
+			"workbenchDescription": "Use the AI object replacement tool to effortlessly change your hair color, clothing styles, and more with just a few clicks. Try it for free now!",
+			"examplesTitle": "Discover the Possibilities of AI Replacer",
+			"examplesDescription": "Uncover the amazing features of the AI Replacer and see how it can transform your images with ease!",
+			"replaceButton": "Replace Object Now",
+			"howToUse": {
+				"title": "How to Use AI Replace Tool Online",
+				"desc": "Transform your photos in three simple steps",
+				"step1": {
+					"title": "Upload a Photo",
+					"desc": "Upload the photo where you want to replace an object."
+				},
+				"step2": {
+					"title": "Enter a Prompt",
+					"desc": "Use the brush tool to highlight the object you want to change. Then, enter a prompt describing what you'd like to generate."
+				},
+				"step3": {
+					"title": "Replace the Object",
+					"desc": "Click the \"Generate\" button and watch as the AI works its magic!"
+				}
+			},
+			"faqTitle": "FAQs about FaceMe's AI Replace Tool",
+			"faqQuestion1": "What Is the AI Replace Tool?",
+			"faqAnswer1": "The AI Replace Tool is a feature that allows you to easily swap or replace elements in your photos using artificial intelligence. Whether you're looking to change clothing, backgrounds, or other details, this tool simplifies the process, making it accessible for anyone to create personalized images.",
+			"faqQuestion2": "Is FaceMe's AI Replacer Free to Use?",
+			"faqAnswer2": "Yes, you can get free credits when you sign up on FaceMe, allowing you to use the AI Replacer without any cost.",
+			"faqQuestion3": "Can I Use AI Replace Online?",
+			"faqAnswer3": "Yes, you can use the AI Replace Tool online without any downloads. Simply access the tool through your web browser, and start transforming your photos right away.",
+			"faqQuestion4": "Do I Need Any Design Skills to Use AI Replacer?",
+			"faqAnswer4": "No, you don't need any design skills to use the AI Replacer. FaceMe's interface is user-friendly, making it easy for anyone to navigate and create stunning images effortlessly."
+		},
+		"aiArtGenerator": {
+			"functionTitle": "Free AI Art Generator Online",
+			"functionDescription": "Unleash your creativity with our free online AI art generator! It's simple to transform your ideas into stunning artwork by just typing in a description.",
+			"workbenchTitle": "Free AI Art Generator Online",
+			"workbenchDescription": "Just enter a prompt, select your desired style, and watch as your words evolve into beautiful artwork with our AI art generator.",
+			"examplesTitle": "Discover Trending Text-to-Image Artworks",
+			"examplesDescription": "Dive into a world of creativity by exploring some of the most popular text-to-image artworks generated by our AI tools.",
+			"createArtButton": "Create AI Art Now",
+			"howToUse": {
+				"title": "How to Use AI Art Generator?",
+				"desc": "Transform your ideas into stunning artwork in three simple steps",
+				"step1": {
+					"title": "Enter a Prompt",
+					"desc": "Provide a detailed description of what you want to generate."
+				},
+				"step2": {
+					"title": "Choose a Style",
+					"desc": "Choose from a variety of styles that best match your vision. This will help tailor the output to your liking."
+				},
+				"step3": {
+					"title": "Generate Your Art",
+					"desc": "Press the \"Create\" button and wait just a few seconds for your stunning final results to appear!"
+				}
+			},
+			"faqTitle": "FAQs about Text to Image AI Art Generator",
+			"faqQuestion1": "What Is an AI Art Generator?",
+			"faqAnswer1": "AI art generators are innovative tools that use artificial intelligence algorithms to create artwork based on your inputs or predefined styles. They can transform text prompts into unique visual representations, making art creation accessible to everyone, regardless of skill level.",
+			"faqQuestion2": "How Does an AI Art Generator Work?",
+			"faqAnswer2": "AI art generators typically employ deep learning models, particularly neural networks, that analyze vast datasets of existing artwork. By recognizing patterns and styles, these models can synthesize new images, allowing users to manipulate elements like color, style, and composition in real-time.",
+			"faqQuestion3": "How to Generate AI Art with FaceMe?",
+			"faqAnswer3": "To generate AI art with FaceMe, users can simply enter their desired prompts. AI art generator will process these inputs using its advanced algorithms, producing stunning art pieces in a matter of seconds, which can then be customized further.",
+			"faqQuestion4": "Is FaceMe's AI Art Generator Free to Use?",
+			"faqAnswer4": "Yes, FaceMe offers a free version of its AI art generator, allowing users to explore its features without any financial commitment. While there may be premium options for enhanced capabilities, the free version provides ample tools to create and enjoy AI-generated art."
+		},
+		"bodyShaper": {
+			"functionTitle": "Change Your Body Shape by AI Body Editor",
+			"functionDescription": "Reshape your body effortlessly with just a few clicks! Enjoy watermark-free results and try it for free now!",
+			"examplesTitle": "Explore FaceMe's Diverse Body Reshape Templates",
+			"examplesDescription": "Easily slim down, gain weight, or reshape your body with FaceMe's AI body shaper. Our user-friendly templates allow you to achieve your desired look in just a few clicks!",
+			"reshapeButton": "Reshape Body Now",
+			"howToUse": {
+				"title": "Sample text paragraphs",
+				"step1": {
+					"title": "Upload a Photo",
+					"desc": "Upload a full-body photo of yourself. Make sure the image is clear and captures your entire figure."
+				},
+				"step2": {
+					"title": "Choose a Body Shape",
+					"desc": "Browse through the available options and choose the body shape you like best."
+				},
+				"step3": {
+					"title": "Reshape Your Body",
+					"desc": "Click \"Generate\" and wait a few seconds to see your reshaped body photo. Enjoy your new look!"
+				}
+			},
+			"faqTitle": "FAQs about FaceMe's AI Body Shaper Online",
+			"faqQuestion1": "What Is an AI Body Shaper?",
+			"faqAnswer1": "An AI Body Shaper is an online tool that uses artificial intelligence to alter your body shape in photos. It allows users to visualize different body types by reshaping their images according to their preferences, making it easy to see potential changes.",
+			"faqQuestion2": "How Accurate Is the AI Body Shaper?",
+			"faqAnswer2": "The AI Body Shaper provides realistic transformations based on your input and chosen body shape. While it aims for accuracy, results can vary depending on the original photo and the selected style.",
+			"faqQuestion3": "Can I Use the AI Body Shaper on My Mobile Device?",
+			"faqAnswer3": "Yes, the AI Body Shaper is mobile-friendly! You can easily upload photos and generate reshaped images directly from your smartphone or tablet, making it convenient to use anytime, anywhere.",
+			"faqQuestion4": "Is My Data Safe When Using the AI Body Shaper?",
+			"faqAnswer4": "Absolutely! FaceMe prioritizes your privacy and data security. Your uploaded photos are processed securely, and no personal information is stored or shared without your consent. Enjoy using the tool with peace of mind!",
+			"imageAlt1": "Body shape example 1",
+			"imageAlt2": "Body shape example 2",
+			"imageAlt3": "Body shape example 3",
+			"imageAlt4": "Body shape example 4",
+			"imageAlt5": "Body shape example 5",
+			"imageAlt6": "Body shape example 6",
+			"imageAlt7": "Body shape example 7",
+			"imageAlt8": "Body shape example 8",
+			"imageAlt9": "Body shape example 9",
+			"imageAlt10": "Body shape example 10"
+		},
+		"clothingSwap": {
+			"chooseAClothingStyle": "Choose a Clothing Style",
+			"workbenchTitle": "Free Clothing Swap Online for Photos",
+			"workbenchDescription": "Transform your photo into various clothing styles and discover the look that suits you best—all for free!",
+			"examplesTitle": "Explore What You Can Do with AI Clothes Swapper",
+			"examplesDescription": "Swap outfits with just one click! Discover how you’ll look in various clothing styles and find the perfect fit for you.",
+			"swapButton": "Swap Clothes Free",
+			"howToUse": {
+				"title": "How to Use AI Clothes Swapper Online",
+				"step1": {
+					"title": "Upload a Clear Photo",
+					"desc": "Upload a clear photo of yourself, and this will serve as the base for your new look."
+				},
+				"step2": {
+					"title": "Enter a Prompt",
+					"desc": "Enter prompt and specify your desired clothing styles. Or you can choose from a variety of options, including bikinis for a beach-ready vibe, sporty activewear for casual and more."
+				},
+				"step3": {
+					"title": "See Your New Look",
+					"desc": "Hit the \"Swap\" button to reveal your new look. Enjoy exploring different styles and finding the perfect look for any occasion."
+				}
+			},
+			"faqTitle": "Hot FAQs about AI Clothing Swap",
+			"faqQuestion1": "What Is AI Clothes Changer?",
+			"faqAnswer1": "AI Clothes Changer is a digital tool that allows users to change outfits in photos using artificial intelligence. By analyzing your image, the AI can overlay different clothing styles, giving you the ability to experiment with various looks without the need for physical changes.",
+			"faqQuestion2": "What Should I Do If I Can't Find Styles I Like in the Preset Templates?",
+			"faqAnswer2": "If you don't find a style you like in the preset templates, you can simply enter a prompt to generate your preferred clothing style. This feature lets you describe the outfit you're envisioning, allowing the AI to create a customized look just for you.",
+			"faqQuestion3": "How Can I Get a Better Outfit Change Photo?",
+			"faqAnswer3": "To achieve the best results with your outfit change photo, make sure to use a clear, well-lit image with your subject in a straightforward pose. Additionally, try experimenting with different clothing styles and prompts to find the perfect match for your desired look.",
+			"faqQuestion4": "Is it safe to Use the AI Clothing Swapper?",
+			"faqAnswer4": "Yes, using the AI Clothing Swapper is safe. FaceMe prioritizes user privacy and security, ensuring that your uploaded images and personal information are protected. You can use the tool with confidence, knowing your data is handled securely.",
+			"functionTitle": "Free Clothing Swap Online for Photos",
+			"functionDescription": "Transform your photo into various clothing styles and discover the look that suits you best—all for free!"
+		},
+		"aiBabyGenerator": {
+			"uploadFatherImage": "Upload Father's Photo",
+			"uploadMotherImage": "Upload Mother's Photo",
+			"functionTitle": "Free AI Baby Generator to See Your Future Baby",
+			"functionDescription": "See what your future baby might look like with AI! Simply upload photos of you and your partner, and the AI will predict your future child's face.",
+			"workbenchTitle": "Your Free AI Baby Face Predictor Online",
+			"workbenchDescription": "See what your future baby might look like with AI! Simply upload a photo of you and your partner to get started on this fun prediction.",
+			"examplesTitle": "Predict What Your Baby Will Look Like with FaceMe",
+			"examplesDescription": "Meet your future baby with your partner or crush! With just a few clicks, you can turn your dream AI baby into reality. It's a fun and easy way to imagine what your little one might look like!",
+			"createButton": "See Future Baby",
+			"howToUse": {
+				"title": "How to Generate Your Future Baby Face?",
+				"desc": "Transform your photos into your future baby in three simple steps",
+				"step1": {
+					"title": "Upload a Photo",
+					"desc": "Upload a clear photo of you and your partner, making sure both faces are visible."
+				},
+				"step2": {
+					"title": "Click the \" Generate\" Button",
+					"desc": "Click the \"Generate Baby\" button and wait just a few seconds for the magic to happen!"
+				},
+				"step3": {
+					"title": "See Your Future Baby",
+					"desc": "Preview your future baby’s image and share it with your partner for a fun surprise!"
+				}
+			},
+			"faqTitle": "Hot FAQs about AI Baby Generator Online",
+			"faqQuestion1": "What Is an AI Baby Generator?",
+			"faqAnswer1": "An AI baby generator is a tool that uses artificial intelligence to create images of what your future baby might look like. By analyzing the facial features of both parents, it combines these traits to generate a realistic representation of a potential child.",
+			"faqQuestion2": "How Does AI Baby Generator Work?",
+			"faqAnswer2": "AI baby generators work by using advanced algorithms to analyze uploaded photos of parents. The AI examines various facial features and blends them together to create an image of a baby that reflects the combined characteristics of both individuals.",
+			"faqQuestion3": "How Accurate is FaceMe's AI Baby Generator?",
+			"faqAnswer3": "FaceMe's AI baby generator claims to have an accuracy rate of up to 90%. However, it's important to remember that these predictions are based on visual similarities and artistic interpretation rather than scientific genetics. While many users report seeing resemblances, the results should be viewed as fun and speculative rather than definitive.",
+			"faqQuestion4": "What Type of Photos Should I Upload?",
+			"faqAnswer4": "For the best results, upload clear, front-facing photos of both parents. Ensure that the images are well-lit and show the faces clearly. Avoid filters or obstructions that could affect the AI's ability to analyze facial features accurately."
+		},
+		"aiGirlGenerator": {
+			"functionTitle": "Free AI Girl Generator Online",
+			"functionDescription": "Bring your imagined anime or real girl to life by simply typing in a prompt.",
+			"AICharacterStyle": "AI Character Style",
+			"LooksLike": "Looks like",
+			"examplesTitle": "Explore What You Can Generate with AI Girl Generator",
+			"examplesDescription": "You can unleash your creativity and bring a wide range of characters to life, from realistic girls to vibrant anime styles.",
+			"createGirlButton": "Create AI Girl Now",
+			"howToUse": {
+				"title": "How to Generate Your Dream Girl",
+				"desc": "Transform your ideas into stunning characters in three simple steps",
+				"step1": {
+					"title": "Enter a Prompt",
+					"desc": "Start by entering a detailed prompt that describes your ideal character."
+				},
+				"step2": {
+					"title": "Select a Style",
+					"desc": "Select your preferred AI character style—either Realistic or Anime. If you choose the Realistic style, you can pick a \"Look Like\" face."
+				},
+				"step3": {
+					"title": "Generate Your Girl",
+					"desc": "Click the \"Create\" button and patiently wait for the final results to appear."
+				}
+			},
+			"faqTitle": "Hot FAQs on FaceMe AI Girl Generator",
+			"faqQuestion1": "What Is AI Girl Generator?",
+			"faqAnswer1": "The AI Girl Generator is a popular tool that uses artificial intelligence to create custom images of female characters. You can generate characters in different styles, like realistic or anime, by simply describing what you want or uploading a photo. It's an easy way to bring your character ideas to life!",
+			"faqQuestion2": "How Does AI Girl Generator Work?",
+			"faqAnswer2": "The AI Girl Generator works by taking your prompt—and transforming it into a unique character design. You start by telling the AI what you want, including details about the character's looks and personality. Then, the AI quickly creates an image based on your description, making character creation fast and simple.",
+			"faqQuestion3": "How to Write a Good Prompt?",
+			"faqAnswer3": "To write a good prompt for the AI Girl Generator, be clear and specific. Describe your character's physical traits, like hair color and clothing style, and include any personality details that matter. The more information you provide, the better the AI can create an image that matches your vision!",
+			"faqQuestion4": "Is FaceMe's AI Girl Generator Free to Use?",
+			"faqAnswer4": "Yes, FaceMe's AI Girl Generator is free to use! You can create a certain number of characters each day without paying anything. This makes it easy for you to explore their creativity and design unique characters."
+		}
+	},
+	"admin": {
+		"menu": {
+			"general": "General",
+			"users": "Users"
+		},
+		"users": {
+			"adminRole": "Admin",
+			"delete": "Delete",
+			"deleteUser": {
+				"deleted": "User has been deleted successfully!",
+				"deleting": "Deleting user...",
+				"notDeleted": "User could not be deleted. Please try again."
+			},
+			"emailVerified": {
+				"verified": "Email verified",
+				"waiting": "Email waiting for verification"
+			},
+			"impersonate": "Impersonate",
+			"impersonation": {
+				"impersonating": "Impersonating as {name}...",
+				"unimpersonating": "Unimpersonating..."
+			},
+			"loading": "Loading users...",
+			"resendVerificationMail": {
+				"error": "Could not resend verification mail. Please try again.",
+				"submitting": "Resending verification mail...",
+				"success": "Verification mail has been sent.",
+				"title": "Resend verification mail"
+			},
+			"search": "Search for name or email...",
+			"title": "Manage users"
+		}
+	},
+	"auth": {
+		"confirmation": {
+			"close": "Close this window",
+			"message": "You can close this window and continue in the window you came from.",
+			"title": "You have been logged in!"
+		},
+		"continueWithProvider": "Continue with {provider}",
+		"forgotPassword": {
+			"backToSignin": "Back to signin",
+			"email": "Email",
+			"hints": {
+				"linkNotSent": {
+					"message": "We are sorry, but we were unable to send you a link to reset your password. Please try again later.",
+					"title": "Link not sent"
+				},
+				"linkSent": {
+					"message": "We have sent you a link to continue. Please check your inbox.",
+					"title": "Link sent"
+				}
+			},
+			"message": "Please enter your email address and we will send you a link to reset your password.",
+			"submit": "Send link",
+			"title": "Forgot your password?"
+		},
+		"invalidToken": {
+			"message": "The link is either invalid or expired. Please try to log in again.",
+			"title": "Invalid token"
+		},
+		"login": {
+			"createAnAccount": "Create an account",
+			"dontHaveAnAccount": "Don't have an account yet?",
+			"email": "Email",
+			"forgotPassword": "Forgot password?",
+			"hints": {
+				"invalidCredentials": "The email or password you entered are invalid. Please try again.",
+				"linkNotSent": {
+					"message": "We are sorry, but we were unable to send you a magic link. Please try again later.",
+					"title": "Link not sent"
+				},
+				"linkSent": {
+					"message": "We have sent you a link to continue. Please check your inbox.",
+					"title": "Link sent"
+				}
+			},
+			"modes": {
+				"magicLink": "Magic link",
+				"password": "Password"
+			},
+			"password": "Password",
+			"sendMagicLink": "Send magic link",
+			"submit": "Sign in",
+			"subtitle": "Please enter your credentials to sign in.",
+			"title": "Welcome back"
+		},
+		"setup": {},
+		"signup": {
+			"alreadyHaveAccount": "Already have an account?",
+			"email": "Email",
+			"hints": {
+				"signupFailed": "We are sorry, but we were unable to create your account. Please try again later.",
+				"verifyEmail": "We have sent you a link to verify your email. Please check your inbox."
+			},
+			"message": "We are happy that you want to join us. Please fill in the form below to create your account.",
+			"name": "Name",
+			"password": "Password",
+			"passwordHint": "Please use at least 8 characters, one uppercase and lowercase letter, one number and one special character.",
+			"signIn": "Sign in",
+			"submit": "Create account",
+			"title": "Create an account"
+		},
+		"teamInvitation": {
+			"description": "You have been invited to join a team. By logging in or signing up you will automatically accept the invitation and join the team.",
+			"title": "Accept team invitation"
+		},
+		"verifyOtp": {
+			"errors": {
+				"otpTooShort": "The one time password is too short."
+			},
+			"hints": {
+				"verificationFailed": "We are sorry, the password you entered is invalid. Please try again."
+			},
+			"message": "You have mail! Please check your inbox for the one time password we sent you. You can also click the link in the email and this page will redirect you automatically.",
+			"otp": "One time password",
+			"submit": "Continue",
+			"title": "Verify your email"
+		}
+	},
+	"blog": {
+		"description": "Read the latest news from our company",
+		"title": "My awesome blog"
+	},
+	"changelog": {
+		"description": "Stay up to date with the latest changes in our product.",
+		"title": "Changelog"
+	},
+	"common": {
+		"loading": "Loading...",
+		"confirmation": {
+			"cancel": "Cancel",
+			"confirm": "Confirm"
+		},
+		"locales": {},
+		"menu": {
+			"home": "Home",
+			"products": "AI Tools",
+			"blog": "Blog",
+			"aboutUs": "About Us",
+			"changelog": "Changelog",
+			"dashboard": "Dashboard",
+			"docs": "Docs",
+			"faq": "FAQ",
+			"getStarted": "Get started",
+			"login": "Login",
+			"pricing": "Pricing",
+			"features": "Features"
+		},
+		"tableOfContents": {
+			"title": "On this page"
+		}
+	},
+	"createTeam": {
+		"name": "Team name",
+		"notifications": {
+			"error": "We are sorry, but we were unable to create your team. Please try again later.",
+			"success": "Your team has been created. You can now invite members."
+		},
+		"submit": "Create team",
+		"title": "Create a team"
+	},
+	"dashboard": {
+		"menu": {
+			"admin": "Admin",
+			"aiDemo": "AI Demo",
+			"dashboard": "Dashboard",
+			"settings": "Settings"
+		},
+		"sidebar": {
+			"createTeam": "Create a new team"
+		},
+		"subtitle": "See the latest stats of your awesome business.",
+		"userMenu": {
+			"language": "Language",
+			"credit": "Credit",
+			"account": "Account",
+			"creations": "Creations",
+			"uploads": "Uploads",
+			"faces": "Faces",
+			"accountSettings": "settings",
+			"unimpersonate": "Unimpersonate",
+			"logout": "Logout"
+		},
+		"welcome": "Welcome {name}!"
+	},
+	"faq": {
+		"description": "Do you have any questions? We have got you covered.",
+		"title": "Frequently asked questions"
+	},
+	"mail": {
+		"common": {
+			"openLinkInBrowser": "If you want to open the link in a different browser than your default one, copy and paste this link:",
+			"otp": "One-time password",
+			"useLink": "or use the following link:"
+		},
+		"emailChange": {
+			"body": "Hey {name},\nyou changed your email. Please click the link below to confirm your new email address.",
+			"confirmEmail": "Confirm email",
+			"subject": "Confirm your email change"
+		},
+		"forgotPassword": {
+			"body": "Hey {name},\nyou requested a password reset.\n\nYou can either enter the one-time password below manually in the application",
+			"resetPassword": "Reset password",
+			"subject": "Reset your password"
+		},
+		"magicLink": {
+			"body": "Hey {name},\nyou requested a login email from FaceMe.\n\nYou can either enter the one-time password below manually in the application",
+			"login": "Login",
+			"subject": "Login to FaceMe"
+		},
+		"newUser": {
+			"body": "Hey {name},\nthanks for signing up for FaceMe.\n\nTo start using our app, please confirm your email address by clicking the link below.",
+			"confirmEmail": "Confirm email",
+			"subject": "Welcome to FaceMe"
+		},
+		"newsletterSignup": {
+			"body": "Thank you for signing up for the FaceMe newsletter. We will keep you updated with the latest news and updates.",
+			"subject": "Welcome to our newsletter"
+		},
+		"teamInvitation": {
+			"body": "You have been invited to join the team {teamName}. Click the button below or copy and paste the link into your browser of choice to accept the invitation and join the team.",
+			"headline": "Join the team {teamName}",
+			"join": "Join the team",
+			"subject": "You have been invited to join a team"
+		}
+	},
+	"newsletter": {
+		"email": "Email",
+		"hints": {
+			"success": {
+				"message": "Thank you for subscribing to our newsletter. We will keep you posted.",
+				"title": "Subscribed"
+			}
+		},
+		"submit": "Subscribe",
+		"subtitle": "Be among the first to get access to FaceMe.nextjs.",
+		"title": "Get early access"
+	},
+	"pricing": {
+		"description": "Choose the plan that works best for you.",
+		"month": "month",
+		"monthly": "Monthly",
+		"subscribe": "Subscribe",
+		"title": "FaceMe Plans and Pricing",
+		"year": "year",
+		"yearly": "Yearly",
+		"subtitle": "Enjoy a 50% discount and unlock all features of FaceMe today!",
+		"mostPopular": "Most popular",
+		"features": {
+			"unlockFullFeatures": "Unlock the full features",
+			"unlimitedProducts": "Unlimited products",
+			"unlimitedSubscribers": "Unlimited subscribers"
+		},
+		"buyPlan": "Debit or credit card",
+		"perMonth": "/month"
+	},
+	"settings": {
+		"account": {
+			"avatar": {
+				"description": "To change your avatar click the picture on the right side of this block and select a file from your computer to upload.",
+				"title": "Your avatar"
+			},
+			"changeEmail": {
+				"description": "Enter a new email and click save to update it.",
+				"note": "You will need to verify your new email address before you can sign in again.",
+				"title": "Your email"
+			},
+			"changeName": {
+				"title": "Your name"
+			},
+			"changePassword": {
+				"description": "To change your password, enter the new one below and click save.",
+				"note": "Please enter at least 8 characters.",
+				"title": "Your password"
+			},
+			"deleteAccount": {
+				"confirmation": "Are you sure you want to delete your account?",
+				"description": "Permanently delete your account. Once you delete your account, there is no going back. Please be certain.",
+				"submit": "Delete account",
+				"title": "Delete account"
+			},
+			"title": "Account"
+		},
+		"billing": {
+			"cancelSubscription": {
+				"notifications": {
+					"error": {
+						"title": "Could not cancel subscription"
+					},
+					"success": {
+						"title": "Subscription was canceled"
+					}
+				}
+			},
+			"createCustomerPortal": {
+				"label": "Manage billing details",
+				"notifications": {
+					"error": {
+						"title": "Could not create a customer portal session. Please try again."
+					}
+				}
+			},
+			"pauseSubscription": {
+				"label": "Pause subscription",
+				"notifications": {
+					"error": {
+						"title": "Could not pause the subscription. Please try again."
+					},
+					"success": {
+						"title": "The subscription was paused."
+					}
+				}
+			},
+			"resumeSubscription": {
+				"notifications": {
+					"error": {
+						"title": "Could not resume subscription"
+					},
+					"success": {
+						"title": "Subscription was resumed"
+					}
+				}
+			},
+			"subscription": {
+				"cancel": "Cancel your subscription",
+				"currentPlan": "Your current plan",
+				"currentSubscription": "Your current subscription",
+				"endsOn": "Your subscription ends on <strong>{nextPaymentDate, date, medium}</strong>",
+				"freePlan": {
+					"title": "Free"
+				},
+				"month": "month",
+				"monthly": "Monthly",
+				"nextPayment": "The next payment will be on <strong>{nextPaymentDate, date, medium}</strong>",
+				"pauseSubscription": "Pause your subscription",
+				"resume": "Resume subscription",
+				"resumeSubscription": "Resume your subscription",
+				"status": {
+					"active": "Active",
+					"canceled": "Canceled",
+					"expired": "Expired",
+					"incomplete": "Incomplete",
+					"past_due": "Past due",
+					"paused": "Paused",
+					"trialing": "Trialing",
+					"unpaid": "Unpaid"
+				},
+				"subscribe": "Subscribe",
+				"switchToPlan": "Switch to this plan",
+				"updateBillingDetails": "Update billing details",
+				"upgradePlan": "Upgrade your plan",
+				"year": "year",
+				"yearly": "Yearly",
+				"yourSubscription": "Your are subscribed to <strong>{plan}</strong> ({price}/{interval})"
+			},
+			"title": "Billing"
+		},
+		"menu": {
+			"account": {
+				"general": "General",
+				"title": "Account"
+			},
+			"team": {
+				"billing": "Billing",
+				"general": "General",
+				"members": "Members",
+				"title": "Team"
+			}
+		},
+		"notifications": {
+			"accountDeleted": "Your account has been deleted.",
+			"accountNotDeleted": "We were unable to delete your account. Please try again later.",
+			"avatarNotUpdated": "We were unable to update your avatar. Please try again.",
+			"avatarUpdated": "Your avatar has been updated.",
+			"emailUpdated": "Your email has been updated.",
+			"nameUpdateFailed": "Could not update your name. Please try again later.",
+			"nameUpdated": "Your name has been updated.",
+			"passwordNotUpdated": "We were unable to update your password. Please try again.",
+			"passwordUpdated": "Your password has been updated.",
+			"teamDeleted": "Your team has been deleted.",
+			"teamNameNotUpdated": "We were unable to update your team name. Please try again later.",
+			"teamNameUpdated": "Your team name has been updated.",
+			"teamNotDeleted": "We were unable to delete your team. Please try again later."
+		},
+		"save": "Save",
+		"sections": {
+			"team": "Team"
+		},
+		"subtitle": "Manage your settings",
+		"team": {
+			"changeName": {
+				"description": "Enter a new name and click save to update it.",
+				"teamUrl": "Your team url will be <strong>{url}</strong>.",
+				"title": "Team name"
+			},
+			"deleteTeam": {
+				"confirmation": "Are you sure you want to delete your team?",
+				"description": "Permanently delete your team. Once you delete your team, there is no going back. Please be certain.",
+				"submit": "Delete team",
+				"title": "Delete team"
+			},
+			"members": {
+				"activeMembers": "Active members",
+				"invitations": {
+					"email": "Email",
+					"empty": "You have not invited any members yet.",
+					"revoke": "Revoke invitation"
+				},
+				"invite": "Invite a new member",
+				"inviteMember": {
+					"email": "Email",
+					"notifications": {
+						"error": {
+							"description": "We were unable to invite the member. Please try again later.",
+							"title": "Could not invite member"
+						},
+						"success": {
+							"description": "The member has been invited.",
+							"title": "Member invited"
+						}
+					},
+					"role": "Role",
+					"submit": "Invite",
+					"title": "Invite new member"
+				},
+				"notifications": {
+					"removeMember": {
+						"error": {
+							"description": "Could not remove the member from your team. Please try again."
+						},
+						"loading": {
+							"description": "Removing member from team..."
+						},
+						"success": {
+							"description": "The member has been successfully removed from your team."
+						}
+					},
+					"revokeInvitation": {
+						"error": {
+							"description": "The invitation could not be revoked. Please try again later."
+						},
+						"loading": {
+							"description": "Revoking invitation..."
+						},
+						"success": {
+							"description": "The invitation has been revoked."
+						}
+					}
+				},
+				"pendingInvitations": "Pending invitations",
+				"removeMember": "Remove member",
+				"roles": {
+					"member": "Member",
+					"owner": "Owner"
+				},
+				"title": "Members"
+			},
+			"subtitle": "Manage your team settings and members",
+			"title": "Team"
+		},
+		"title": "Settings"
+	},
+	"zod": {
+		"errors": {
+			"custom": {
+				"email_already_exists": "This email is already in use.",
+				"email_not_verified": "Please verify your email address first.",
+				"lowercase_character_required": "Please use at least one lowercase character.",
+				"number_required": "Please use at least one number.",
+				"special_character_required": "Please use at least one special character ({character}).",
+				"uppercase_character_required": "Please use at least one uppercase character."
+			},
+			"invalid_arguments": "Invalid function arguments",
+			"invalid_date": "Invalid date",
+			"invalid_enum_value": "Invalid enum value. Expected {- options}, received '{received}'",
+			"invalid_intersection_types": "Intersection results could not be merged",
+			"invalid_literal": "Invalid literal value, expected {expected}",
+			"invalid_return_type": "Invalid function return type",
+			"invalid_string": {
+				"cuid": "Invalid {validation}",
+				"datetime": "Invalid {validation}",
+				"email": "Invalid {validation}",
+				"endsWith": "Invalid input: must end with \"{endsWith}\"",
+				"regex": "Invalid",
+				"startsWith": "Invalid input: must start with \"{startsWith}\"",
+				"url": "Invalid {validation}",
+				"uuid": "Invalid {validation}"
+			},
+			"invalid_type": "Expected {expected}, received {received}",
+			"invalid_type_received_null": "Required",
+			"invalid_type_received_undefined": "Required",
+			"invalid_union": "Invalid input",
+			"invalid_union_discriminator": "Invalid discriminator value. Expected {- options}",
+			"not_finite": "Number must be finite",
+			"not_multiple_of": "Number must be a multiple of {multipleOf}",
+			"too_big": {
+				"array": {
+					"exact": "Array must contain exactly {maximum} element(s)",
+					"inclusive": "Array must contain at most {maximum} element(s)",
+					"not_inclusive": "Array must contain less than {maximum} element(s)"
+				},
+				"date": {
+					"exact": "Date must be exactly {- maximum, datetime}",
+					"inclusive": "Date must be smaller than or equal to {- maximum, datetime}",
+					"not_inclusive": "Date must be smaller than {- maximum, datetime}"
+				},
+				"number": {
+					"exact": "Number must be exactly {maximum}",
+					"inclusive": "Number must be less than or equal to {maximum}",
+					"not_inclusive": "Number must be less than {maximum}"
+				},
+				"set": {
+					"exact": "Invalid input",
+					"inclusive": "Invalid input",
+					"not_inclusive": "Invalid input"
+				},
+				"string": {
+					"exact": "String must contain exactly {maximum} character(s)",
+					"inclusive": "String must contain at most {maximum} character(s)",
+					"not_inclusive": "String must contain under {maximum} character(s)"
+				}
+			},
+			"too_small": {
+				"array": {
+					"exact": "Array must contain exactly {minimum} element(s)",
+					"inclusive": "Array must contain at least {minimum} element(s)",
+					"not_inclusive": "Array must contain more than {minimum} element(s)"
+				},
+				"date": {
+					"exact": "Date must be exactly {- minimum, datetime}",
+					"inclusive": "Date must be greater than or equal to {- minimum, datetime}",
+					"not_inclusive": "Date must be greater than {- minimum, datetime}"
+				},
+				"number": {
+					"exact": "Number must be exactly {minimum}",
+					"inclusive": "Number must be greater than or equal to {minimum}",
+					"not_inclusive": "Number must be greater than {minimum}"
+				},
+				"set": {
+					"exact": "Invalid input",
+					"inclusive": "Invalid input",
+					"not_inclusive": "Invalid input"
+				},
+				"string": {
+					"exact": "String must contain exactly {minimum} character(s)",
+					"inclusive": "String must contain at least {minimum} character(s)",
+					"not_inclusive": "String must contain over {minimum} character(s)"
+				}
+			},
+			"unrecognized_keys": "Unrecognized key(s) in object: {- keys}"
+		},
+		"types": {
+			"array": "array",
+			"bigint": "bigint",
+			"boolean": "boolean",
+			"date": "date",
+			"float": "float",
+			"function": "function",
+			"integer": "integer",
+			"map": "map",
+			"nan": "nan",
+			"never": "never",
+			"null": "null",
+			"number": "number",
+			"object": "object",
+			"promise": "promise",
+			"set": "set",
+			"string": "string",
+			"symbol": "symbol",
+			"undefined": "undefined",
+			"unknown": "unknown",
+			"void": "void"
+		},
+		"validations": {
+			"cuid": "cuid",
+			"cuid2": "cuid2",
+			"datetime": "datetime",
+			"email": "email",
+			"emoji": "emoji",
+			"ip": "up",
+			"regex": "regex",
+			"ulid": "ulid",
+			"url": "url",
+			"uuid": "uuid"
+		}
+	},
+	"Footer": {
+		"faceme": "FaceMe",
+		"features": "Features",
+		"freeAITools": "Free AI Tools",
+		"freeAIImageEditor": "Free AI Image Editor",
+		"support": "Support",
+		"home": "Home",
+		"about": "About",
+		"pricing": "Pricing",
+		"blog": "Blog",
+		"faq": "FAQ",
+		"videoFaceSwap": "Video Face Swap",
+		"gifFaceSwap": "GIF Face Swap",
+		"photoFaceSwap": "Photo Face Swap",
+		"faceAgeChanger": "Face Age Changer",
+		"aiGirlGenerator": "AI Girl Generator",
+		"aiArtGenerator": "AI Art Generator",
+		"aiHeadshotGenerator": "AI Headshot Generator",
+		"aiCartoonGenerator": "AI Cartoon Generator",
+		"aiPaintingGenerator": "AI Painting Generator",
+		"aiBabyGenerator": "AI Baby Generator",
+		"halloweenFilter": "Halloween Filter",
+		"ghibliFilter": "Ghibli Filter",
+		"bodyShaper": "Body Shaper",
+		"clothSwap": "Clothes Swap",
+		"aiReplace": "AI Replace",
+		"aiObjectRemover": "AI Object Remover",
+		"hairstyleChanger": "Hairstyle Changer",
+		"imageEnhancer": "Image Enhancer",
+		"imageEnlarger": "Image Enlarger",
+		"backgroundRemover": "Background Remover",
+		"blurBackground": "Blur Background",
+		"colorRestorer": "Color Restorer",
+		"aboutUs": "About Us",
+		"customerSupport": "Customer Support",
+		"license": "License",
+		"termsOfUse": "Terms of Use",
+		"privacyPolicy": "Privacy Policy",
+		"copyright": "© {year} FaceMe. All rights reserved."
+	},
+	"toast": {
+		"detectFailed": {
+			"title": "Image detection failed",
+			"description": "Please try again."
+		},
+		"loginRequired": {
+			"title": "Please login",
+			"description": "Please login to use this feature"
+		},
+		"taskFailed": {
+			"title": "Task failed.",
+			"description": "Please try again later."
+		},
+		"noCreditsOrSubscription": {
+			"title": "Unable to upload material",
+			"description": "Please upgrade to premium or purchase credits to upload materials"
+		},
+		"imageTooLarge": {
+			"title": "Image is too large.",
+			"description": "Please upload an image smaller than 1024x1024."
+		},
+		"unsupportedFileType": {
+			"title": "Unsupported file type.",
+			"description": "Please upload a JPEG, PNG, or WebP image."
+		},
+		"fileTooLarge": {
+			"title": "File is too large.",
+			"description": "Please upload an image smaller than 20MB."
+		},
+		"uploadFailed": {
+			"title": "Upload failed.",
+			"description": "Please try again later."
+		},
+		"deleteFailed": {
+			"title": "Delete failed.",
+			"description": "Please try again later."
+		},
+		"processFailed": {
+			"title": "Process failed.",
+			"description": "Please try again later."
+		},
+		"downloadFailed": {
+			"title": "Download failed.",
+			"description": "Please try again later."
+		},
+		"fileReadError": {
+			"title": "File read error.",
+			"description": "Please try again later."
+		},
+		"fileUploadFailed": {
+			"title": "File upload failed.",
+			"description": "Please try again later."
+		},
+		"generateMaskFailed": {
+			"title": "Generate mask failed.",
+			"description": "Please try again later."
+		},
+		"material": {
+			"deleteSuccess": "Delete Successful",
+			"deleteSuccessDesc": "Material has been successfully deleted"
+		},
+		"order": {
+			"deleteSuccess": "Delete Successful",
+			"deleteSuccessDesc": "Order has been successfully deleted"
+		},
+		"error": {
+			"title": "Error",
+			"description": "Please try again later."
+		},
+		"creditsNotEnough": {
+			"title": "Credits not enough.",
+			"description": "Please recharge."
+		},
+		"submitTaskFailed": {
+			"title": "Submit task failed.",
+			"description": "Please try again later."
+		},
+		"unknownError": {
+			"title": "Unknown error.",
+			"description": "Please try again later."
+		},
+		"validationError": {
+			"title": "Validation error.",
+			"description": "Please check your input and try again."
+		},
+		"uploadFileTypeError": {
+			"title": "Please upload a {type}",
+			"description": "{type} only supported"
+		}
+	},
+	"my": {
+		"faces": {
+			"title": "My Faces",
+			"noUploads": "No Uploads yet ~",
+			"uploadFace": "Upload Face",
+			"uploadDisclaimer": "Only upload your own facial photos or authorized.",
+			"loading": "Loading faces..."
+		},
+		"uploads": {
+			"title": "My Uploads",
+			"noUploads": "No uploads yet",
+			"loading": "Loading...",
+			"previous": "Previous",
+			"next": "Next",
+			"page": "Page {current} of {total}",
+			"all": "All",
+			"video": "Video",
+			"photo": "Photo",
+			"gif": "GIF",
+			"initialLoading": "Initial loading...",
+			"switching": "Switching..."
+		},
+		"creations": {
+			"title": "My Creations",
+			"noCreations": "No creations yet",
+			"loading": "Loading...",
+			"previous": "Previous",
+			"next": "Next",
+			"page": "Page {current} of {total}",
+			"all": "All",
+			"video": "Video",
+			"photo": "Photo",
+			"gif": "GIF"
+		},
+		"credits": {
+			"buyMoreCredits": "Buy More Credits",
+			"buyMoreCreditsDesc": "Only premium users can purchase more credits.",
+			"SUBSCRIPTION_EXPIRED": "Subscription Expired",
+			"PREMIUM_BENEFITS": "Premium Benefits",
+			"PURCHASED_CREDITS": "Purchased Credits",
+			"history": {
+				"payment": "Payment History",
+				"credit": "Credit History"
+			},
+			"title": "My Credits",
+			"creditsRemaining": "Credits Remaining This Month",
+			"refreshDate": "Refresh date",
+			"creditsCharge": "Credits Charge",
+			"creditsPerMonth": "400 Credits per month (30 days)",
+			"creditsTips": "Tips: All AI photo generations cost 1 credit, except for AI girl generation, which costs 2 credits.",
+			"table": {
+				"free": "Free",
+				"photo": "Photo",
+				"video": "Video",
+				"generate": "Generate",
+				"gif": "GIF",
+				"premiumUsers": "Premium Users",
+				"upload": "Upload",
+				"swap": "Swap",
+				"freeText": "Free",
+				"photoCredit": "1 Credits",
+				"videoCredit": "1 Credit/1s",
+				"gifCredit": "1 Credit/1s"
+			}
+		},
+		"account": {
+			"premium": "Premium",
+			"myMembership": "My Membership",
+			"status": "Status",
+			"accountInformation": "Account Information",
+			"account": "Account",
+			"accountId": "Account ID",
+			"accountType": "Account Type",
+			"expirationDate": "Expiration Date",
+			"contact": "If you want to delete your account please contact customer service by",
+			"email": "Email",
+			"deleteAccount": {
+				"title": "Delete account",
+				"confirmation": "Permanently delete your account. Once you delete your account, there is no going back. Please be certain."
+			},
+			"changePassword": {
+				"title": "Password",
+				"submit": "Save"
+			}
+		}
+	},
+	"ai_baby_generator": {
+		"meta": {
+			"title": "Free AI Baby Generator to See Your Future Baby",
+			"description": "See what your future baby might look like with FaceMe's AI baby generator! Simply upload photos of you and your partner, and the AI will predict your future child's face."
+		},
+		"section1": {
+			"title": "Your Free AI Baby Face Predictor Online",
+			"description": "See what your future baby might look like with AI! Simply upload a photo of you and your partner to get started on this fun prediction."
+		},
+		"section2": {
+			"title": "Predict What Your Baby Will Look Like with FaceMe",
+			"description": "Meet your future baby with your partner or crush! With just a few clicks, you can turn your dream AI baby into reality. It's a fun and easy way to imagine what your little one might look like!",
+			"cta": "See Future Baby"
+		},
+		"section3": {
+			"title": "How to Generate Your Future Baby Face?",
+			"steps": {
+				"step1": "Upload a clear photo of you and your partner, making sure both faces are visible.",
+				"step2": "Click the \"Generate Baby\" button and wait just a few seconds for the magic to happen!",
+				"step3": "Preview your future baby's image and share it with your partner for a fun surprise!"
+			},
+			"cta": "See Future Baby"
+		},
+		"faqs": {
+			"title": "Hot FAQs about AI Baby Generator Online",
+			"what_is": {
+				"question": "What Is an AI Baby Generator?",
+				"answer": "An AI baby generator is a tool that uses artificial intelligence to create images of what your future baby might look like. By analyzing the facial features of both parents, it combines these traits to generate a realistic representation of a potential child."
+			},
+			"how_works": {
+				"question": "How Does AI Baby Generator Work?",
+				"answer": "AI baby generators work by using advanced algorithms to analyze uploaded photos of parents. The AI examines various facial features and blends them together to create an image of a baby that reflects the combined characteristics of both individuals."
+			},
+			"accuracy": {
+				"question": "How Accurate is FaceMe's AI Baby Generator?",
+				"answer": "FaceMe's AI baby generator claims to have an accuracy rate of up to 90%. However, it's important to remember that these predictions are based on visual similarities and artistic interpretation rather than scientific genetics. While many users report seeing resemblances, the results should be viewed as fun and speculative rather than definitive."
+			},
+			"photo_tips": {
+				"question": "What Type of Photos Should I Upload?",
+				"answer": "For the best results, upload clear, front-facing photos of both parents. Ensure that the images are well-lit and show the faces clearly. Avoid filters or obstructions that could affect the AI's ability to analyze facial features accurately."
+			}
+		}
+	},
+	"ai_halloween_filter": {
+		"meta": {
+			"title": "Free AI Halloween Filters for Your Photos",
+			"description": "Create awesome Halloween-themed pictures with just one click! On FaceMe, you can easily discover what you would look like in a spooky or festive style."
+		},
+		"section1": {
+			"title": "Unlock Your Halloween Look with FaceMe",
+			"description": "Get ready to elevate your Halloween experience! Simply upload your selfies and watch as you transform into iconic Halloween characters."
+		},
+		"section2": {
+			"title": "Reveal Your Spooky Side with Our AI Halloween Filter",
+			"description": "Discover a wide range of vibrant AI Halloween templates and choose the perfect one to transform your photo into a festive masterpiece!",
+			"cta": "Try Halloween Filter"
+		},
+		"section3": {
+			"title": "How to Create a Perfect Halloween Photo?",
+			"steps": {
+				"step1": "Begin by uploading a high-quality photo that clearly shows your face.",
+				"step2": "Browse through our selection of Halloween templates and pick the one you like best.",
+				"step3": "Hit the \"Generate\" button and let the AI surprise you with a fantastic Halloween transformation!"
+			},
+			"cta": "Try Halloween Filter"
+		},
+		"faqs": {
+			"title": "FAQs about Online AI Halloween Filter",
+			"what_is": {
+				"question": "What Is an AI Halloween Filter?",
+				"answer": "An AI Halloween filter is a digital tool that transforms your photos with spooky and festive effects. These filters can add elements like masks, costumes, and Halloween-themed decorations, allowing you to create fun and creative images perfect for the season."
+			},
+			"how_works": {
+				"question": "How Does the AI Halloween Filter Work?",
+				"answer": "The AI Halloween filter analyzes your uploaded photo and applies various algorithms to add Halloween-themed effects. It detects facial features and enhances them with spooky elements, creating a fun and engaging transformation."
+			},
+			"speed": {
+				"question": "How Quickly Can I Get My Halloween Photo?",
+				"answer": "You can get your Halloween photo in just a few seconds after uploading your image. The AI processes your photo quickly, allowing you to enjoy your spooky transformation almost instantly!"
+			},
+			"not_satisfied": {
+				"question": "What Can I Do If I'm not Satisfied with the Result?",
+				"answer": "If you're not satisfied with the result, you can easily try again by uploading a different photo or adjusting the filter settings. Plus, feel free to contact us and share your feedback to help us improve!"
+			}
+		}
+	},
+	"home": {
+		"hero": {
+			"titleStart": "All-in-One",
+			"titleHighlight": "AI Creation",
+			"titleEnd": "Platform Online",
+			"description": "Your free one-stop AI toolkit. Whether you're editing photos, generating art, or creating videos, everything you need is in one place. Try now!",
+			"tryItFree": "Try It Free"
+		},
+		"features": {
+			"title": "Your Free One Stop AI Platform for Fun",
+			"description": "FaceMe is your go-to platform for a wide range of fun AI tools. Whether you want to swap faces, create AI art, or predict your future baby, everything you need is here in one place, free to use.",
+			"items": {
+				"faceSwap": {
+					"title": "Free to Use",
+					"description": "FaceMe offers free access to its AI tools at no cost to start. You get free credits to explore most of the features, and some advanced tools can be unlocked with a premium membership."
+				},
+				"aiArt": {
+					"title": "Rich AI Features",
+					"description": "You can enjoy a variety of AI tools. Swap faces, generate AI images, change your age, create cartoon avatars, or predict your future baby—all in one platform."
+				},
+				"backgroundRemove": {
+					"title": "High Quality",
+					"description": "Get high-quality results with FaceMe. Our tools ensure your face swaps, AI art, and photo edits are smooth and realistic, making your creations look great."
+				},
+				"cartoonStyle": {
+					"title": "No Watermark",
+					"description": "Download your creations without any watermarks. FaceMe lets you save and share your work freely, with no unwanted logos or marks on your images or videos."
+				}
+			}
+		},
+		"testimonials": {
+			"title": "What Are Our Users Saying about us?",
+			"description": "FaceMe stands out as the most user-friendly and effective AI tool I've ever used. Highly recommend trying this tool for some fun.",
+			"testimonial1": {
+				"content": "Pagedone has made it possible for me to stay on top of my portfolio and make informed decisions quickly and easily.",
+				"author": "Mike K",
+				"role": "Product Designer"
+			},
+			"testimonial2": {
+				"content": "This one-stop AI tool has everything I need! From age changer to the baby generator, it’s perfect for my creative projects.",
+				"author": "Sarah J",
+				"role": "Content Creator"
+			},
+			"testimonial3": {
+				"content": "I’m not tech-savvy, but this website made editing photos a breeze. The AI image editor is intuitive, and I can easily swap clothes and styles without any hassle.",
+				"author": "Emily T",
+				"role": "Social Media Influencer"
+			},
+			"testimonial4": {
+				"content": "I never knew I needed a cloth swap tool until I tried it here! It’s fun to see how different outfits look on me. The hairstyle changer is also cool.",
+				"author": "Alex W",
+				"role": "Fashion Blogger"
+			},
+			"testimonial5": {
+				"content": "FaceMe has become my go-to site for all my editing needs. The Halloween filter adds a spooky touch to my photos, and the results are always impressive.",
+				"author": "Olivia H",
+				"role": "Marketing Specialist"
+			},
+			"testimonial6": {
+				"content": "I’ve been using this site to create content for my social media accounts. The AI image editor and face swap features make my posts stand out. My followers love it!",
+				"author": "Laura B",
+				"role": "Small Business Owner"
+			}
+		}
+	}
+}
