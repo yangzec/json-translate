@@ -32,6 +32,10 @@ interface TranslateContextType {
   setSelectedLangs: (langs: string[]) => void
   currentTranslatingLang: string | null
   setCurrentTranslatingLang: (lang: string | null) => void
+  totalProgress: number;
+  setTotalProgress: (progress: number) => void;
+  estimatedTime: number;
+  setEstimatedTime: (time: number) => void;
 }
 
 const TranslateContext = createContext<TranslateContextType | undefined>(undefined)
@@ -49,6 +53,8 @@ export function TranslateProvider({ children }: { children: React.ReactNode }) {
   const [translatedResults, setTranslatedResults] = useState<TranslatedResult[]>([])
   const [selectedLangs, setSelectedLangs] = useState<string[]>(['zh'])
   const [currentTranslatingLang, setCurrentTranslatingLang] = useState<string | null>(null)
+  const [totalProgress, setTotalProgress] = useState(0)
+  const [estimatedTime, setEstimatedTime] = useState(0)
 
   return (
     <TranslateContext.Provider value={{
@@ -76,6 +82,10 @@ export function TranslateProvider({ children }: { children: React.ReactNode }) {
       setSelectedLangs,
       currentTranslatingLang,
       setCurrentTranslatingLang,
+      totalProgress,
+      setTotalProgress,
+      estimatedTime,
+      setEstimatedTime,
     }}>
       {children}
     </TranslateContext.Provider>

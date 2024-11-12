@@ -5,6 +5,7 @@ export async function translate(
   targetLang: string, 
   apiKey: string,
   signal?: AbortSignal,
+  onProgress?: (progress: number) => void,
   onStream?: (chunk: string) => void
 ) {
   if (!apiKey.startsWith('sk-')) {
@@ -48,9 +49,18 @@ export async function translate(
     })
 
     let fullContent = ''
+    let tokenCount = 0
+    const estimatedTokens = text.length / 4 // 估算总token数
+
     for await (const chunk of response) {
       const content = chunk.choices[0]?.delta?.content || ''
       fullContent += content
+      tokenCount += content.length / 4
+      
+      // 计算当前进度
+      const progress = Math.min(Math.round((tokenCount / estimatedTokens) * 100), 100)
+      onProgress?.(progress)
+      
       onStream?.(fullContent)
     }
 

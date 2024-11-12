@@ -38,7 +38,11 @@ export function TranslatePanel() {
     selectedLangs,
     setSelectedLangs,
     currentTranslatingLang,
-    setCurrentTranslatingLang
+    setCurrentTranslatingLang,
+    totalProgress,
+    estimatedTime,
+    setTotalProgress,
+    setEstimatedTime
   } = useTranslate()
   const [error, setError] = useState("")
   const { toast } = useToast()
@@ -51,6 +55,11 @@ export function TranslatePanel() {
     { value: 'fr', label: '法语' },
     { value: 'de', label: '德语' },
   ]
+
+  const formatTime = (seconds: number) => {
+    if (seconds < 60) return `${Math.ceil(seconds)}秒`
+    return `${Math.ceil(seconds / 60)}分钟`
+  }
 
   const handleTranslate = async () => {
     if (!file || !apiKey) {
@@ -96,30 +105,32 @@ export function TranslatePanel() {
           throw new Error('JSON内容超过10MB限制')
         }
 
-        // 模拟翻译进度
-        progressInterval = setInterval(() => {
-          setProgress(progress + 10)
-          if (progress >= 90) {
-            clearInterval(progressInterval)
-          }
-        }, 1000)
-
-        // 找出需要翻译的语言
         const untranslatedLangs = selectedLangs.filter(lang => 
           !translatedResults.some(r => r.lang === lang)
         )
 
-        // 保留已翻译的结果
+        const startTime = Date.now()
+        let completedLangs = 0
         const results: TranslatedResult[] = [...translatedResults]
 
-        // 只翻译未翻译的语言
         for (const lang of untranslatedLangs) {
           setCurrentTranslatingLang(lang)
+          
           const result = await translate(
-            content, 
-            lang, 
-            apiKey, 
+            content,
+            lang,
+            apiKey,
             signal,
+            (progress) => {
+              const singleLangWeight = 100 / untranslatedLangs.length
+              const totalProgress = (completedLangs * singleLangWeight) + (progress * singleLangWeight / 100)
+              setTotalProgress(Math.round(totalProgress))
+              
+              const elapsed = (Date.now() - startTime) / 1000
+              const estimatedTotal = (elapsed / totalProgress) * 100
+              const remaining = Math.max(0, estimatedTotal - elapsed)
+              setEstimatedTime(remaining)
+            },
             (chunk) => {
               setStreamContent(chunk)
             }
@@ -130,11 +141,11 @@ export function TranslatePanel() {
             content: result
           })
           setTranslatedResults([...results])
+          completedLangs++
         }
-        
+
         clearInterval(progressInterval)
         setProgress(100)
-        setTranslatedResults(results)
         setStreamContent('')
 
         toast({
@@ -178,9 +189,10 @@ export function TranslatePanel() {
         })
       }
     } finally {
-      setIsTranslating(false)
-      setProgress(0)
+      setTotalProgress(0)
+      setEstimatedTime(0)
       setCurrentTranslatingLang(null)
+      setIsTranslating(false)
     }
   }
 
@@ -237,12 +249,22 @@ export function TranslatePanel() {
       )}
 
       {isTranslating && (
-        <div className="space-y-2">
-          <div className="flex items-center justify-between text-sm">
-            <span>翻译进度</span>
-            <span>{progress}%</span>
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-sm">
+              <span>总体进度 ({totalProgress}%)</span>
+              <span>预计剩余时间: {formatTime(estimatedTime)}</span>
+            </div>
+            <Progress value={totalProgress} className="w-full" />
           </div>
-          <Progress value={progress} className="w-full" />
+          
+          {currentTranslatingLang && (
+            <div className="text-sm text-muted-foreground">
+              正在翻译: {
+                languageOptions.find(opt => opt.value === currentTranslatingLang)?.label || currentTranslatingLang
+              }
+            </div>
+          )}
         </div>
       )}
 
