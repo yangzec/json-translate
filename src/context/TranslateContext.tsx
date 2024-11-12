@@ -2,6 +2,11 @@
 
 import { createContext, useContext, useState } from 'react'
 
+interface TranslatedResult {
+  lang: string
+  content: string
+}
+
 interface TranslateContextType {
   file: File | null
   setFile: (file: File | null) => void
@@ -21,6 +26,12 @@ interface TranslateContextType {
   setCancelTranslation: (cancel: boolean) => void
   streamContent: string
   setStreamContent: (content: string) => void
+  translatedResults: TranslatedResult[]
+  setTranslatedResults: (results: TranslatedResult[]) => void
+  selectedLangs: string[]
+  setSelectedLangs: (langs: string[]) => void
+  currentTranslatingLang: string | null
+  setCurrentTranslatingLang: (lang: string | null) => void
 }
 
 const TranslateContext = createContext<TranslateContextType | undefined>(undefined)
@@ -35,6 +46,9 @@ export function TranslateProvider({ children }: { children: React.ReactNode }) {
   const [progress, setProgress] = useState(0)
   const [cancelTranslation, setCancelTranslation] = useState(false)
   const [streamContent, setStreamContent] = useState('')
+  const [translatedResults, setTranslatedResults] = useState<TranslatedResult[]>([])
+  const [selectedLangs, setSelectedLangs] = useState<string[]>(['zh'])
+  const [currentTranslatingLang, setCurrentTranslatingLang] = useState<string | null>(null)
 
   return (
     <TranslateContext.Provider value={{
@@ -56,6 +70,12 @@ export function TranslateProvider({ children }: { children: React.ReactNode }) {
       setCancelTranslation,
       streamContent,
       setStreamContent,
+      translatedResults,
+      setTranslatedResults,
+      selectedLangs,
+      setSelectedLangs,
+      currentTranslatingLang,
+      setCurrentTranslatingLang,
     }}>
       {children}
     </TranslateContext.Provider>

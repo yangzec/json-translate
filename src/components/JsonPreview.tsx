@@ -7,12 +7,24 @@ import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { Button } from "./ui/button"
 import { CopyIcon, ExpandIcon, ShrinkIcon } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export function JsonPreview() {
-  const { file, translatedContent, streamContent } = useTranslate()
+  const { file, translatedResults, streamContent, isTranslating, currentTranslatingLang } = useTranslate()
   const [sourceContent, setSourceContent] = useState<string>("")
   const [isCollapsed, setIsCollapsed] = useState(false)
+  const [activeTab, setActiveTab] = useState<string>("")
+  const { selectedLangs } = useTranslate()
   const { toast } = useToast()
+
+  const languageLabels: Record<string, string> = {
+    zh: '中文',
+    en: '英语',
+    ja: '日语',
+    ko: '韩语',
+    fr: '法语',
+    de: '德语'
+  }
 
   useEffect(() => {
     if (file) {
@@ -29,6 +41,18 @@ export function JsonPreview() {
       reader.readAsText(file)
     }
   }, [file])
+
+  useEffect(() => {
+    if (selectedLangs.length > 0) {
+      setActiveTab(selectedLangs[0])
+    }
+  }, [])
+
+  useEffect(() => {
+    if (selectedLangs.length > 0 && (!activeTab || !selectedLangs.includes(activeTab))) {
+      setActiveTab(selectedLangs[0])
+    }
+  }, [selectedLangs, activeTab])
 
   const formatJson = (jsonString: string) => {
     try {
@@ -64,22 +88,19 @@ export function JsonPreview() {
   }
 
   return (
-    <div className="space-y-4">
-      <div className="flex justify-end gap-2">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setIsCollapsed(!isCollapsed)}
-        >
-          {isCollapsed ? <ExpandIcon className="h-4 w-4" /> : <ShrinkIcon className="h-4 w-4" />}
-          {isCollapsed ? '展开' : '折叠'}
-        </Button>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-4">
-        <div className="border rounded-lg p-4">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="text-lg font-medium">原文</h3>
+    <div className="grid grid-cols-2 gap-4">
+      {/* 左侧原文 */}
+      <div className="border rounded-lg p-4">
+        <div className="flex justify-between items-center mb-2">
+          <h3 className="text-lg font-medium">原文</h3>
+          <div className="flex gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsCollapsed(!isCollapsed)}
+            >
+              {isCollapsed ? <ExpandIcon className="h-4 w-4" /> : <ShrinkIcon className="h-4 w-4" />}
+            </Button>
             <Button
               variant="ghost"
               size="sm"
@@ -88,58 +109,66 @@ export function JsonPreview() {
               <CopyIcon className="h-4 w-4" />
             </Button>
           </div>
-          <div className="relative">
-            <SyntaxHighlighter 
-              language="json"
-              style={oneDark}
-              customStyle={{
-                margin: 0,
-                borderRadius: '0.375rem',
-                maxHeight: '500px',
-                fontSize: '14px'
-              }}
-              showLineNumbers={true}
-              wrapLines={true}
-              lineProps={{
-                style: { wordBreak: 'break-all', whiteSpace: 'pre-wrap' }
-              }}
-            >
-              {formatJson(sourceContent) || '请上传JSON文件'}
-            </SyntaxHighlighter>
-          </div>
         </div>
+        <SyntaxHighlighter 
+          language="json"
+          style={oneDark}
+          customStyle={{
+            margin: 0,
+            borderRadius: '0.375rem',
+            fontSize: '14px'
+          }}
+        >
+          {formatJson(sourceContent)}
+        </SyntaxHighlighter>
+      </div>
+
+      {/* 右侧译文 */}
+      <div className="border rounded-lg p-4">
+        <h3 className="text-lg font-medium mb-4">译文</h3>
         
-        <div className="border rounded-lg p-4">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="text-lg font-medium">译文</h3>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => handleCopy(streamContent || translatedContent)}
-            >
-              <CopyIcon className="h-4 w-4" />
-            </Button>
-          </div>
-          <div className="relative">
-            <SyntaxHighlighter 
-              language="json"
-              style={oneDark}
-              customStyle={{
-                margin: 0,
-                borderRadius: '0.375rem',
-                maxHeight: '500px',
-                fontSize: '14px'
-              }}
-              showLineNumbers={true}
-              wrapLines={true}
-              lineProps={{
-                style: { wordBreak: 'break-all', whiteSpace: 'pre-wrap' }
-              }}
-            >
-              {formatJson(streamContent || translatedContent) || '翻译结果将显示在这里'}
-            </SyntaxHighlighter>
-          </div>
-        </div>
+        <Tabs defaultValue={selectedLangs[0]} value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList>
+            {selectedLangs.map(lang => (
+              <TabsTrigger key={lang} value={lang}>
+                {languageLabels[lang]}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          
+          {selectedLangs.map(lang => {
+            const result = translatedResults.find(r => r.lang === lang)
+            return (
+              <TabsContent key={lang} value={lang}>
+                <div className="relative">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="absolute right-2 top-2"
+                    onClick={() => handleCopy(result?.content || '')}
+                  >
+                    <CopyIcon className="h-4 w-4" />
+                  </Button>
+                  <SyntaxHighlighter 
+                    language="json"
+                    style={oneDark}
+                    customStyle={{
+                      margin: 0,
+                      borderRadius: '0.375rem',
+                      fontSize: '14px'
+                    }}
+                  >
+                    {formatJson(
+                      isTranslating && activeTab === lang && !result?.content
+                        ? (currentTranslatingLang === lang ? streamContent : '{}')
+                        : (result?.content || '{}')
+                    )}
+                  </SyntaxHighlighter>
+                </div>
+              </TabsContent>
+            )
+          })}
+        </Tabs>
       </div>
     </div>
   )

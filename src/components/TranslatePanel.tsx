@@ -7,6 +7,13 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/hooks/use-toast"
 import { Progress } from "@/components/ui/progress"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Checkbox } from "@/components/ui/checkbox"
+
+interface TranslatedResult {
+  lang: string;
+  content: string;
+}
 
 export function TranslatePanel() {
   const { 
@@ -25,10 +32,25 @@ export function TranslatePanel() {
     cancelTranslation,
     setCancelTranslation,
     streamContent,
-    setStreamContent
+    setStreamContent,
+    translatedResults,
+    setTranslatedResults,
+    selectedLangs,
+    setSelectedLangs,
+    currentTranslatingLang,
+    setCurrentTranslatingLang
   } = useTranslate()
   const [error, setError] = useState("")
   const { toast } = useToast()
+
+  const languageOptions = [
+    { value: 'zh', label: '中文' },
+    { value: 'en', label: '英语' },
+    { value: 'ja', label: '日语' },
+    { value: 'ko', label: '韩语' },
+    { value: 'fr', label: '法语' },
+    { value: 'de', label: '德语' },
+  ]
 
   const handleTranslate = async () => {
     if (!file || !apiKey) {
@@ -82,24 +104,44 @@ export function TranslatePanel() {
           }
         }, 1000)
 
-        const result = await translate(
-          content as string, 
-          targetLang, 
-          apiKey, 
-          signal,
-          (chunk) => {
-            setStreamContent(chunk)
-          }
+        // 找出需要翻译的语言
+        const untranslatedLangs = selectedLangs.filter(lang => 
+          !translatedResults.some(r => r.lang === lang)
         )
+
+        // 保留已翻译的结果
+        const results: TranslatedResult[] = [...translatedResults]
+
+        // 只翻译未翻译的语言
+        for (const lang of untranslatedLangs) {
+          setCurrentTranslatingLang(lang)
+          const result = await translate(
+            content, 
+            lang, 
+            apiKey, 
+            signal,
+            (chunk) => {
+              setStreamContent(chunk)
+            }
+          )
+          
+          results.push({
+            lang,
+            content: result
+          })
+          setTranslatedResults([...results])
+        }
         
         clearInterval(progressInterval)
         setProgress(100)
-        setTranslatedContent(result)
-        setStreamContent('')  // 清空流式内容
-        
+        setTranslatedResults(results)
+        setStreamContent('')
+
         toast({
           title: "成功",
-          description: "翻译完成！"
+          description: untranslatedLangs.length > 0 
+            ? "翻译完成！" 
+            : "所选语言已全部翻译完成"
         })
 
       } catch (err) {
@@ -138,6 +180,7 @@ export function TranslatePanel() {
     } finally {
       setIsTranslating(false)
       setProgress(0)
+      setCurrentTranslatingLang(null)
     }
   }
 
@@ -221,6 +264,27 @@ export function TranslatePanel() {
             取消
           </Button>
         )}
+      </div>
+
+      <div>
+        <label className="text-sm font-medium">目标语言</label>
+        <div className="grid grid-cols-3 gap-2 mt-1">
+          {languageOptions.map(option => (
+            <label key={option.value} className="flex items-center space-x-2">
+              <Checkbox
+                checked={selectedLangs.includes(option.value)}
+                onCheckedChange={(checked) => {
+                  if (checked) {
+                    setSelectedLangs([...selectedLangs, option.value])
+                  } else {
+                    setSelectedLangs(selectedLangs.filter(l => l !== option.value))
+                  }
+                }}
+              />
+              <span>{option.label}</span>
+            </label>
+          ))}
+        </div>
       </div>
     </div>
   )
