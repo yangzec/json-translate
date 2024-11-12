@@ -4,7 +4,7 @@ import { useTranslate } from "@/context/TranslateContext"
 import { useState, useEffect } from "react"
 
 export function JsonPreview() {
-  const { file, translatedContent } = useTranslate()
+  const { file, translatedContent, streamContent } = useTranslate()
   const [sourceContent, setSourceContent] = useState<string>("")
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export function JsonPreview() {
       <div className="border rounded-lg p-4">
         <h3 className="text-lg font-medium mb-2">译文</h3>
         <pre className="bg-muted p-4 rounded-md overflow-auto max-h-[500px]">
-          <code>{translatedContent || '翻译结果将显示在这里'}</code>
+          <code>{streamContent || translatedContent || '翻译结果将显示在这里'}</code>
         </pre>
       </div>
     </div>

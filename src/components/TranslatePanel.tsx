@@ -23,7 +23,9 @@ export function TranslatePanel() {
     progress,
     setProgress,
     cancelTranslation,
-    setCancelTranslation
+    setCancelTranslation,
+    streamContent,
+    setStreamContent
   } = useTranslate()
   const [error, setError] = useState("")
   const { toast } = useToast()
@@ -38,6 +40,9 @@ export function TranslatePanel() {
       return
     }
 
+    const controller = new AbortController();
+    const signal = controller.signal;
+    
     setIsTranslating(true)
     setError("")
     setProgress(0)
@@ -77,11 +82,20 @@ export function TranslatePanel() {
           }
         }, 1000)
 
-        const result = await translate(content as string, targetLang, apiKey)
+        const result = await translate(
+          content as string, 
+          targetLang, 
+          apiKey, 
+          signal,
+          (chunk) => {
+            setStreamContent(chunk)
+          }
+        )
         
         clearInterval(progressInterval)
         setProgress(100)
         setTranslatedContent(result)
+        setStreamContent('')  // 清空流式内容
         
         toast({
           title: "成功",

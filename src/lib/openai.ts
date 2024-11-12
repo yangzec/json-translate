@@ -4,7 +4,8 @@ export async function translate(
   text: string, 
   targetLang: string, 
   apiKey: string,
-  signal?: AbortSignal
+  signal?: AbortSignal,
+  onStream?: (chunk: string) => void
 ) {
   if (!apiKey.startsWith('sk-')) {
     throw new Error('无效的 API Key 格式')
@@ -40,33 +41,28 @@ export async function translate(
           content: prompt
         }
       ],
-      temperature: 0.3
+      temperature: 0.3,
+      stream: true
     }, {
       signal
     })
 
-    let translatedText = response.choices[0].message.content
-    if (!translatedText) {
-      throw new Error('翻译结果为空')
+    let fullContent = ''
+    for await (const chunk of response) {
+      const content = chunk.choices[0]?.delta?.content || ''
+      fullContent += content
+      onStream?.(fullContent)
     }
 
-    // 清理可能的markdown标记
-    translatedText = translatedText.replace(/^```json\s*/, '') // 移除开头的 ```json
-                                 .replace(/^```\s*/, '')       // 移除开头的 ```
-                                 .replace(/\s*```$/, '')       // 移除结尾的 ```
-                                 .trim()
-
-    // 验证JSON格式
+    // 验证最终JSON格式
     try {
-      const parsedJson = JSON.parse(translatedText)
-      // 重新格式化以确保格式一致性
-      translatedText = JSON.stringify(parsedJson, null, 2)
-    } catch (e: unknown) {
-      console.error('JSON解析错误:', translatedText)
+      const parsedJson = JSON.parse(fullContent)
+      fullContent = JSON.stringify(parsedJson, null, 2)
+    } catch (e) {
       throw new Error(`翻译结果格式无效: ${(e as Error).message}`)
     }
 
-    return translatedText
+    return fullContent
 
   } catch (error: unknown) {
     console.error('翻译错误详情:', error)
