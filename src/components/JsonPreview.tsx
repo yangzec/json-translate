@@ -5,9 +5,10 @@ import { useState, useEffect } from "react"
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { Button } from "./ui/button"
-import { CopyIcon, ExpandIcon, ShrinkIcon } from "lucide-react"
+import { CopyIcon, ExpandIcon, ShrinkIcon, DownloadIcon } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import JSZip from 'jszip'
 
 export function JsonPreview() {
   const { file, translatedResults, streamContent, isTranslating, currentTranslatingLang } = useTranslate()
@@ -87,6 +88,69 @@ export function JsonPreview() {
     }
   }
 
+  const handleDownload = (lang: string) => {
+    const result = translatedResults.find(r => r.lang === lang)
+    if (!result) return
+
+    try {
+      const blob = new Blob([result.content], { type: 'application/json' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `translated_${lang}.json`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+
+      toast({
+        title: "成功",
+        description: `${languageLabels[lang]}翻译文件已下载`
+      })
+    } catch (err) {
+      toast({
+        variant: "destructive",
+        title: "错误",
+        description: "下载失败，请重试"
+      })
+    }
+  }
+
+  const handleDownloadAll = () => {
+    try {
+      // 创建一个 zip 文件
+      const zip = new JSZip()
+      
+      // 添加所有翻译结果到 zip
+      translatedResults.forEach(result => {
+        zip.file(`translated_${result.lang}.json`, result.content)
+      })
+      
+      // 生成并下载 zip 文件
+      zip.generateAsync({ type: "blob" }).then(content => {
+        const url = URL.createObjectURL(content)
+        const a = document.createElement('a')
+        a.href = url
+        a.download = 'translations.zip'
+        document.body.appendChild(a)
+        a.click()
+        document.body.removeChild(a)
+        URL.revokeObjectURL(url)
+        
+        toast({
+          title: "成功",
+          description: "所有翻译文件已下载"
+        })
+      })
+    } catch (err) {
+      toast({
+        variant: "destructive",
+        title: "错误",
+        description: "下载失败，请重试"
+      })
+    }
+  }
+
   return (
     <div className="grid grid-cols-2 gap-4">
       {/* 左侧原文 */}
@@ -125,7 +189,33 @@ export function JsonPreview() {
 
       {/* 右侧译文 */}
       <div className="border rounded-lg p-4">
-        <h3 className="text-lg font-medium mb-4">译文</h3>
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-lg font-medium">译文</h3>
+          <div className="flex items-center gap-2">
+            {activeTab && translatedResults.find(r => r.lang === activeTab) && (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => handleDownload(activeTab)}
+                className="flex items-center gap-2"
+              >
+                <DownloadIcon className="h-4 w-4" />
+                下载{languageLabels[activeTab]}翻译
+              </Button>
+            )}
+            {translatedResults.length > 0 && (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleDownloadAll}
+                className="flex items-center gap-2"
+              >
+                <DownloadIcon className="h-4 w-4" />
+                下载所有译文
+              </Button>
+            )}
+          </div>
+        </div>
         
         <Tabs defaultValue={selectedLangs[0]} value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList>

@@ -46,6 +46,7 @@ export function TranslatePanel() {
   } = useTranslate()
   const [error, setError] = useState("")
   const { toast } = useToast()
+  const [controller, setController] = useState<AbortController | null>(null)
 
   const languageOptions = [
     { value: 'zh', label: '中文' },
@@ -172,7 +173,11 @@ export function TranslatePanel() {
           'API 调用次数已达上限': '已达到API使用限制,请稍后重试',
           '翻译超时,请重试': '网络请求超时,请检查网络后重试',
           'JSON格式无效': '文件格式错误,请上传有效的JSON文件',
-          'JSON内容超过10MB限制': '文件内容过大,请分批处理'
+          'JSON内容超过10MB限制': '文件内容过大,请分批处理',
+          '翻译已取消': '翻译已被用户取消',
+          'Network Error': '网络连接错误,请检查网络设置',
+          'Rate limit exceeded': 'API调用频率超限,请稍后重试',
+          'Service unavailable': '服务暂时不可用,请稍后重试'
         }
         setError(errorMap[err.message] || err.message)
         toast({
@@ -197,12 +202,20 @@ export function TranslatePanel() {
   }
 
   const handleCancel = () => {
+    if (controller) {
+      controller.abort()
+      setController(null)
+    }
     setCancelTranslation(true)
     setIsTranslating(false)
     setProgress(0)
+    setTotalProgress(0)
+    setEstimatedTime(0)
+    setCurrentTranslatingLang(null)
+    setStreamContent('')
     toast({
       title: "已取消",
-      description: "翻译已消"
+      description: "翻译已取消"
     })
   }
 
