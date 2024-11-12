@@ -1,0 +1,17 @@
+{
+  "Common": {
+    "loading": "loading..."
+  },
+  "Navigation": {
+    "title": "Open-source Pintree Tools Directory",
+    "discover": "Discover AI",
+    "submit": "Submit",
+    "newtools": "New Tools",
+    "startup": "Startup",
+    "menu": "menu"
+  },
+  "Footer": {
+    "title": "Open-source Pintree Tools Directory",
+    "subTitle": "Discover the best AI tools of 2024 with the Pintree Tools Directory!"
+  }
+}

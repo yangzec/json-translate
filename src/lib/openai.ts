@@ -3,7 +3,8 @@ import OpenAI from 'openai'
 export async function translate(
   text: string, 
   targetLang: string, 
-  apiKey: string
+  apiKey: string,
+  signal?: AbortSignal
 ) {
   if (!apiKey.startsWith('sk-')) {
     throw new Error('无效的 API Key 格式')
@@ -39,7 +40,9 @@ export async function translate(
           content: prompt
         }
       ],
-      temperature: 0.3,
+      temperature: 0.3
+    }, {
+      signal
     })
 
     let translatedText = response.choices[0].message.content
@@ -76,6 +79,10 @@ export async function translate(
       if (error.status === 429) {
         throw new Error('API 调用次数已达上限')
       }
+    }
+    
+    if (error instanceof DOMException && error.name === 'AbortError') {
+      throw new Error('翻译已取消')
     }
     
     throw new Error((error as Error).message || '翻译服务出错，请稍后重试')

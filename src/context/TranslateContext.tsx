@@ -15,6 +15,10 @@ interface TranslateContextType {
   setIsTranslating: (status: boolean) => void
   translatedContent: string
   setTranslatedContent: (content: string) => void
+  progress: number
+  setProgress: (progress: number) => void
+  cancelTranslation: boolean
+  setCancelTranslation: (cancel: boolean) => void
 }
 
 const TranslateContext = createContext<TranslateContextType | undefined>(undefined)
@@ -26,6 +30,8 @@ export function TranslateProvider({ children }: { children: React.ReactNode }) {
   const [apiKey, setApiKey] = useState('')
   const [isTranslating, setIsTranslating] = useState(false)
   const [translatedContent, setTranslatedContent] = useState('')
+  const [progress, setProgress] = useState(0)
+  const [cancelTranslation, setCancelTranslation] = useState(false)
 
   return (
     <TranslateContext.Provider value={{
@@ -40,7 +46,11 @@ export function TranslateProvider({ children }: { children: React.ReactNode }) {
       isTranslating,
       setIsTranslating,
       translatedContent,
-      setTranslatedContent
+      setTranslatedContent,
+      progress,
+      setProgress,
+      cancelTranslation,
+      setCancelTranslation
     }}>
       {children}
     </TranslateContext.Provider>

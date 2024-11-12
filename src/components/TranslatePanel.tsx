@@ -6,6 +6,7 @@ import { translate } from "@/lib/openai"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/hooks/use-toast"
+import { Progress } from "@/components/ui/progress"
 
 export function TranslatePanel() {
   const { 
@@ -18,7 +19,11 @@ export function TranslatePanel() {
     setApiKey,
     isTranslating,
     setIsTranslating,
-    setTranslatedContent
+    setTranslatedContent,
+    progress,
+    setProgress,
+    cancelTranslation,
+    setCancelTranslation
   } = useTranslate()
   const [error, setError] = useState("")
   const { toast } = useToast()
@@ -35,25 +40,27 @@ export function TranslatePanel() {
 
     setIsTranslating(true)
     setError("")
-
-    // 添加超时控制
-    const timeoutPromise = new Promise((_, reject) => {
-      setTimeout(() => reject(new Error('翻译超时,请重试')), 30000)
-    })
+    setProgress(0)
+    setCancelTranslation(false)
 
     try {
       const reader = new FileReader()
+      let progressInterval: NodeJS.Timeout | undefined
       
-      const readFilePromise = new Promise((resolve, reject) => {
-        reader.onload = (e) => resolve(e.target?.result)
+      const readFilePromise = new Promise<string>((resolve, reject) => {
+        reader.onload = (e) => {
+          if (e.target?.result) {
+            resolve(e.target.result as string)
+          } else {
+            reject(new Error('文件内容为空'))
+          }
+        }
         reader.onerror = () => reject(new Error('文件读取失败'))
         reader.readAsText(file)
       })
 
-      // 使用 Promise.race 实现超时控制
-      const content = await Promise.race([readFilePromise, timeoutPromise])
+      const content = await readFilePromise
       
-      // 验证JSON格式和大小
       try {
         const jsonContent = JSON.parse(content as string)
         const jsonSize = new Blob([JSON.stringify(jsonContent)]).size
@@ -62,15 +69,27 @@ export function TranslatePanel() {
           throw new Error('JSON内容超过10MB限制')
         }
 
+        // 模拟翻译进度
+        progressInterval = setInterval(() => {
+          setProgress(progress + 10)
+          if (progress >= 90) {
+            clearInterval(progressInterval)
+          }
+        }, 1000)
+
         const result = await translate(content as string, targetLang, apiKey)
+        
+        clearInterval(progressInterval)
+        setProgress(100)
         setTranslatedContent(result)
         
         toast({
           title: "成功",
           description: "翻译完成！"
         })
-        
+
       } catch (err) {
+        clearInterval(progressInterval)
         if (err instanceof SyntaxError) {
           throw new Error('JSON格式无效')
         }
@@ -104,7 +123,18 @@ export function TranslatePanel() {
       }
     } finally {
       setIsTranslating(false)
+      setProgress(0)
     }
+  }
+
+  const handleCancel = () => {
+    setCancelTranslation(true)
+    setIsTranslating(false)
+    setProgress(0)
+    toast({
+      title: "已取消",
+      description: "翻译已消"
+    })
   }
 
   return (
@@ -149,13 +179,35 @@ export function TranslatePanel() {
         <div className="text-red-500 text-sm">{error}</div>
       )}
 
-      <Button 
-        className="w-full" 
-        onClick={handleTranslate}
-        disabled={isTranslating || !file || !apiKey}
-      >
-        {isTranslating ? "翻译中..." : "开始翻译"}
-      </Button>
+      {isTranslating && (
+        <div className="space-y-2">
+          <div className="flex items-center justify-between text-sm">
+            <span>翻译进度</span>
+            <span>{progress}%</span>
+          </div>
+          <Progress value={progress} className="w-full" />
+        </div>
+      )}
+
+      <div className="flex gap-2">
+        <Button 
+          className="flex-1" 
+          onClick={handleTranslate}
+          disabled={isTranslating || !file || !apiKey}
+        >
+          {isTranslating ? "翻译中..." : "开始翻译"}
+        </Button>
+
+        {isTranslating && (
+          <Button 
+            variant="outline"
+            onClick={handleCancel}
+            className="w-24"
+          >
+            取消
+          </Button>
+        )}
+      </div>
     </div>
   )
 } 
