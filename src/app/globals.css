@@ -70,3 +70,39 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.syntax-highlighter {
+  background-color: #282c34;
+  border-radius: 0.375rem;
+  color: #abb2bf;
+}
+
+/* 通用滚动条样式 */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted-foreground) / 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* 代码编辑器特定的滚动条样式 */
+.syntax-highlighter::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.syntax-highlighter::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted-foreground) / 0.2);
+  border-radius: 3px;
+}
+
+.syntax-highlighter::-webkit-scrollbar-track {
+  background-color: transparent;
+}

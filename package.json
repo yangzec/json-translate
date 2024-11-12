@@ -17,6 +17,7 @@
     "@radix-ui/react-tabs": "^1.1.1",
     "@radix-ui/react-toast": "^1.2.2",
     "@types/react-syntax-highlighter": "^15.5.13",
+    "@types/react-window": "^1.8.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "jszip": "^3.10.1",
@@ -26,6 +27,7 @@
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-syntax-highlighter": "^15.6.1",
+    "react-window": "^1.8.10",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },

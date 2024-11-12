@@ -1,7 +1,7 @@
 "use client"
 
 import { useTranslate } from "@/context/TranslateContext"
-import { useState, useEffect } from "react"
+import { useState, useEffect, memo, useRef } from "react"
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { Button } from "./ui/button"
@@ -9,6 +9,11 @@ import { CopyIcon, ExpandIcon, ShrinkIcon, DownloadIcon } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import JSZip from 'jszip'
+import dynamic from 'next/dynamic';
+
+const VirtualizedJson = dynamic(() => import('./VirtualizedJson'), {
+  ssr: false
+});
 
 export function JsonPreview() {
   const { file, translatedResults, streamContent, isTranslating, currentTranslatingLang } = useTranslate()
@@ -17,6 +22,9 @@ export function JsonPreview() {
   const [activeTab, setActiveTab] = useState<string>("")
   const { selectedLangs } = useTranslate()
   const { toast } = useToast()
+  const [isLoading, setIsLoading] = useState(false)
+  const [containerSize, setContainerSize] = useState({ width: 0, height: 500 });
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const languageLabels: Record<string, string> = {
     zh: '中文',
@@ -29,6 +37,7 @@ export function JsonPreview() {
 
   useEffect(() => {
     if (file) {
+      setIsLoading(true)
       const reader = new FileReader()
       reader.onload = (e) => {
         try {
@@ -37,6 +46,8 @@ export function JsonPreview() {
           setSourceContent(formatted)
         } catch (error) {
           console.error('JSON解析错误:', error)
+        } finally {
+          setIsLoading(false)
         }
       }
       reader.readAsText(file)
@@ -54,6 +65,13 @@ export function JsonPreview() {
       setActiveTab(selectedLangs[0])
     }
   }, [selectedLangs, activeTab])
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const { width } = containerRef.current.getBoundingClientRect();
+      setContainerSize(prev => ({ ...prev, width }));
+    }
+  }, []);
 
   const formatJson = (jsonString: string) => {
     try {
@@ -174,17 +192,31 @@ export function JsonPreview() {
             </Button>
           </div>
         </div>
-        <SyntaxHighlighter 
-          language="json"
-          style={oneDark}
-          customStyle={{
-            margin: 0,
-            borderRadius: '0.375rem',
-            fontSize: '14px'
-          }}
-        >
-          {formatJson(sourceContent)}
-        </SyntaxHighlighter>
+        {isLoading ? (
+          <div className="flex items-center justify-center h-[500px]">
+            <span className="loading loading-spinner loading-md"></span>
+          </div>
+        ) : (
+          <div ref={containerRef} className="h-[500px] overflow-hidden">
+            {sourceContent ? (
+              <VirtualizedJson
+                content={formatJson(sourceContent)}
+                height={containerSize.height}
+                width={containerSize.width}
+                showLineNumbers={true}
+              />
+            ) : (
+              <VirtualizedJson
+                content={`{
+  // 请上传 JSON 文件
+}`}
+                height={containerSize.height}
+                width={containerSize.width}
+                showLineNumbers={false}
+              />
+            )}
+          </div>
+        )}
       </div>
 
       {/* 右侧译文 */}
@@ -216,8 +248,21 @@ export function JsonPreview() {
             )}
           </div>
         </div>
-        
+
         <Tabs defaultValue={selectedLangs[0]} value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <VirtualizedJson
+            content={formatJson(
+              isTranslating && activeTab === currentTranslatingLang
+                ? streamContent
+                : (translatedResults.find(r => r.lang === activeTab)?.content || `{
+  // 翻译结果将显示在这里
+}`)
+            )}
+            height={containerSize.height}
+            width={containerSize.width}
+            showLineNumbers={true}
+          />
+
           <TabsList>
             {selectedLangs.map(lang => (
               <TabsTrigger key={lang} value={lang}>
@@ -225,39 +270,6 @@ export function JsonPreview() {
               </TabsTrigger>
             ))}
           </TabsList>
-          
-          {selectedLangs.map(lang => {
-            const result = translatedResults.find(r => r.lang === lang)
-            return (
-              <TabsContent key={lang} value={lang}>
-                <div className="relative">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="absolute right-2 top-2"
-                    onClick={() => handleCopy(result?.content || '')}
-                  >
-                    <CopyIcon className="h-4 w-4" />
-                  </Button>
-                  <SyntaxHighlighter 
-                    language="json"
-                    style={oneDark}
-                    customStyle={{
-                      margin: 0,
-                      borderRadius: '0.375rem',
-                      fontSize: '14px'
-                    }}
-                  >
-                    {formatJson(
-                      isTranslating && activeTab === lang && !result?.content
-                        ? (currentTranslatingLang === lang ? streamContent : '{}')
-                        : (result?.content || '{}')
-                    )}
-                  </SyntaxHighlighter>
-                </div>
-              </TabsContent>
-            )
-          })}
         </Tabs>
       </div>
     </div>
