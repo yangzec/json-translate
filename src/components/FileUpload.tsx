@@ -1,6 +1,5 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useTranslate } from "@/context/TranslateContext"
 import { useToast } from "@/hooks/use-toast"
@@ -8,7 +7,7 @@ import { parseJson } from "@/lib/json-utils"
 
 export function FileUpload() {
   const { toast } = useToast()
-  const { setFile } = useTranslate()
+  const { setFile, apiKey, setApiKey } = useTranslate()
   
   const handleUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files
@@ -46,8 +45,8 @@ export function FileUpload() {
 
     // 验证JSON内容
     try {
-      const text = await file.text() // 使用更现代的API读取文件
-      const result = parseJson(text.trim()) // 使用工具函数解析
+      const text = await file.text()
+      const result = parseJson(text.trim())
       
       if (!result.success) {
         throw new Error(result.error || '无效的JSON格式')
@@ -74,19 +73,29 @@ export function FileUpload() {
   }
 
   return (
-    <div className="w-full max-w-xl">
-      <Input 
-        type="file" 
-        accept=".json"
-        onChange={handleUpload}
-        className="mb-2"
-      />
-      <p className="text-sm text-muted-foreground mb-2">
-        支持.json格式文件，最大10MB
-      </p>
-      <Button className="w-full">
-        上传JSON文件
-      </Button>
+    <div className="w-full max-w-xl space-y-4">
+      <div>
+        <Input 
+          type="file" 
+          accept=".json"
+          onChange={handleUpload}
+          className="mb-2"
+        />
+        <p className="text-sm text-muted-foreground">
+          支持.json格式文件，最大10MB
+        </p>
+      </div>
+
+      <div>
+        <label className="text-sm font-medium">OpenAI API Key</label>
+        <Input 
+          type="password" 
+          placeholder="sk-..." 
+          className="mt-1"
+          value={apiKey}
+          onChange={(e) => setApiKey(e.target.value)}
+        />
+      </div>
     </div>
   )
 } 

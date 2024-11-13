@@ -79,14 +79,31 @@ export function JsonPreview() {
       if (!jsonString || 
           jsonString === '请上传JSON文件' || 
           jsonString === '翻译结果将显示在这里') {
-        return jsonString
+        return jsonString;
       }
       
-      // 解析并格式化 JSON
-      const obj = JSON.parse(jsonString)
-      return JSON.stringify(obj, null, isCollapsed ? 0 : 2)
+      // 处理流式输出的情况
+      if (isTranslating) {
+        try {
+          // 尝试将内容包装成完整的JSON对象
+          const wrappedContent = `{"temp": ${jsonString}}`;
+          const parsed = JSON.parse(wrappedContent);
+          return JSON.stringify(parsed.temp, null, isCollapsed ? 0 : 2);
+        } catch {
+          // 如果解析失败，进行基本的格式化
+          return jsonString
+            .split(',')
+            .map(line => line.trim())
+            .join(',\n  ');
+        }
+      }
+      
+      // 非流式输出情况，正常解析和格式化
+      const parsed = JSON.parse(jsonString);
+      return JSON.stringify(parsed, null, isCollapsed ? 0 : 2);
     } catch (e) {
-      return jsonString
+      // 如果所有尝试都失败，返回原始字符串
+      return jsonString;
     }
   }
 

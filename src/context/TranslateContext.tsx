@@ -12,8 +12,6 @@ interface TranslateContextType {
   setFile: (file: File | null) => void
   sourceLang: string
   setSourceLang: (lang: string) => void
-  targetLang: string
-  setTargetLang: (lang: string) => void
   apiKey: string
   setApiKey: (key: string) => void
   isTranslating: boolean
@@ -43,7 +41,6 @@ const TranslateContext = createContext<TranslateContextType | undefined>(undefin
 export function TranslateProvider({ children }: { children: React.ReactNode }) {
   const [file, setFile] = useState<File | null>(null)
   const [sourceLang, setSourceLang] = useState('en')
-  const [targetLang, setTargetLang] = useState('zh')
   const [apiKey, setApiKey] = useState('')
   const [isTranslating, setIsTranslating] = useState(false)
   const [translatedContent, setTranslatedContent] = useState('')
@@ -56,37 +53,37 @@ export function TranslateProvider({ children }: { children: React.ReactNode }) {
   const [totalProgress, setTotalProgress] = useState(0)
   const [estimatedTime, setEstimatedTime] = useState(0)
 
+  const value = {
+    file,
+    setFile,
+    sourceLang,
+    setSourceLang,
+    apiKey,
+    setApiKey,
+    isTranslating,
+    setIsTranslating,
+    translatedContent,
+    setTranslatedContent,
+    progress,
+    setProgress,
+    cancelTranslation,
+    setCancelTranslation,
+    streamContent,
+    setStreamContent,
+    translatedResults,
+    setTranslatedResults,
+    selectedLangs,
+    setSelectedLangs,
+    currentTranslatingLang,
+    setCurrentTranslatingLang,
+    totalProgress,
+    setTotalProgress,
+    estimatedTime,
+    setEstimatedTime,
+  }
+
   return (
-    <TranslateContext.Provider value={{
-      file,
-      setFile,
-      sourceLang,
-      setSourceLang,
-      targetLang,
-      setTargetLang,
-      apiKey,
-      setApiKey,
-      isTranslating,
-      setIsTranslating,
-      translatedContent,
-      setTranslatedContent,
-      progress,
-      setProgress,
-      cancelTranslation,
-      setCancelTranslation,
-      streamContent,
-      setStreamContent,
-      translatedResults,
-      setTranslatedResults,
-      selectedLangs,
-      setSelectedLangs,
-      currentTranslatingLang,
-      setCurrentTranslatingLang,
-      totalProgress,
-      setTotalProgress,
-      estimatedTime,
-      setEstimatedTime,
-    }}>
+    <TranslateContext.Provider value={value}>
       {children}
     </TranslateContext.Provider>
   )
