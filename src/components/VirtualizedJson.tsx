@@ -49,7 +49,7 @@ const VirtualizedJson = memo(({ content, height, width, showLineNumbers = true }
   };
 
   return (
-    <div className="overflow-hidden rounded-md bg-[#282c34]">
+    <div className="overflow-hidden rounded-md bg-[#282c34] mb-3">
       <List
         height={height}
         itemCount={lines.length}

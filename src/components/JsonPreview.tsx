@@ -32,7 +32,12 @@ export function JsonPreview() {
     ja: '日语',
     ko: '韩语',
     fr: '法语',
-    de: '德语'
+    de: '德语',
+    es: '西班牙语',
+    it: '意大利语',
+    pt: '葡萄牙语',
+    nl: '荷兰语',
+    pl: '波兰语'
   }
 
   useEffect(() => {

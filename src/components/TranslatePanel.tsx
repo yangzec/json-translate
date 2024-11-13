@@ -326,7 +326,7 @@ export function TranslatePanel() {
         <label className="text-sm font-medium">目标语言</label>
         <div className="grid grid-cols-3 gap-2 mt-1">
           {languageOptions.map(option => (
-            <label key={option.value} className="flex items-center space-x-2">
+            <label key={option.value} className="flex items-center space-x-2 px-4 py-2 bg-muted rounded-full">
               <Checkbox
                 checked={selectedLangs.includes(option.value)}
                 onCheckedChange={(checked) => {
