@@ -9,7 +9,7 @@ export async function translate(
   onStream?: (chunk: string) => void
 ) {
   if (!apiKey.startsWith('sk-')) {
-    throw new Error('无效的 API Key 格式')
+    throw new Error('Invalid API Key format')
   }
 
   const openai = new OpenAI({ 
@@ -18,16 +18,16 @@ export async function translate(
   })
 
   try {
-    console.log('开始翻译，目标语言:', targetLang)
+    console.log('Start translating, target language:', targetLang)
     
-    const prompt = `请将以下JSON内容翻译成${targetLang}，保持JSON结构不变，只翻译值部分。
-    注意：
-    1. 保持所有的key不变
-    2. 只翻译value部分
-    3. 保持JSON格式有效
-    4. 保留所有特殊字符和格式
+    const prompt = `Please translate the following JSON content to ${targetLang}, keep the JSON structure unchanged, only translate the value part.
+    Note:
+    1. Keep all keys unchanged
+    2. Only translate value parts
+    3. Keep JSON format valid
+    4. Keep all special characters and formats
     
-    JSON内容：
+    JSON content:
     ${text}`
 
     const response = await openai.chat.completions.create({
@@ -35,7 +35,7 @@ export async function translate(
       messages: [
         {
           role: "system",
-          content: "你是一个专业的JSON翻译助手。请直接返回翻译后的JSON内容，不要添加任何markdown标记或其他格式。"
+          content: "You are a professional JSON translation assistant. Please return the translated JSON content directly, without adding any markdown tags or other formats."
         },
         {
           role: "user",
@@ -50,47 +50,47 @@ export async function translate(
 
     let fullContent = ''
     let tokenCount = 0
-    const estimatedTokens = text.length / 4 // 估算总token数
+    const estimatedTokens = text.length / 4 // Estimate total token count
 
     for await (const chunk of response) {
       const content = chunk.choices[0]?.delta?.content || ''
       fullContent += content
       tokenCount += content.length / 4
-      
-      // 计算当前进度
+
+      // Calculate current progress
       const progress = Math.min(Math.round((tokenCount / estimatedTokens) * 100), 100)
       onProgress?.(progress)
       
       onStream?.(fullContent)
     }
 
-    // 验证最终JSON格式
+    // Validate final JSON format
     try {
       const parsedJson = JSON.parse(fullContent)
       fullContent = JSON.stringify(parsedJson, null, 2)
     } catch (e) {
-      throw new Error(`翻译结果格式无效: ${(e as Error).message}`)
+      throw new Error(`Invalid translation result format: ${(e as Error).message}`)
     }
 
     return fullContent
 
   } catch (error: unknown) {
-    console.error('翻译错误详情:', error)
+    console.error('Translation error details:', error)
     
     if (error instanceof OpenAI.APIError) {
       if (error.status === 401) {
-        throw new Error('API Key 无效或已过期')
+        throw new Error('Invalid or expired API Key')
       }
       
       if (error.status === 429) {
-        throw new Error('API 调用次数已达上限')
+        throw new Error('API call limit reached')
       }
     }
     
     if (error instanceof DOMException && error.name === 'AbortError') {
-      throw new Error('翻译已取消')
+      throw new Error('Translation cancelled')
     }
     
-    throw new Error((error as Error).message || '翻译服务出错，请稍后重试')
+    throw new Error((error as Error).message || 'Translation service error, please try again later')
   }
 } 

@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "JSON翻译工具 - 在线JSON国际化翻译",
-  description: "使用AI技术快速翻译JSON语言文件，支持多种语言，保持JSON结构完整性",
+  title: "JSON Translation Tool - Online JSON Internationalization Translation",
+  description: "Use AI technology to quickly translate JSON language files, support multiple languages, and maintain the integrity of the JSON structure",
 };
 
 export default function RootLayout({

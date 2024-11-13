@@ -545,7 +545,7 @@ export function TranslatePanel() {
           <Button 
             variant="outline"
             onClick={handleCancel}
-            className="w-24"
+            className="w-24 py-6 shadow-none"
           >
             Cancel
           </Button>

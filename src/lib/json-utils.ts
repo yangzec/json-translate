@@ -1,11 +1,11 @@
 export function parseJson(jsonString: string) {
   try {
-    // 检查输入是否为空
+    // Check if the input is empty
     if (!jsonString || jsonString.trim() === '') {
       return {
         success: false,
         data: null,
-        error: '文件内容为空'
+        error: 'File content is empty'
       }
     }
 
@@ -17,7 +17,7 @@ export function parseJson(jsonString: string) {
       return {
         success: false,
         data: null,
-        error: '文件内容不是有效的JSON格式'
+        error: 'File content is not a valid JSON format'
       }
     }
 
@@ -31,7 +31,7 @@ export function parseJson(jsonString: string) {
     return {
       success: false,
       data: null,
-      error: e instanceof Error ? e.message : '解析JSON时发生错误'
+      error: e instanceof Error ? e.message : 'Error parsing JSON'
     }
   }
 }
@@ -47,18 +47,18 @@ export function stringifyJson(json: unknown, space = 2) {
     return {
       success: false,
       data: null,
-      error: e instanceof Error ? e.message : '序列化JSON时发生错误'
+      error: e instanceof Error ? e.message : 'Error serializing JSON'
     }
   }
 }
 
-// 验证JSON大小
+// Validate JSON size
 export function validateJsonSize(json: unknown, maxSize = 10 * 1024 * 1024) {
   const size = new Blob([JSON.stringify(json)]).size
   return size <= maxSize
 }
 
-// 检查JSON编码
+// Check JSON encoding
 export function detectJsonEncoding(buffer: ArrayBuffer): string {
   const arr = new Uint8Array(buffer).subarray(0, 4)
   let encoding = 'utf-8'
@@ -75,9 +75,9 @@ export function detectJsonEncoding(buffer: ArrayBuffer): string {
 }
 
 interface ChunkOptions {
-  maxKeys?: number;        // 每块最大键值对数量
-  maxSize?: number;        // 每块最大字节数
-  preserveStructure?: boolean; // 是否保持对象结构完整
+  maxKeys?: number;        // Maximum number of key-value pairs per block
+  maxSize?: number;        // Maximum number of bytes per block
+  preserveStructure?: boolean; // Whether to preserve object structure
 }
 
 export function chunkJsonObject(
@@ -86,7 +86,7 @@ export function chunkJsonObject(
 ) {
   const {
     maxKeys = 50,
-    maxSize = 4000, // 约4KB
+    maxSize = 4000, // Approximately 4KB
     preserveStructure = true
   } = options;
   
@@ -95,21 +95,21 @@ export function chunkJsonObject(
   let currentSize = 0;
   let currentKeys = 0;
   
-  // 递归处理嵌套对象
+  // Recursively process nested objects
   function processObject(obj: Record<string, any>, path: string[] = []) {
     for (const [key, value] of Object.entries(obj)) {
       const currentPath = [...path, key];
       
       if (typeof value === 'object' && value !== null && preserveStructure) {
-        // 如果是对象且需要保持结构，递归处理
+        // If it's an object and structure needs to be preserved, recursively process
         processObject(value, currentPath);
         continue;
       }
       
-      // 计算当前键值对的大小
+      // Calculate the size of the current key-value pair
       const entrySize = new Blob([JSON.stringify({ [key]: value })]).size;
       
-      // 如果当前块已满，创建新块
+      // If the current block is full, create a new block
       if (currentKeys >= maxKeys || currentSize + entrySize > maxSize) {
         if (Object.keys(currentChunk).length > 0) {
           chunks.push(currentChunk);
@@ -119,11 +119,11 @@ export function chunkJsonObject(
         }
       }
       
-      // 将键值对添加到当前块
+      // Add the key-value pair to the current block
       if (path.length === 0) {
         currentChunk[key] = value;
       } else {
-        // 处理嵌套路径
+        // Process nested paths
         let target = currentChunk;
         for (let i = 0; i < path.length; i++) {
           const pathKey = path[i];
@@ -144,7 +144,7 @@ export function chunkJsonObject(
   
   processObject(obj);
   
-  // 添加最后一个块
+  // Add the last block
   if (Object.keys(currentChunk).length > 0) {
     chunks.push(currentChunk);
   }
@@ -152,7 +152,7 @@ export function chunkJsonObject(
   return chunks;
 }
 
-// 合并翻译结果时保持对象结构
+// Merge translated results while preserving object structure
 export function mergeTranslatedChunks(chunks: Record<string, any>[]) {
   return chunks.reduce((acc, chunk) => {
     function deepMerge(target: any, source: any) {
