@@ -34,6 +34,7 @@ interface TranslateContextType {
   setTotalProgress: (progress: number) => void;
   estimatedTime: number;
   setEstimatedTime: (time: number) => void;
+  resetTranslation: () => void;
 }
 
 const TranslateContext = createContext<TranslateContextType | undefined>(undefined)
@@ -48,10 +49,20 @@ export function TranslateProvider({ children }: { children: React.ReactNode }) {
   const [cancelTranslation, setCancelTranslation] = useState(false)
   const [streamContent, setStreamContent] = useState('')
   const [translatedResults, setTranslatedResults] = useState<TranslatedResult[]>([])
-  const [selectedLangs, setSelectedLangs] = useState<string[]>(['zh'])
+  const [selectedLangs, setSelectedLangs] = useState<string[]>(['en', 'de', 'ja', 'ru', 'tr', 'pt', 'es', 'fr', 'zh'])
   const [currentTranslatingLang, setCurrentTranslatingLang] = useState<string | null>(null)
   const [totalProgress, setTotalProgress] = useState(0)
   const [estimatedTime, setEstimatedTime] = useState(0)
+
+  const resetTranslation = () => {
+    setTranslatedResults([]);
+    setTranslatedContent('');
+    setStreamContent('');
+    setProgress(0);
+    setTotalProgress(0);
+    setEstimatedTime(0);
+    setCurrentTranslatingLang(null);
+  };
 
   const value = {
     file,
@@ -80,6 +91,7 @@ export function TranslateProvider({ children }: { children: React.ReactNode }) {
     setTotalProgress,
     estimatedTime,
     setEstimatedTime,
+    resetTranslation,
   }
 
   return (

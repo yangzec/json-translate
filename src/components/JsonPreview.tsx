@@ -18,26 +18,78 @@ const VirtualizedJson = dynamic(() => import('./VirtualizedJson'), {
 export function JsonPreview() {
   const { file, translatedResults, streamContent, isTranslating, currentTranslatingLang } = useTranslate()
   const [sourceContent, setSourceContent] = useState<string>("")
-  const [isCollapsed, setIsCollapsed] = useState(false)
   const [activeTab, setActiveTab] = useState<string>("")
   const { selectedLangs } = useTranslate()
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
-  const [containerSize, setContainerSize] = useState({ width: 0, height: 500 });
+  const [containerSize, setContainerSize] = useState({ width: 0, height: 300 });
   const containerRef = useRef<HTMLDivElement>(null);
 
   const languageLabels: Record<string, string> = {
-    zh: '中文',
-    en: '英语',
-    ja: '日语',
-    ko: '韩语',
-    fr: '法语',
-    de: '德语',
-    es: '西班牙语',
-    it: '意大利语',
-    pt: '葡萄牙语',
-    nl: '荷兰语',
-    pl: '波兰语'
+    // Common Languages
+    en: 'English',
+    ru: 'Russian',
+    es: 'Spanish',
+    de: 'German',
+    tr: 'Turkish',
+    fa: 'Persian',
+    fr: 'French',
+    ja: 'Japanese',
+    pt: 'Portuguese',
+    zh: 'Chinese (S)',
+    'zh-TW': 'Chinese (T)',
+    vi: 'Vietnamese',
+    it: 'Italian',
+    ar: 'Arabic',
+    pl: 'Polish',
+    el: 'Greek',
+    nl: 'Dutch',
+    id: 'Indonesian',
+    ko: 'Korean',
+    th: 'Thai',
+
+    // European Languages
+    uk: 'Ukrainian',
+    he: 'Hebrew',
+    sv: 'Swedish',
+    ro: 'Romanian',
+    hu: 'Hungarian',
+    da: 'Danish',
+    sk: 'Slovak',
+    sr: 'Serbian',
+    bg: 'Bulgarian',
+    fi: 'Finnish',
+    hr: 'Croatian',
+    lt: 'Lithuanian',
+    nb: 'Norwegian',
+    sl: 'Slovenian',
+    lv: 'Latvian',
+    et: 'Estonian',
+    cs: 'Czech',
+    ca: 'Catalan',
+
+    // Asian Languages
+    hi: 'Hindi',
+    bn: 'Bengali',
+    ta: 'Tamil',
+    ur: 'Urdu',
+    gu: 'Gujarati',
+    kn: 'Kannada',
+    ml: 'Malayalam',
+    mr: 'Marathi',
+    ms: 'Malay',
+    my: 'Burmese',
+    km: 'Khmer',
+    lo: 'Lao',
+    mn: 'Mongolian',
+
+    // Other Languages
+    az: 'Azerbaijani',
+    ka: 'Georgian',
+    hy: 'Armenian',
+    sw: 'Swahili',
+    af: 'Afrikaans',
+    am: 'Amharic'
   }
 
   useEffect(() => {
@@ -50,7 +102,7 @@ export function JsonPreview() {
           const formatted = JSON.stringify(JSON.parse(content), null, 2)
           setSourceContent(formatted)
         } catch (error) {
-          console.error('JSON解析错误:', error)
+          console.error('JSON parsing error:', error)
         } finally {
           setIsLoading(false)
         }
@@ -80,22 +132,22 @@ export function JsonPreview() {
 
   const formatJson = (jsonString: string) => {
     try {
-      // 如果是空字符串或提示文本，直接返回
+      // If the JSON string is empty or a prompt text, return it directly
       if (!jsonString || 
-          jsonString === '请上传JSON文件' || 
-          jsonString === '翻译结果将显示在这里') {
+          jsonString === 'Please upload a JSON file' || 
+          jsonString === 'Translation results will be displayed here') {
         return jsonString;
       }
       
-      // 处理流式输出的情况
+      // Handle streaming output
       if (isTranslating) {
         try {
-          // 尝试将内容包装成完整的JSON对象
+          // Try to wrap the content into a complete JSON object
           const wrappedContent = `{"temp": ${jsonString}}`;
           const parsed = JSON.parse(wrappedContent);
-          return JSON.stringify(parsed.temp, null, isCollapsed ? 0 : 2);
+          return JSON.stringify(parsed.temp, null, 2);
         } catch {
-          // 如果解析失败，进行基本的格式化
+          // If parsing fails, perform basic formatting
           return jsonString
             .split(',')
             .map(line => line.trim())
@@ -103,11 +155,11 @@ export function JsonPreview() {
         }
       }
       
-      // 非流式输出情况，正常解析和格式化
+      // Non-streaming output, parse and format normally
       const parsed = JSON.parse(jsonString);
-      return JSON.stringify(parsed, null, isCollapsed ? 0 : 2);
+      return JSON.stringify(parsed, null, 2);
     } catch (e) {
-      // 如果所有尝试都失败，返回原始字符串
+      // If all attempts fail, return the original string
       return jsonString;
     }
   }
@@ -116,14 +168,14 @@ export function JsonPreview() {
     try {
       await navigator.clipboard.writeText(content)
       toast({
-        title: "已复制",
-        description: "内容已复制到剪贴板"
+        title: "Success",
+        description: "Content has been copied to the clipboard"
       })
     } catch (err) {
       toast({
         variant: "destructive",
-        title: "复制失败",
-        description: "请手动复制内容"
+        title: "Error",
+        description: "Copy failed, please copy manually"
       })
     }
   }
@@ -144,29 +196,29 @@ export function JsonPreview() {
       URL.revokeObjectURL(url)
 
       toast({
-        title: "成功",
-        description: `${languageLabels[lang]}翻译文件已下载`
+        title: "Success",
+        description: `${languageLabels[lang]} translation file has been downloaded`
       })
     } catch (err) {
       toast({
         variant: "destructive",
-        title: "错误",
-        description: "下载失败，请重试"
+        title: "Error",
+        description: "Download failed, please try again"
       })
     }
   }
 
   const handleDownloadAll = () => {
     try {
-      // 创建一个 zip 文件
+      // Create a zip file
       const zip = new JSZip()
       
-      // 添加所有翻译结果到 zip
+      // Add all translation results to the zip
       translatedResults.forEach(result => {
         zip.file(`translated_${result.lang}.json`, result.content)
       })
       
-      // 生成并下载 zip 文件
+      // Generate and download the zip file
       zip.generateAsync({ type: "blob" }).then(content => {
         const url = URL.createObjectURL(content)
         const a = document.createElement('a')
@@ -178,33 +230,26 @@ export function JsonPreview() {
         URL.revokeObjectURL(url)
         
         toast({
-          title: "成功",
-          description: "所有翻译文件已下载"
+          title: "Success",
+          description: "All translation files have been downloaded"
         })
       })
     } catch (err) {
       toast({
         variant: "destructive",
-        title: "错误",
-        description: "下载失败，请重试"
+        title: "Error",
+        description: "Download failed, please try again"
       })
     }
   }
 
   return (
-    <div className="grid grid-cols-2 gap-4">
-      {/* 左侧原文 */}
-      <div className="border rounded-lg p-4">
+    <div className="flex flex-col gap-4">
+      {/* Upper part: Original */}
+      <div className="border border-border rounded-3xl p-6 transition-all duration-300 bg-white/90 backdrop-blur-sm">
         <div className="flex justify-between items-center mb-2">
-          <h3 className="text-lg font-medium">原文</h3>
+          <h3 className="text-lg font-medium">Original</h3>
           <div className="flex gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsCollapsed(!isCollapsed)}
-            >
-              {isCollapsed ? <ExpandIcon className="h-4 w-4" /> : <ShrinkIcon className="h-4 w-4" />}
-            </Button>
             <Button
               variant="ghost"
               size="sm"
@@ -215,46 +260,51 @@ export function JsonPreview() {
           </div>
         </div>
         {isLoading ? (
-          <div className="flex items-center justify-center h-[500px]">
+          <div className="flex items-center justify-center h-[300px]">
             <span className="loading loading-spinner loading-md"></span>
           </div>
         ) : (
-          <div ref={containerRef} className="h-[500px] overflow-hidden">
-            {sourceContent ? (
-              <VirtualizedJson
-                content={formatJson(sourceContent)}
-                height={containerSize.height}
-                width={containerSize.width}
-                showLineNumbers={true}
-              />
-            ) : (
-              <VirtualizedJson
-                content={`{
-  // 请上传 JSON 文件
+          <>
+            <div ref={containerRef} className="h-[300px] overflow-hidden">
+              {sourceContent ? (
+                <VirtualizedJson
+                  content={formatJson(sourceContent)}
+                  height={containerSize.height}
+                  width={containerSize.width}
+                  showLineNumbers={true}
+                />
+              ) : (
+                <VirtualizedJson
+                  content={`{
+  // Please upload a JSON file
 }`}
-                height={containerSize.height}
-                width={containerSize.width}
-                showLineNumbers={false}
-              />
-            )}
-          </div>
+                  height={containerSize.height}
+                  width={containerSize.width}
+                  showLineNumbers={false}
+                />
+              )}
+            </div>
+            <div className="mt-4 text-sm text-muted-foreground">
+              Tips: Supports real-time preview and formatting of JSON files, and you can directly copy the content
+            </div>
+          </>
         )}
       </div>
 
-      {/* 右侧译文 */}
-      <div className="border rounded-lg p-4">
+      {/* Lower part: Translations */}
+      <div className="border border-border rounded-3xl p-6 transition-all duration-300 bg-white/90 backdrop-blur-sm">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-medium">译文</h3>
+          <h3 className="text-lg font-medium">Translations</h3>
           <div className="flex items-center gap-2">
             {activeTab && translatedResults.find(r => r.lang === activeTab) && (
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => handleDownload(activeTab)}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 shadow-none"
               >
                 <DownloadIcon className="h-4 w-4" />
-                下载{languageLabels[activeTab]}翻译
+                Download {languageLabels[activeTab]} translation
               </Button>
             )}
             {translatedResults.length > 0 && (
@@ -262,10 +312,10 @@ export function JsonPreview() {
                 variant="outline"
                 size="sm"
                 onClick={handleDownloadAll}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 shadow-none"
               >
                 <DownloadIcon className="h-4 w-4" />
-                下载所有译文
+                Download all translations
               </Button>
             )}
           </div>
@@ -277,7 +327,7 @@ export function JsonPreview() {
               isTranslating && activeTab === currentTranslatingLang
                 ? streamContent
                 : (translatedResults.find(r => r.lang === activeTab)?.content || `{
-  // 翻译结果将显示在这里
+  // Translation results will be displayed here
 }`)
             )}
             height={containerSize.height}
