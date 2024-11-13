@@ -115,8 +115,8 @@ export function FileUpload() {
           htmlFor="dropzone-file" 
           className={`flex flex-col items-center justify-center w-full py-16 border border-dashed rounded-2xl cursor-pointer transition-colors
             ${isUploaded 
-              ? 'border-blue-500 bg-blue-50 hover:bg-blue-100' 
-              : 'border-gray-300 bg-gray-50 hover:bg-gray-100'
+              ? 'border-blue-500 bg-blue-50 hover:bg-blue-100/50' 
+              : 'border-blue-300 bg-blue-50 hover:bg-blue-100/50'
             }`}
           onDragOver={handleDragOver}
           onDrop={handleDrop}

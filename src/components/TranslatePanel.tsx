@@ -237,98 +237,101 @@ export function TranslatePanel() {
         }
 
         for (let i = savedLangChunks.length; i < chunks.length; i++) {
-          if (cancelTranslation) break;
+          if (cancelTranslation) {
+            console.log('Translation cancelled, stopping...')
+            break
+          }
           
           try {
-            const chunk = chunks[i];
+            const chunk = chunks[i]
             const translatedChunk = await translate(
               JSON.stringify(chunk),
               lang,
               apiKey,
               controller.signal,
               (progress) => {
-                const singleChunkProgress = progress / 100;
-                const overallProgress = ((currentCompletedChunks + singleChunkProgress) / calculatedTotalChunks) * 100;
-                setTotalProgress(Math.round(overallProgress));
+                const singleChunkProgress = progress / 100
+                const overallProgress = ((currentCompletedChunks + singleChunkProgress) / calculatedTotalChunks) * 100
+                setTotalProgress(Math.round(overallProgress))
               },
               (content) => {
-                // Update the stream output content
-                setStreamContent(content);
-                
+                setStreamContent(content)
                 try {
-                  // Try to parse the stream output content
-                  const parsedStreamContent = JSON.parse(`{${content}}`);
+                  // 如果翻译被取消，不进行 JSON 解析
+                  if (cancelTranslation) return
                   
-                  // Merge the translated content and the current stream output
+                  const parsedStreamContent = JSON.parse(`{${content}}`)
                   const mergedContent = mergeTranslatedChunks([
                     currentLangContent,
                     parsedStreamContent
-                  ]);
+                  ])
                   
-                  // Update the translation result, keeping the translated content
-                  const resultIndex = results.findIndex(r => r.lang === lang);
+                  const resultIndex = results.findIndex(r => r.lang === lang)
                   if (resultIndex !== -1) {
                     results[resultIndex] = {
                       lang,
                       content: JSON.stringify(mergedContent, null, 2)
-                    };
+                    }
                   } else {
                     results.push({
                       lang,
                       content: JSON.stringify(mergedContent, null, 2)
-                    });
+                    })
                   }
-                  setTranslatedResults([...results]);
-                } catch {
-                  // If parsing fails, continue using the accumulated content
-                  const resultIndex = results.findIndex(r => r.lang === lang);
-                  if (resultIndex !== -1) {
-                    results[resultIndex] = {
-                      lang,
-                      content: JSON.stringify(currentLangContent, null, 2)
-                    };
-                  }
-                  setTranslatedResults([...results]);
+                  setTranslatedResults([...results])
+                } catch (error) {
+                  // 如果是取消操作，忽略错误
+                  if (cancelTranslation) return
+                  
+                  console.warn('Stream content parse error:', error)
                 }
               }
-            );
+            )
             
-            const parsedChunk = JSON.parse(translatedChunk);
-            translatedChunks.push(parsedChunk);
+            // 如果翻译被取消，跳出循环
+            if (!translatedChunk || cancelTranslation) {
+              break
+            }
+
+            const parsedChunk = JSON.parse(translatedChunk)
+            translatedChunks.push(parsedChunk)
             
-            // Update the accumulated content for the current language
             currentLangContent = mergeTranslatedChunks([
               currentLangContent,
               parsedChunk
-            ]);
+            ])
 
-            // Update the final translation result
-            const resultIndex = results.findIndex(r => r.lang === lang);
+            const resultIndex = results.findIndex(r => r.lang === lang)
             if (resultIndex !== -1) {
               results[resultIndex] = {
                 lang,
                 content: JSON.stringify(currentLangContent, null, 2)
-              };
+              }
             } else {
               results.push({
                 lang,
                 content: JSON.stringify(currentLangContent, null, 2)
-              });
+              })
             }
-            setTranslatedResults([...results]);
+            setTranslatedResults([...results])
             
-            // Save progress
-            savedChunks[lang] = translatedChunks;
+            savedChunks[lang] = translatedChunks
             localStorage.setItem(
               `translation_progress_${file.name}`,
               JSON.stringify(savedChunks)
-            );
+            )
             
-            currentCompletedChunks++;
-            setCompletedChunks(currentCompletedChunks);
+            currentCompletedChunks++
+            setCompletedChunks(currentCompletedChunks)
           } catch (error) {
-            console.error(`Translation block ${i} failed:`, error);
-            continue;
+            // 如果是取消操作，跳出循环
+            if (cancelTranslation || (error instanceof DOMException && error.name === 'AbortError')) {
+              console.log('Translation block cancelled')
+              break
+            }
+            // 其他错误则继续处理下一个块
+            console.warn(`Translation block ${i} failed:`, error)
+            continue
           }
         }
       }
@@ -336,10 +339,13 @@ export function TranslatePanel() {
       // Clear saved progress
       localStorage.removeItem(`translation_progress_${file.name}`);
       
-      toast({
-        title: "Success",
-        description: "Translation completed!"
-      });
+      // 只有在非取消状态下才显示完成提示
+      if (!cancelTranslation) {
+        toast({
+          title: "Success",
+          description: "Translation completed!"
+        });
+      }
       
     } catch (err) {
       handleTranslationError(err);
@@ -365,11 +371,15 @@ export function TranslatePanel() {
     setTotalChunks(0)
     setCurrentTranslatingLang(null)
     setStreamContent("")
+    // 清除保存的进度
+    if (file) {
+      localStorage.removeItem(`translation_progress_${file.name}`)
+    }
     toast({
       title: "Cancelled",
       description: "Translation cancelled"
     })
-    setCompletedChunks(0);
+    setCompletedChunks(0)
   }
 
   // Add a function to check saved progress

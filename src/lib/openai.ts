@@ -69,12 +69,20 @@ export async function translate(
       const parsedJson = JSON.parse(fullContent)
       fullContent = JSON.stringify(parsedJson, null, 2)
     } catch (e) {
+      if (signal?.aborted) {
+        return ''
+      }
       throw new Error(`Invalid translation result format: ${(e as Error).message}`)
     }
 
     return fullContent
 
   } catch (error: unknown) {
+    if (signal?.aborted || (error instanceof DOMException && error.name === 'AbortError')) {
+      console.log('Translation cancelled')
+      return ''
+    }
+    
     console.error('Translation error details:', error)
     
     if (error instanceof OpenAI.APIError) {
@@ -87,10 +95,6 @@ export async function translate(
       }
     }
     
-    if (error instanceof DOMException && error.name === 'AbortError') {
-      throw new Error('Translation cancelled')
-    }
-    
-    throw new Error((error as Error).message || 'Translation service error, please try again later')
+    throw error
   }
 } 
