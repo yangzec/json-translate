@@ -20,7 +20,12 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-// ... metadata 配置保持不变 ...
+type LayoutProps = {
+  children: ReactNode;
+  params: {
+    lang: string;
+  };
+}
 
 export async function generateMetadata(
   { params }: { params: { lang: string } }
@@ -105,13 +110,7 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }))
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
-  children: ReactNode;
-  params: { lang: string };
-}) {
+const LocaleLayout = async ({ children, params }: LayoutProps) => {
   const { lang } = params;
 
   if (!locales.includes(lang)) {
@@ -137,4 +136,6 @@ export default async function LocaleLayout({
       </body>
     </html>
   );
-} 
+}
+
+export default LocaleLayout; 
