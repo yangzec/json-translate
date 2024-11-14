@@ -103,7 +103,13 @@
     "bytes": "Byte",
     "kb": "KB",
     "mb": "MB",
-    "gb": "GB"
+    "gb": "GB",
+    "apiKeyErrors": {
+      "invalidFormat": "Format kunci API tidak valid",
+      "invalidOrExpired": "Kunci API tidak valid atau kedaluwarsa",
+      "rateLimitReached": "Batas pemanggilan API tercapai",
+      "validationFailed": "Validasi kunci API gagal"
+    }
   },
   "jsonPreview": {
     "title": "Pratampilan",

@@ -103,7 +103,13 @@
     "bytes": "Байты",
     "kb": "КБ",
     "mb": "МБ",
-    "gb": "ГБ"
+    "gb": "ГБ",
+    "apiKeyErrors": {
+      "invalidFormat": "Неверный формат API ключа",
+      "invalidOrExpired": "Недействительный или просроченный API ключ",
+      "rateLimitReached": "Достигнут лимит вызовов API",
+      "validationFailed": "Ошибка проверки API ключа"
+    }
   },
   "jsonPreview": {
     "title": "Предварительный просмотр",

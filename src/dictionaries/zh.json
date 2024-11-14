@@ -103,13 +103,19 @@
     "bytes": "字节",
     "kb": "KB",
     "mb": "MB",
-    "gb": "GB"
+    "gb": "GB",
+    "apiKeyErrors": {
+      "invalidFormat": "无效的 API 密钥格式",
+      "invalidOrExpired": "无效或已过期的 API 密钥",
+      "rateLimitReached": "API 调用次数已达上限",
+      "validationFailed": "API 密钥验证失败"
+    }
   },
   "jsonPreview": {
     "title": "预览",
     "empty": "JSON 预览将显示在这里",
     "copied": "已复制到剪贴板",
-    "originalJson": "��始 JSON",
+    "originalJson": "原始 JSON",
     "translatedJson": "翻译后的 JSON",
     "tips": "提示：支持实时预览和格式化 JSON 文件，您可以直接复制内容",
     "placeholder": {
@@ -147,7 +153,7 @@
       "nl": "荷兰语",
       "id": "印尼语",
       "ko": "韩语",
-      "th": "泰��",
+      "th": "泰",
       "vi": "越南语",
       "fa": "波斯语",
       "uk": "乌克兰语",

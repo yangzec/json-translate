@@ -103,7 +103,13 @@
     "bytes": "바이트",
     "kb": "KB",
     "mb": "MB",
-    "gb": "GB"
+    "gb": "GB",
+    "apiKeyErrors": {
+      "invalidFormat": "잘못된 API 키 형식",
+      "invalidOrExpired": "유효하지 않거나 만료된 API 키",
+      "rateLimitReached": "API 호출 한도에 도달했습니다",
+      "validationFailed": "API 키 검증 실패"
+    }
   },
   "jsonPreview": {
     "title": "미리보기",

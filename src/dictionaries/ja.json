@@ -103,7 +103,13 @@
     "bytes": "バイト",
     "kb": "KB",
     "mb": "MB",
-    "gb": "GB"
+    "gb": "GB",
+    "apiKeyErrors": {
+      "invalidFormat": "APIキーの形式が無効です",
+      "invalidOrExpired": "APIキーが無効または期限切れです",
+      "rateLimitReached": "APIレート制限に達しました",
+      "validationFailed": "APIキーの検証に失敗しました"
+    }
   },
   "jsonPreview": {
     "title": "プレビュー",

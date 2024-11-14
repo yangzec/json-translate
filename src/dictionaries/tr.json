@@ -103,7 +103,13 @@
     "bytes": "Bayt",
     "kb": "KB",
     "mb": "MB",
-    "gb": "GB"
+    "gb": "GB",
+    "apiKeyErrors": {
+      "invalidFormat": "Geçersiz API anahtarı formatı",
+      "invalidOrExpired": "Geçersiz veya süresi dolmuş API anahtarı",
+      "rateLimitReached": "API çağrı limiti aşıldı",
+      "validationFailed": "API anahtarı doğrulaması başarısız oldu"
+    }
   },
   "jsonPreview": {
     "title": "Önizleme",

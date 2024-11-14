@@ -103,7 +103,13 @@
     "bytes": "位元組",
     "kb": "KB",
     "mb": "MB",
-    "gb": "GB"
+    "gb": "GB",
+    "apiKeyErrors": {
+      "invalidFormat": "無效的 API 密鑰格式",
+      "invalidOrExpired": "無效或已過期的 API 密鑰",
+      "rateLimitReached": "API 調用次數已達上限",
+      "validationFailed": "API 密鑰驗證失敗"
+    }
   },
   "jsonPreview": {
     "title": "預覽",

@@ -56,6 +56,12 @@ interface TranslatePanelProps {
       kb: string;
       mb: string;
       gb: string;
+      apiKeyErrors: {
+        invalidFormat: string;
+        invalidOrExpired: string;
+        rateLimitReached: string;
+        validationFailed: string;
+      };
     }>;
     jsonPreview: {
       languages: Record<string, string>;
@@ -96,11 +102,18 @@ export function TranslatePanel({ dict }: TranslatePanelProps) {
     setEstimatedTime
   } = useTranslate()
 
-  type TranslatePanelKey = keyof typeof dict.translatePanel;
+  type TranslatePanelKey = keyof typeof dict.translatePanel | 'apiKeyErrors.invalidFormat' | 'apiKeyErrors.invalidOrExpired' | 'apiKeyErrors.rateLimitReached' | 'apiKeyErrors.validationFailed';
 
   const getTranslation = (key: TranslatePanelKey, defaultValue: string) => {
-    const value = dict?.translatePanel?.[key];
-    return !value || value.trim() === "" ? defaultValue : value;
+    if (key.includes('.')) {
+      const [parent, child] = key.split('.');
+      return (dict?.translatePanel?.[parent as keyof typeof dict.translatePanel] as any)?.[child] || defaultValue;
+    }
+    const value = dict?.translatePanel?.[key as keyof typeof dict.translatePanel];
+    if (typeof value === 'string') {
+      return !value || value.trim() === "" ? defaultValue : value;
+    }
+    return value || defaultValue;
   }
 
   // 添加默认值处理
@@ -128,7 +141,13 @@ export function TranslatePanel({ dict }: TranslatePanelProps) {
     bytes: "B",
     kb: "KB",
     mb: "MB",
-    gb: "GB"
+    gb: "GB",
+    apiKeyErrors: {
+      invalidFormat: getTranslation("apiKeyErrors.invalidFormat", "Invalid API Key format"),
+      invalidOrExpired: getTranslation("apiKeyErrors.invalidOrExpired", "Invalid or expired API Key"),
+      rateLimitReached: getTranslation("apiKeyErrors.rateLimitReached", "API call limit reached"),
+      validationFailed: getTranslation("apiKeyErrors.validationFailed", "API Key validation failed")
+    }
   }
 
   // Common languages (top 20 most common languages)
@@ -229,10 +248,22 @@ export function TranslatePanel({ dict }: TranslatePanelProps) {
     try {
       await validateApiKey(apiKey);
     } catch (err) {
+      let errorMessage = translations.apiKeyErrors.validationFailed;
+      
+      if (err instanceof Error) {
+        if (err.message.includes('format')) {
+          errorMessage = translations.apiKeyErrors.invalidFormat;
+        } else if (err.message.includes('expired')) {
+          errorMessage = translations.apiKeyErrors.invalidOrExpired;
+        } else if (err.message.includes('limit')) {
+          errorMessage = translations.apiKeyErrors.rateLimitReached;
+        }
+      }
+      
       toast({
         variant: "destructive",
         title: translations.errorTitle,
-        description: err instanceof Error ? err.message : "API Key validation failed"
+        description: errorMessage
       });
       return;
     }

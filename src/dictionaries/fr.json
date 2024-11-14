@@ -103,7 +103,13 @@
     "bytes": "Octets",
     "kb": "Ko",
     "mb": "Mo",
-    "gb": "Go"
+    "gb": "Go",
+    "apiKeyErrors": {
+      "invalidFormat": "Format de clé API invalide",
+      "invalidOrExpired": "Clé API invalide ou expirée",
+      "rateLimitReached": "Limite de requêtes API atteinte",
+      "validationFailed": "Échec de la validation de la clé API"
+    }
   },
   "jsonPreview": {
     "title": "Aperçu",

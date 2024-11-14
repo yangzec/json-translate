@@ -103,7 +103,13 @@
     "bytes": "Bajty",
     "kb": "KB",
     "mb": "MB",
-    "gb": "GB"
+    "gb": "GB",
+    "apiKeyErrors": {
+      "invalidFormat": "Nieprawidłowy format klucza API",
+      "invalidOrExpired": "Nieprawidłowy lub wygasły klucz API",
+      "rateLimitReached": "Osiągnięto limit wywołań API",
+      "validationFailed": "Weryfikacja klucza API nie powiodła się"
+    }
   },
   "jsonPreview": {
     "title": "Podgląd",

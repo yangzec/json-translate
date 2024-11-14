@@ -103,7 +103,13 @@
       "bytes": "Byte",
       "kb": "KB",
       "mb": "MB",
-      "gb": "GB"
+      "gb": "GB",
+      "apiKeyErrors": {
+        "invalidFormat": "Định dạng khóa API không hợp lệ",
+        "invalidOrExpired": "Khóa API không hợp lệ hoặc đã hết hạn",
+        "rateLimitReached": "Đã đạt giới hạn gọi API",
+        "validationFailed": "Xác thực khóa API thất bại"
+      }
     },
     "jsonPreview": {
       "title": "Xem trước",

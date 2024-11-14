@@ -103,7 +103,13 @@
     "bytes": "Byte",
     "kb": "KB",
     "mb": "MB",
-    "gb": "GB"
+    "gb": "GB",
+    "apiKeyErrors": {
+      "invalidFormat": "Formato chiave API non valido",
+      "invalidOrExpired": "Chiave API non valida o scaduta",
+      "rateLimitReached": "Limite di chiamate API raggiunto",
+      "validationFailed": "Validazione chiave API fallita"
+    }
   },
   "jsonPreview": {
     "title": "Anteprima",

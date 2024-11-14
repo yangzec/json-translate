@@ -83,7 +83,7 @@
     "uploadFirst": "يرجى تحميل ملف أولاً",
     "enterApiKey": "يرجى إدخال مفتاح API",
     "foundUnfinished": "تم العثور على ترجمة غير مكتملة",
-    "continueTranslation": "تابع التر��مة",
+    "continueTranslation": "تابع الترمة",
     "translationCancelled": "تم إلغاء الترجمة",
     "invalidApiKey": "تنسيق مفتاح API غير صالح",
     "errorTitle": "خطأ",
@@ -103,7 +103,13 @@
     "bytes": "بايت",
     "kb": "كيلوبايت",
     "mb": "ميغابايت",
-    "gb": "جيجابايت"
+    "gb": "جيجابايت",
+    "apiKeyErrors": {
+      "invalidFormat": "تنسيق مفتاح API غير صالح",
+      "invalidOrExpired": "مفتاح API غير صالح أو منتهي الصلاحية",
+      "rateLimitReached": "تم الوصول إلى حد معدل API",
+      "validationFailed": "فشل التحقق من مفتاح API"
+    }
   },
   "jsonPreview": {
     "title": "معاينة",
