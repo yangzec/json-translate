@@ -7,6 +7,7 @@ import { TranslateProvider } from "@/context/TranslateContext";
 import { locales, defaultLocale } from "@/config/i18n";
 import { notFound } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -102,22 +103,11 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }))
 }
 
-export interface LayoutProps {
-  children: React.ReactNode;
-  params: Promise<{
-    lang: string;
-  }>;
-}
-
-type LayoutParams = {
-  lang: string;
-};
-
 export default async function LocaleLayout({
   children,
   params,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
