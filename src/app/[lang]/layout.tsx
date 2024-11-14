@@ -104,7 +104,9 @@ export async function generateStaticParams() {
 
 export interface LayoutProps {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{
+    lang: string;
+  }>;
 }
 
 type LayoutParams = {
@@ -116,14 +118,17 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<LayoutParams>;
+  params: Promise<{ lang: string }>;
 }) {
-  const resolvedParams = await params;
-  const { lang } = resolvedParams;
+  const { lang } = await params;
 
   if (!locales.includes(lang)) {
-    notFound()
+    notFound();
   }
+
+  const dict = await import(`@/dictionaries/${lang}.json`).then(
+    (module) => module.default
+  );
 
   return (
     <html lang={lang} suppressHydrationWarning>
@@ -139,5 +144,5 @@ export default async function LocaleLayout({
         </TranslateProvider>
       </body>
     </html>
-  )
+  );
 } 
