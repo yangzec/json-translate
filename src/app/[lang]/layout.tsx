@@ -83,6 +83,17 @@ export async function generateMetadata({ params }: { params: { lang: string } })
     },
     alternates: {
       languages: languageAlternates
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     }
   }
 }
