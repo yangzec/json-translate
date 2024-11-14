@@ -20,7 +20,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-type LayoutProps = {
+interface LayoutProps {
   children: ReactNode;
   params: {
     lang: string;
@@ -28,7 +28,7 @@ type LayoutProps = {
 }
 
 export async function generateMetadata(
-  { params }: { params: { lang: string } }
+  { params }: Pick<LayoutProps, 'params'>
 ): Promise<Metadata> {
   const lang = params.lang
   
@@ -110,8 +110,8 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }))
 }
 
-const LocaleLayout = async ({ children, params }: LayoutProps) => {
-  const { lang } = params;
+export default async function LocaleLayout(props: LayoutProps) {
+  const { children, params: { lang } } = props;
 
   if (!locales.includes(lang)) {
     notFound();
@@ -136,6 +136,4 @@ const LocaleLayout = async ({ children, params }: LayoutProps) => {
       </body>
     </html>
   );
-}
-
-export default LocaleLayout; 
+} 
