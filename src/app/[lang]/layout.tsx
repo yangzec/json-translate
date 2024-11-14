@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import localFont from "next/font/local";
 import "../globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -102,17 +102,17 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }))
 }
 
-type LayoutProps = {
+export interface LayoutProps {
   children: React.ReactNode;
-  params: {
-    lang: string;
-  };
-};
+  params: { lang: string };
+}
 
-export default function LocaleLayout({
-  children,
-  params,
-}: LayoutProps) {
+export default async function LocaleLayout(props: {
+  children: React.ReactNode;
+  params: { lang: string };
+}) {
+  const { children, params } = props;
+
   if (!locales.includes(params.lang)) {
     notFound()
   }
