@@ -15,7 +15,35 @@ const VirtualizedJson = dynamic(() => import('./VirtualizedJson'), {
   ssr: false
 });
 
-export function JsonPreview() {
+interface JsonPreviewProps {
+  dict: {
+    jsonPreview: {
+      originalJson: string;
+      translatedJson: string;
+      tips: string;
+      placeholder: {
+        upload: string;
+        translation: string;
+      };
+      actions: {
+        copy: string;
+        download: string;
+        downloadAll: string;
+        downloadFormat: string;
+      };
+      toast: {
+        copySuccess: string;
+        copyError: string;
+        downloadSuccess: string;
+        downloadAllSuccess: string;
+        downloadError: string;
+      };
+      languages: Record<string, string>;
+    };
+  };
+}
+
+export const JsonPreview: React.FC<JsonPreviewProps> = ({ dict }) => {
   const { file, translatedResults, streamContent, isTranslating, currentTranslatingLang } = useTranslate()
   const [sourceContent, setSourceContent] = useState<string>("")
   const [activeTab, setActiveTab] = useState<string>("")
@@ -24,73 +52,31 @@ export function JsonPreview() {
   const [isLoading, setIsLoading] = useState(false)
   const [containerSize, setContainerSize] = useState({ width: 0, height: 300 });
   const containerRef = useRef<HTMLDivElement>(null);
+  const [formattedContent, setFormattedContent] = useState<string>("");
 
-  const languageLabels: Record<string, string> = {
-    // Common Languages
-    en: 'English',
-    ru: 'Russian',
-    es: 'Spanish',
-    de: 'German',
-    tr: 'Turkish',
-    fa: 'Persian',
-    fr: 'French',
-    ja: 'Japanese',
-    pt: 'Portuguese',
-    zh: 'Chinese (S)',
-    'zh-TW': 'Chinese (T)',
-    vi: 'Vietnamese',
-    it: 'Italian',
-    ar: 'Arabic',
-    pl: 'Polish',
-    el: 'Greek',
-    nl: 'Dutch',
-    id: 'Indonesian',
-    ko: 'Korean',
-    th: 'Thai',
-
-    // European Languages
-    uk: 'Ukrainian',
-    he: 'Hebrew',
-    sv: 'Swedish',
-    ro: 'Romanian',
-    hu: 'Hungarian',
-    da: 'Danish',
-    sk: 'Slovak',
-    sr: 'Serbian',
-    bg: 'Bulgarian',
-    fi: 'Finnish',
-    hr: 'Croatian',
-    lt: 'Lithuanian',
-    nb: 'Norwegian',
-    sl: 'Slovenian',
-    lv: 'Latvian',
-    et: 'Estonian',
-    cs: 'Czech',
-    ca: 'Catalan',
-
-    // Asian Languages
-    hi: 'Hindi',
-    bn: 'Bengali',
-    ta: 'Tamil',
-    ur: 'Urdu',
-    gu: 'Gujarati',
-    kn: 'Kannada',
-    ml: 'Malayalam',
-    mr: 'Marathi',
-    ms: 'Malay',
-    my: 'Burmese',
-    km: 'Khmer',
-    lo: 'Lao',
-    mn: 'Mongolian',
-
-    // Other Languages
-    az: 'Azerbaijani',
-    ka: 'Georgian',
-    hy: 'Armenian',
-    sw: 'Swahili',
-    af: 'Afrikaans',
-    am: 'Amharic'
-  }
+  const translations = {
+    originalJson: dict?.jsonPreview?.originalJson || "Original JSON",
+    translatedJson: dict?.jsonPreview?.translatedJson || "Translated JSON",
+    tips: dict?.jsonPreview?.tips || "Tips: Supports real-time preview and formatting",
+    placeholder: {
+      upload: dict?.jsonPreview?.placeholder?.upload || "Please upload a JSON file",
+      translation: dict?.jsonPreview?.placeholder?.translation || "Translation results will be displayed here"
+    },
+    actions: {
+      copy: dict?.jsonPreview?.actions?.copy || "Copy",
+      download: dict?.jsonPreview?.actions?.download || "Download",
+      downloadAll: dict?.jsonPreview?.actions?.downloadAll || "Download all translations",
+      downloadFormat: dict?.jsonPreview?.actions?.downloadFormat || "Download {lang} translation"
+    },
+    toast: {
+      copySuccess: dict?.jsonPreview?.toast?.copySuccess || "Copied to clipboard",
+      copyError: dict?.jsonPreview?.toast?.copyError || "Copy failed",
+      downloadSuccess: dict?.jsonPreview?.toast?.downloadSuccess || "Downloaded {lang} translation",
+      downloadAllSuccess: dict?.jsonPreview?.toast?.downloadAllSuccess || "All translations downloaded",
+      downloadError: dict?.jsonPreview?.toast?.downloadError || "Download failed"
+    },
+    languages: dict?.jsonPreview?.languages || {}
+  };
 
   useEffect(() => {
     if (file) {
@@ -129,6 +115,17 @@ export function JsonPreview() {
       setContainerSize(prev => ({ ...prev, width }));
     }
   }, []);
+
+  useEffect(() => {
+    if (sourceContent) {
+      try {
+        const formatted = formatJson(sourceContent);
+        setFormattedContent(formatted);
+      } catch (error) {
+        console.error('JSON formatting error:', error);
+      }
+    }
+  }, [sourceContent]);
 
   const formatJson = (jsonString: string) => {
     try {
@@ -169,13 +166,13 @@ export function JsonPreview() {
       await navigator.clipboard.writeText(content)
       toast({
         title: "Success",
-        description: "Content has been copied to the clipboard"
+        description: translations.toast.copySuccess
       })
     } catch (err) {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Copy failed, please copy manually"
+        description: translations.toast.copyError
       })
     }
   }
@@ -197,28 +194,27 @@ export function JsonPreview() {
 
       toast({
         title: "Success",
-        description: `${languageLabels[lang]} translation file has been downloaded`
+        description: translations.toast.downloadSuccess.replace(
+          '{lang}', 
+          translations.languages[lang] || lang
+        )
       })
     } catch (err) {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Download failed, please try again"
+        description: translations.toast.downloadError
       })
     }
   }
 
   const handleDownloadAll = () => {
     try {
-      // Create a zip file
       const zip = new JSZip()
-      
-      // Add all translation results to the zip
       translatedResults.forEach(result => {
         zip.file(`translated_${result.lang}.json`, result.content)
       })
       
-      // Generate and download the zip file
       zip.generateAsync({ type: "blob" }).then(content => {
         const url = URL.createObjectURL(content)
         const a = document.createElement('a')
@@ -231,24 +227,23 @@ export function JsonPreview() {
         
         toast({
           title: "Success",
-          description: "All translation files have been downloaded"
+          description: translations.toast.downloadAllSuccess
         })
       })
     } catch (err) {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Download failed, please try again"
+        description: translations.toast.downloadError
       })
     }
   }
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Upper part: Original */}
       <div className="border border-border rounded-3xl p-4 md:p-6 transition-all duration-300 bg-white/90 backdrop-blur-sm">
         <div className="flex justify-between items-center mb-2">
-          <h3 className="text-lg font-bold">Original JSON</h3>
+          <h3 className="text-lg font-bold">{translations.originalJson}</h3>
           <div className="flex gap-2">
             <Button
               variant="ghost"
@@ -268,7 +263,7 @@ export function JsonPreview() {
             <div ref={containerRef} className="h-[300px] overflow-hidden">
               {sourceContent ? (
                 <VirtualizedJson
-                  content={formatJson(sourceContent)}
+                  content={formattedContent}
                   height={containerSize.height}
                   width={containerSize.width}
                   showLineNumbers={true}
@@ -276,7 +271,7 @@ export function JsonPreview() {
               ) : (
                 <VirtualizedJson
                   content={`{
-  // Please upload a JSON file
+  // ${translations.placeholder.upload}
 }`}
                   height={containerSize.height}
                   width={containerSize.width}
@@ -285,16 +280,15 @@ export function JsonPreview() {
               )}
             </div>
             <div className="mt-4 text-sm text-muted-foreground">
-              Tips: Supports real-time preview and formatting of JSON files, and you can directly copy the content
+              {translations.tips}
             </div>
           </>
         )}
       </div>
 
-      {/* Lower part: Translations */}
       <div className="border border-border rounded-3xl p-4 md:p-6 transition-all duration-300 bg-white/90 backdrop-blur-sm">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-bold">Translated JSON</h3>
+          <h3 className="text-lg font-bold">{translations.translatedJson}</h3>
           <div className="flex items-center gap-2">
             {activeTab && translatedResults.find(r => r.lang === activeTab) && (
               <Button
@@ -304,7 +298,10 @@ export function JsonPreview() {
                 className="flex items-center gap-2 shadow-none"
               >
                 <DownloadIcon className="h-4 w-4" />
-                Download {languageLabels[activeTab]} translation
+                {translations.actions.downloadFormat.replace(
+                  '{lang}', 
+                  translations.languages[activeTab] || activeTab
+                )}
               </Button>
             )}
             {translatedResults.length > 0 && (
@@ -315,7 +312,7 @@ export function JsonPreview() {
                 className="flex items-center gap-2 shadow-none"
               >
                 <DownloadIcon className="h-4 w-4" />
-                Download all translations
+                {translations.actions.downloadAll}
               </Button>
             )}
           </div>
@@ -327,7 +324,7 @@ export function JsonPreview() {
               isTranslating && activeTab === currentTranslatingLang
                 ? streamContent
                 : (translatedResults.find(r => r.lang === activeTab)?.content || `{
-  // Translation results will be displayed here
+  // ${translations.placeholder.translation}
 }`)
             )}
             height={containerSize.height}
@@ -338,7 +335,7 @@ export function JsonPreview() {
           <TabsList>
             {selectedLangs.map(lang => (
               <TabsTrigger key={lang} value={lang}>
-                {languageLabels[lang]}
+                {translations.languages[lang] || lang}
               </TabsTrigger>
             ))}
           </TabsList>

@@ -3,9 +3,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +20,10 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [scrolled])
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
@@ -44,28 +50,32 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Twitter 链接 */}
-          <a
-            href="https://x.com/decohack"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`transition-colors ${
-              scrolled ? 'text-gray-700 hover:text-gray-900' : 'text-white hover:text-white/80'
-            }`}
-          >
-            <svg 
-              width="20" 
-              height="20" 
-              viewBox="0 0 60 60" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
+          <div className="flex items-center gap-6">
+            {mounted && <LanguageSwitcher />}
+            
+            {/* Twitter 链接 */}
+            <a
+              href="https://x.com/decohack"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`transition-colors ${
+                scrolled ? 'text-gray-700 hover:text-gray-900' : 'text-white hover:text-white/80'
+              }`}
             >
-              <path 
-                d="M40.859 12.9375H46.648L34.0007 27.3925L48.8792 47.0625H37.2277L28.1032 35.1327L17.6627 47.0625H11.8702L25.3977 31.6012L11.1265 12.9375H23.0702L31.318 23.8417L40.859 12.9375ZM38.8272 43.5975H42.035L21.329 16.2205H17.8867L38.8272 43.5975Z" 
-                fill="currentColor"
-              />
-            </svg>
-          </a>
+              <svg 
+                width="20" 
+                height="20" 
+                viewBox="0 0 60 60" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path 
+                  d="M40.859 12.9375H46.648L34.0007 27.3925L48.8792 47.0625H37.2277L28.1032 35.1327L17.6627 47.0625H11.8702L25.3977 31.6012L11.1265 12.9375H23.0702L31.318 23.8417L40.859 12.9375ZM38.8272 43.5975H42.035L21.329 16.2205H17.8867L38.8272 43.5975Z" 
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </nav>

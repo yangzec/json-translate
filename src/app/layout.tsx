@@ -3,6 +3,10 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@/components/Navbar";
+import { TranslateProvider } from "@/context/TranslateContext";
+import { locales } from "@/config/i18n";
+import { defaultLocale } from "@/config/i18n";
+import { notFound } from "next/navigation";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -49,38 +53,28 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  params,
+}: {
+  children: React.ReactNode
+  params: { lang: string }
+}) {
+  const lang = await params.lang || defaultLocale;
+
+  if (!locales.includes(lang)) {
+    notFound()
+  }
+
   return (
-    <html suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Toaster />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "JSON Translation Tool",
-            "applicationCategory": "DeveloperApplication",
-            "operatingSystem": "Web",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            },
-            "description": "AI-powered JSON translation tool for internationalization",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "ratingCount": "150"
-            }
-          })}
-        </script>
+    <html lang={lang} className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>
+        <TranslateProvider>
+          <Navbar />
+          {children}
+          <Toaster />
+        </TranslateProvider>
       </body>
     </html>
-  );
+  )
 }

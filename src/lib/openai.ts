@@ -18,8 +18,6 @@ export async function translate(
   })
 
   try {
-    console.log('Start translating, target language:', targetLang)
-    
     const prompt = `Please translate the following JSON content to ${targetLang}, keep the JSON structure unchanged, only translate the value part.
     Note:
     1. Keep all keys unchanged
@@ -79,11 +77,8 @@ export async function translate(
 
   } catch (error: unknown) {
     if (signal?.aborted || (error instanceof DOMException && error.name === 'AbortError')) {
-      console.log('Translation cancelled')
       return ''
     }
-    
-    console.error('Translation error details:', error)
     
     if (error instanceof OpenAI.APIError) {
       if (error.status === 401) {

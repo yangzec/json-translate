@@ -11,6 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Checkbox } from "@/components/ui/checkbox"
 import { chunkJsonObject, mergeTranslatedChunks } from "@/lib/json-utils"
 import { ChevronDown, Languages, Loader2 } from "lucide-react"
+import { getDictionary } from "@/lib/getDictionary"
 
 interface TranslatedResult {
   lang: string;
@@ -26,7 +27,40 @@ const readFileContent = (file: File): Promise<string> => {
   });
 };
 
-export function TranslatePanel() {
+interface TranslatePanelProps {
+  dict: {
+    translatePanel: {
+      startTranslate: string;
+      translating: string;
+      cancel: string;
+      uploadFirst: string;
+      enterApiKey: string;
+      showMoreLanguages: string;
+      hideMoreLanguages: string;
+      errorTitle: string;
+      successTitle: string;
+      translationCompleted: string;
+      translationCancelled: string;
+      cancelled: string;
+      bytes: string;
+      kb: string;
+      mb: string;
+      gb: string;
+    };
+    jsonPreview: {
+      languages: Record<string, string>;
+    };
+  };
+}
+
+export function TranslatePanel({ dict }: TranslatePanelProps) {
+  const [error, setError] = useState("")
+  const { toast } = useToast()
+  const [controller, setController] = useState<AbortController | null>(null)
+  const [totalChunks, setTotalChunks] = useState(0)
+  const [completedChunks, setCompletedChunks] = useState(0)
+  const [showMoreLanguages, setShowMoreLanguages] = useState(false)
+
   const { 
     file, 
     apiKey,
@@ -51,81 +85,99 @@ export function TranslatePanel() {
     setTotalProgress,
     setEstimatedTime
   } = useTranslate()
-  const [error, setError] = useState("")
-  const { toast } = useToast()
-  const [controller, setController] = useState<AbortController | null>(null)
-  const [totalChunks, setTotalChunks] = useState(0);
-  const [completedChunks, setCompletedChunks] = useState(0);
-  const [showMoreLanguages, setShowMoreLanguages] = useState(false);
+
+  // 添加默认值处理
+  const translations = {
+    showMoreLanguages: dict?.translatePanel?.showMoreLanguages || "显示更多语言",
+    hideMoreLanguages: dict?.translatePanel?.hideMoreLanguages || "隐藏更多语言",
+    startTranslate: dict?.translatePanel?.startTranslate || "开始翻译",
+    translating: dict?.translatePanel?.translating || "翻译中...",
+    cancel: dict?.translatePanel?.cancel || "取消",
+    uploadFirst: dict?.translatePanel?.uploadFirst || "请先上传文件",
+    enterApiKey: dict?.translatePanel?.enterApiKey || "请输入API密钥",
+    errorTitle: dict?.translatePanel?.errorTitle || "错误",
+    successTitle: dict?.translatePanel?.successTitle || "成功",
+    translationCompleted: dict?.translatePanel?.translationCompleted || "翻译完成！",
+    translationCancelled: dict?.translatePanel?.translationCancelled || "翻译已取消",
+    cancelled: dict?.translatePanel?.cancelled || "已取消",
+    languages: dict?.jsonPreview?.languages || {},  // 从 jsonPreview 中获取语言映射
+    tip: "提示",
+    allLanguagesTranslated: "所有选定的语言已经翻译完成",
+    foundUnfinished: "发现未完成的翻译",
+    continueTranslation: "继续翻译",
+    overallProgress: "总体进度",
+    completedSegments: "已完成片段",
+    translatingLanguage: "正在翻译语言"
+  }
 
   // Common languages (top 20 most common languages)
   const commonLanguages = [
-    { value: "en", label: "English" },
-    { value: "ru", label: "Russian" },
-    { value: "es", label: "Spanish" },
-    { value: "de", label: "German" },
-    { value: "tr", label: "Turkish" },
-    { value: "fr", label: "French" },
-    { value: "ja", label: "Japanese" },
-    { value: "pt", label: "Portuguese" },
-    { value: "zh", label: "Chinese (S)" },
-    { value: "zh-TW", label: "Chinese (T)" },
-    { value: "it", label: "Italian" },
-    { value: "ar", label: "Arabic" },
-    { value: "pl", label: "Polish" },
-    { value: "el", label: "Greek" },
-    { value: "nl", label: "Dutch" },
-    { value: "id", label: "Indonesian" },
-    { value: "ko", label: "Korean" },
-    { value: "th", label: "Thai" }
+    { value: "en", label: translations.languages["en"] || "English" },
+    { value: "ru", label: translations.languages["ru"] || "Russian" },
+    { value: "es", label: translations.languages["es"] || "Spanish" },
+    { value: "de", label: translations.languages["de"] || "German" },
+    { value: "tr", label: translations.languages["tr"] || "Turkish" },
+    { value: "fr", label: translations.languages["fr"] || "French" },
+    { value: "ja", label: translations.languages["ja"] || "Japanese" },
+    { value: "pt", label: translations.languages["pt"] || "Portuguese" },
+    { value: "zh", label: translations.languages["zh"] || "Chinese (S)" },
+    { value: "zh-TW", label: translations.languages["zh-TW"] || "Chinese (T)" },
+    { value: "it", label: translations.languages["it"] || "Italian" },
+    { value: "ar", label: translations.languages["ar"] || "Arabic" },
+    { value: "pl", label: translations.languages["pl"] || "Polish" },
+    { value: "el", label: translations.languages["el"] || "Greek" },
+    { value: "nl", label: translations.languages["nl"] || "Dutch" },
+    { value: "id", label: translations.languages["id"] || "Indonesian" },
+    { value: "ko", label: translations.languages["ko"] || "Korean" },
+    { value: "th", label: translations.languages["th"] || "Thai" }
   ];
 
   // More languages
   const moreLanguages = [
     // European languages
-    { value: "vi", label: "Vietnamese" },
-    { value: "fa", label: "Persian" },
-    { value: "uk", label: "Ukrainian" },
-    { value: "he", label: "Hebrew" },
-    { value: "sv", label: "Swedish" },
-    { value: "ro", label: "Romanian" },
-    { value: "hu", label: "Hungarian" },
-    { value: "da", label: "Danish" },
-    { value: "sk", label: "Slovak" },
-    { value: "sr", label: "Serbian" },
-    { value: "bg", label: "Bulgarian" },
-    { value: "fi", label: "Finnish" },
-    { value: "hr", label: "Croatian" },
-    { value: "lt", label: "Lithuanian" },
-    { value: "nb", label: "Norwegian (Bokmål)" },
-    { value: "sl", label: "Slovenian" },
-    { value: "lv", label: "Latvian" },
-    { value: "et", label: "Estonian" },
-    { value: "cs", label: "Czech" },
-    { value: "ca", label: "Catalan" },
+    { value: "vi", label: translations.languages["vi"] || "Vietnamese" },
+    { value: "fa", label: translations.languages["fa"] || "Persian" },
+    { value: "uk", label: translations.languages["uk"] || "Ukrainian" },
+    { value: "he", label: translations.languages["he"] || "Hebrew" },
+    { value: "sv", label: translations.languages["sv"] || "Swedish" },
+    { value: "ro", label: translations.languages["ro"] || "Romanian" },
+    { value: "hu", label: translations.languages["hu"] || "Hungarian" },
+    { value: "da", label: translations.languages["da"] || "Danish" },
+    { value: "sk", label: translations.languages["sk"] || "Slovak" },
+    { value: "sr", label: translations.languages["sr"] || "Serbian" },
+    { value: "bg", label: translations.languages["bg"] || "Bulgarian" },
+    { value: "fi", label: translations.languages["fi"] || "Finnish" },
+    { value: "hr", label: translations.languages["hr"] || "Croatian" },
+    { value: "lt", label: translations.languages["lt"] || "Lithuanian" },
+    { value: "nb", label: translations.languages["nb"] || "Norwegian (Bokmål)" },
+    { value: "sl", label: translations.languages["sl"] || "Slovenian" },
+    { value: "lv", label: translations.languages["lv"] || "Latvian" },
+    { value: "et", label: translations.languages["et"] || "Estonian" },
+    { value: "cs", label: translations.languages["cs"] || "Czech" },
+    { value: "ca", label: translations.languages["ca"] || "Catalan" },
     
     // Asian languages
-    { value: "hi", label: "Hindi" },
-    { value: "bn", label: "Bengali" },
-    { value: "ta", label: "Tamil" },
-    { value: "ur", label: "Urdu" },
-    { value: "gu", label: "Gujarati" },
-    { value: "kn", label: "Kannada" },
-    { value: "ml", label: "Malayalam" },
-    { value: "mr", label: "Marathi" },
-    { value: "ms", label: "Malay" },
-    { value: "my", label: "Burmese" },
-    { value: "km", label: "Khmer" },
-    { value: "lo", label: "Lao" },
-    { value: "mn", label: "Mongolian" },
+    { value: "hi", label: translations.languages["hi"] || "Hindi" },
+    { value: "bn", label: translations.languages["bn"] || "Bengali" },
+    { value: "ta", label: translations.languages["ta"] || "Tamil" },
+    { value: "ur", label: translations.languages["ur"] || "Urdu" },
+    { value: "gu", label: translations.languages["gu"] || "Gujarati" },
+    { value: "kn", label: translations.languages["kn"] || "Kannada" },
+    { value: "ml", label: translations.languages["ml"] || "Malayalam" },
+    { value: "mr", label: translations.languages["mr"] || "Marathi" },
+    { value: "ms", label: translations.languages["ms"] || "Malay" },
+    { value: "my", label: translations.languages["my"] || "Burmese" },
+    { value: "km", label: translations.languages["km"] || "Khmer" },
+    { value: "lo", label: translations.languages["lo"] || "Lao" },
+    { value: "mn", label: translations.languages["mn"] || "Mongolian" },
     
     // Other languages
-    { value: "az", label: "Azerbaijani" },
-    { value: "ka", label: "Georgian" },
-    { value: "hy", label: "Armenian" },
-    { value: "sw", label: "Swahili" },
-    { value: "af", label: "Afrikaans" },
-    { value: "am", label: "Amharic" }
+    { value: "az", label: translations.languages["az"] || "Azerbaijani" },
+    { value: "ka", label: translations.languages["ka"] || "Georgian" },
+    { value: "hy", label: translations.languages["hy"] || "Armenian" },
+    { value: "sw", label: translations.languages["sw"] || "Swahili" },
+    { value: "af", label: translations.languages["af"] || "Afrikaans" },
+    { value: "am", label: translations.languages["am"] || "Amharic" }
   ];
 
   const formatTime = (seconds: number) => {
@@ -137,7 +189,7 @@ export function TranslatePanel() {
     setError(err.message || "Translation failed");
     toast({
       variant: "destructive",
-      title: "Error",
+      title: translations.errorTitle,
       description: err.message || "Translation failed"
     });
   }
@@ -146,7 +198,7 @@ export function TranslatePanel() {
     if (!file || !apiKey) {
       toast({
         variant: "destructive",
-        title: "Error",
+        title: translations.errorTitle,
         description: "Please upload a file and enter API Key"
       });
       return;
@@ -202,8 +254,8 @@ export function TranslatePanel() {
       // If all selected languages are already translated
       if (remainingLangs.length === 0) {
         toast({
-          title: "Tip",
-          description: "All selected languages are already translated"
+          title: translations.tip,
+          description: translations.allLanguagesTranslated
         });
         return;
       }
@@ -238,7 +290,6 @@ export function TranslatePanel() {
 
         for (let i = savedLangChunks.length; i < chunks.length; i++) {
           if (cancelTranslation) {
-            console.log('Translation cancelled, stopping...')
             break
           }
           
@@ -326,11 +377,9 @@ export function TranslatePanel() {
           } catch (error) {
             // 如果是取消操作，跳出循环
             if (cancelTranslation || (error instanceof DOMException && error.name === 'AbortError')) {
-              console.log('Translation block cancelled')
               break
             }
             // 其他错误则继续处理下一个块
-            console.warn(`Translation block ${i} failed:`, error)
             continue
           }
         }
@@ -342,8 +391,8 @@ export function TranslatePanel() {
       // 只有在非取消状态下才显示完成提示
       if (!cancelTranslation) {
         toast({
-          title: "Success",
-          description: "Translation completed!"
+          title: translations.successTitle,
+          description: translations.translationCompleted
         });
       }
       
@@ -376,8 +425,8 @@ export function TranslatePanel() {
       localStorage.removeItem(`translation_progress_${file.name}`)
     }
     toast({
-      title: "Cancelled",
-      description: "Translation cancelled"
+      title: translations.cancelled,
+      description: translations.translationCancelled
     })
     setCompletedChunks(0)
   }
@@ -400,11 +449,11 @@ export function TranslatePanel() {
       const { hasSavedProgress } = checkSavedProgress(file.name);
       if (hasSavedProgress) {
         toast({
-          title: "Found unfinished translation",
-          description: "Do you want to continue from the last translation progress?",
+          title: translations.foundUnfinished,
+          description: translations.continueTranslation,
           action: (
             <Button onClick={handleTranslate}>
-              Continue translation
+              {translations.continueTranslation}
             </Button>
           )
         });
@@ -416,6 +465,32 @@ export function TranslatePanel() {
   useEffect(() => {
     setTotalProgress(0);
   }, []);
+
+  const formatFileSize = (bytes: number): string => {
+    if (bytes === 0) return `0 ${dict.translatePanel.bytes}`
+    const k = 1024
+    const sizes = [
+      dict.translatePanel.bytes,
+      dict.translatePanel.kb,
+      dict.translatePanel.mb,
+      dict.translatePanel.gb
+    ]
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
+  }
+
+  // 添加类型检查
+  type SupportedLanguage = typeof commonLanguages[number]['value'] | typeof moreLanguages[number]['value'];
+
+  // 检查翻译是否完整
+  useEffect(() => {
+    const allLanguages = [...commonLanguages, ...moreLanguages].map(l => l.value)
+    const missingTranslations = allLanguages.filter(lang => !translations.languages[lang])
+    if (missingTranslations.length > 0) {
+      // 删除这个警告日志
+      // console.warn('Missing translations for languages:', missingTranslations)
+    }
+  }, [translations.languages])
 
   return (
     <div className="space-y-4">
@@ -450,12 +525,17 @@ export function TranslatePanel() {
 
         {/* Expand/collapse button */}
         <Button
-          variant="ghost"
-          onClick={() => setShowMoreLanguages(!showMoreLanguages)}
+          variant="outline"
           className="mt-2 w-full"
+          onClick={() => setShowMoreLanguages(!showMoreLanguages)}
         >
-          {showMoreLanguages ? "Hide more languages" : "Show more languages"}
-          <ChevronDown className={`ml-2 h-4 w-4 transform ${showMoreLanguages ? "rotate-180" : ""}`} />
+          {showMoreLanguages 
+            ? translations.hideMoreLanguages 
+            : translations.showMoreLanguages
+          }
+          <ChevronDown 
+            className={`ml-2 h-4 w-4 transform ${showMoreLanguages ? "rotate-180" : ""}`} 
+          />
         </Button>
 
         {/* More languages */}
@@ -496,15 +576,15 @@ export function TranslatePanel() {
         <div className="space-y-4">
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
-              <span>Overall progress ({totalProgress}%)</span>
-              <span>Completed segments: {completedChunks}/{totalChunks || 1}</span>
+              <span>{translations.overallProgress} ({totalProgress}%)</span>
+              <span>{translations.completedSegments}: {completedChunks}/{totalChunks || 1}</span>
             </div>
             <Progress value={totalProgress} className="w-full" />
           </div>
           
           {currentTranslatingLang && (
             <div className="text-sm text-muted-foreground">
-              Translating: {
+              {translations.translatingLanguage}: {
                 commonLanguages.find(opt => opt.value === currentTranslatingLang)?.label || currentTranslatingLang
               }
             </div>
@@ -519,16 +599,16 @@ export function TranslatePanel() {
             if (!file) {
               toast({
                 variant: "destructive",
-                title: "Error",
-                description: "Please upload a JSON file first"
+                title: translations.errorTitle,
+                description: translations.uploadFirst
               });
               return;
             }
             if (!apiKey) {
               toast({
                 variant: "destructive", 
-                title: "Error",
-                description: "Please enter OpenAI API Key"
+                title: translations.errorTitle,
+                description: translations.enterApiKey
               });
               return;
             }
@@ -541,12 +621,12 @@ export function TranslatePanel() {
           {isTranslating ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              Translating...
+              {translations.translating}
             </>
           ) : (
             <>
               <Languages className="mr-2 h-5 w-5" />
-              Start translate
+              {translations.startTranslate}
             </>
           )}
         </Button>
@@ -557,7 +637,7 @@ export function TranslatePanel() {
             onClick={handleCancel}
             className="w-24 py-6 shadow-none"
           >
-            Cancel
+            {translations.cancel}
           </Button>
         )}
       </div>

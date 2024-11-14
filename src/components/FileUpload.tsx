@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { Input } from "@/components/ui/input"
 import { useTranslate } from "@/context/TranslateContext"
@@ -7,7 +7,33 @@ import { parseJson } from "@/lib/json-utils"
 import { UploadIcon, FileJson2Icon, KeyIcon, Languages, FileIcon } from "lucide-react"
 import { useState } from "react"
 
-export function FileUpload() {
+interface FileUploadProps {
+  dict: {
+    title: string;
+    description: string;
+    uploadSection?: {
+      dragText: string;
+      supportText: string;
+      apiKeyTip: string;
+      apiKeyTitle: string;
+      apiKeyPlaceholder: string;
+      errorTitle: string;
+      successTitle: string;
+    };
+    errors?: {
+      selectFile: string;
+      jsonExtension: string;
+      fileSize: string;
+      jsonFormat: string;
+      emptyJson: string;
+    };
+    success?: {
+      uploaded: string;
+    };
+  }
+}
+
+export function FileUpload({ dict }: FileUploadProps) {
   const [isUploaded, setIsUploaded] = useState(false)
   const [fileInfo, setFileInfo] = useState<{ name: string; size: string } | null>(null)
   const { toast } = useToast()
@@ -19,46 +45,42 @@ export function FileUpload() {
     if (!files || !files[0]) {
       toast({
         variant: "destructive",
-        title: "Error",
-        description: "Please select a file"
+        title: dict.uploadSection?.errorTitle || "Error",
+        description: dict.errors?.selectFile || "Please select a file"
       })
       return
     }
 
     const file = files[0]
     
-    // 检查文件扩展名
     if (!file.name.endsWith('.json')) {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Please upload a file with a .json extension"
+        description: dict.errors?.jsonExtension || "Please upload a file with a .json extension"
       })
       return
     }
 
-    // 检查文件大小
     if (file.size > 10 * 1024 * 1024) {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "File size cannot exceed 10MB"
+        description: dict.errors?.fileSize || "File size cannot exceed 10MB"
       })
       return
     }
 
-    // 验证JSON内容
     try {
       const text = await file.text()
       const result = parseJson(text.trim())
       
       if (!result.success) {
-        throw new Error(result.error || 'Invalid JSON format')
+        throw new Error(result.error || dict.errors?.jsonFormat || 'Invalid JSON format')
       }
 
-      // 检查是否为空对象
       if (Object.keys(result.data).length === 0) {
-        throw new Error('JSON file cannot be empty')
+        throw new Error(dict.errors?.emptyJson || 'JSON file cannot be empty')
       }
 
       setFile(file)
@@ -69,8 +91,8 @@ export function FileUpload() {
       })
       resetTranslation()
       toast({
-        title: "Success",
-        description: "File uploaded successfully"
+        title: dict.uploadSection?.successTitle || "Success",
+        description: dict.success?.uploaded || "File uploaded successfully"
       })
       
     } catch (err) {
@@ -79,7 +101,7 @@ export function FileUpload() {
       toast({
         variant: "destructive",
         title: "JSON Format Error",
-        description: err instanceof Error ? err.message : "Invalid file format, please check if it is a correct JSON file"
+        description: err instanceof Error ? err.message : dict.errors?.jsonFormat || "Invalid file format"
       })
     }
   }
@@ -140,10 +162,10 @@ export function FileUpload() {
           ) : (
             <>
               <span className="text-center text-gray-400 text-xs font-normal leading-4 mb-1">
-                Supports .json format files, up to 10MB
+                {dict.uploadSection?.supportText || "Supports .json format files, up to 10MB"}
               </span>
               <h6 className="text-center text-gray-900 text-sm font-medium leading-5">
-                Drag files here or click to upload
+                {dict.uploadSection?.dragText || "Drag files here or click to upload"}
               </h6>
             </>
           )}
@@ -160,19 +182,18 @@ export function FileUpload() {
       <div>
         <h2 className="text-xl font-semibold flex items-center gap-2">
           <KeyIcon className="w-5 h-5" />
-          OpenAI API Key
+          {dict.uploadSection?.apiKeyTitle || "OpenAI API Key"}
         </h2>
         <p className="text-xs text-muted-foreground pb-2">
-          Tips: OpenAI API Key is required for translation.
+          {dict.uploadSection?.apiKeyTip || "Tips: OpenAI API Key is required for translation."}
         </p>
         <Input 
           type="password" 
-          placeholder="sk-..." 
+          placeholder={dict.uploadSection?.apiKeyPlaceholder || "sk-..."} 
           className="mt-1 shadow-none"
           value={apiKey}
           onChange={(e) => setApiKey(e.target.value)}
         />
-        
       </div>
     </div>
   )
