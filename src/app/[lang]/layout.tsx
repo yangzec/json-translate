@@ -102,20 +102,17 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }))
 }
 
-interface LocaleLayoutProps {
+type LayoutProps = {
   children: React.ReactNode;
-  params: Promise<{
+  params: {
     lang: string;
-  }>;
-}
+  };
+};
 
-export default async function LocaleLayout({
+export default function LocaleLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: { lang: string }
-}) {
+}: LayoutProps) {
   if (!locales.includes(params.lang)) {
     notFound()
   }
