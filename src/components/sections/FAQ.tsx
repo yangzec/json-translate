@@ -10,12 +10,21 @@ interface FAQProps {
     items: {
       question: string
       answer: string
-    }[]
+    }[] | {
+      [key: string]: {
+        question: string
+        answer: string
+      }
+    }
   }
 }
 
 export default function FAQ({ dict }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const faqs = Array.isArray(dict.items) 
+    ? dict.items 
+    : Object.values(dict.items)
 
   return (
     <section className="py-20 bg-gray-50">
@@ -30,7 +39,7 @@ export default function FAQ({ dict }: FAQProps) {
         </div>
 
         <div className="max-w-3xl mx-auto space-y-4">
-          {dict.items.map((faq, index) => (
+          {faqs.map((faq, index) => (
             <div
               key={index}
               className="bg-white rounded-2xl overflow-hidden"

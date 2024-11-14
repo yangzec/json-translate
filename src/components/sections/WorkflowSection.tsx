@@ -6,6 +6,11 @@ interface WorkflowSectionProps {
     title: string
     description: string
     steps: {
+      [key: string]: {
+        title: string
+        description: string
+      }
+    } | {
       title: string
       description: string
     }[]
@@ -14,11 +19,16 @@ interface WorkflowSectionProps {
 
 export function WorkflowSection({ dict }: WorkflowSectionProps) {
   const icons = [
-    <Upload className="w-6 h-6" />,
-    <Languages className="w-6 h-6" />,
-    <Sparkles className="w-6 h-6" />,
-    <Download className="w-6 h-6" />
+    <Upload className="w-6 h-6" key="upload" />,
+    <Languages className="w-6 h-6" key="languages" />,
+    <Sparkles className="w-6 h-6" key="sparkles" />,
+    <Download className="w-6 h-6" key="download" />
   ]
+
+  // 处理 steps 可能是对象或数组的情况
+  const steps = Array.isArray(dict.steps) 
+    ? dict.steps 
+    : Object.values(dict.steps)
   
   return (
     <section className="py-24 bg-gray-50">
@@ -33,9 +43,9 @@ export function WorkflowSection({ dict }: WorkflowSectionProps) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {dict.steps.map((step, index) => (
+          {steps.map((step, index) => (
             <div key={index} className="relative group">
-              {index < dict.steps.length - 1 && (
+              {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 left-full w-full h-px bg-gray-200 -translate-y-1/2 z-0" />
               )}
               

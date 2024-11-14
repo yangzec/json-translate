@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card'
 interface FeaturesSectionProps {
   dict: {
     title: string
-    items: {
+    items?: {
       title: string
       description: string
     }[]
@@ -13,11 +13,13 @@ interface FeaturesSectionProps {
 
 export function FeaturesSection({ dict }: FeaturesSectionProps) {
   const icons = [
-    <Code className="w-8 h-8" />,
-    <Languages className="w-8 h-8" />,
-    <Sparkles className="w-8 h-8" />,
-    <Shield className="w-8 h-8" />
+    <Code className="w-8 h-8" key="code" />,
+    <Languages className="w-8 h-8" key="languages" />,
+    <Sparkles className="w-8 h-8" key="sparkles" />,
+    <Shield className="w-8 h-8" key="shield" />
   ]
+
+  const features = Array.isArray(dict.items) ? dict.items : []
 
   return (
     <section className="py-20 bg-white">
@@ -26,7 +28,7 @@ export function FeaturesSection({ dict }: FeaturesSectionProps) {
           {dict.title}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {dict.items.map((feature, index) => (
+          {features.map((feature, index) => (
             <Card key={index} className="border-none">
               <CardContent className="pt-6">
                 <div className="text-center">

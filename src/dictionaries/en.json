@@ -1,29 +1,4 @@
 {
-  "uploadSection": {
-    "title": "Upload JSON File",
-    "description": "Upload your JSON file for translation",
-    "dragText": "Drag files here or click to upload",
-    "supportText": "Supports .json format files, up to 10MB",
-    "apiKeyTip": "Tips: OpenAI API Key is required for translation",
-    "errors": {
-      "selectFile": "Please select a file",
-      "jsonExtension": "Please upload a file with a .json extension",
-      "fileSize": "File size cannot exceed 10MB",
-      "jsonFormat": "Invalid JSON format, please check the file content",
-      "emptyJson": "JSON file cannot be empty"
-    },
-    "success": {
-      "uploaded": "File uploaded successfully"
-    },
-    "apiKeyTitle": "OpenAI API Key",
-    "apiKeyPlaceholder": "sk-...",
-    "errorTitle": "Error",
-    "successTitle": "Success"
-  },
-  "translateSection": {
-    "title": "Select Target Language",
-    "description": "Choose languages to translate into"
-  },
   "hero": {
     "badge": "AI Powered",
     "title": "JSON Translation Tool",
@@ -76,50 +51,30 @@
       }
     ]
   },
-  "faq": {
-    "title": "Frequently Asked Questions",
-    "description": "Common questions about the JSON translation tool",
-    "items": [
-      {
-        "question": "What does this tool do?",
-        "answer": "This is an AI-powered JSON internationalization translation tool that helps developers quickly translate JSON language files into multiple languages while maintaining JSON structure integrity."
-      },
-      {
-        "question": "How to use this tool?",
-        "answer": "1. Upload your JSON file for translation\n2. Select target languages\n3. Enter your OpenAI API Key\n4. Click start translation\n5. Download results after translation is complete"
-      },
-      {
-        "question": "What languages are supported?",
-        "answer": "Currently supports multiple languages including English, Chinese (Simplified), Chinese (Traditional), Japanese, Korean, French, German, Spanish, Russian, and more."
-      },
-      {
-        "question": "Will my API Key be saved?",
-        "answer": "No. Your API Key is only used temporarily in the browser and will not be saved or transmitted to any servers."
-      },
-      {
-        "question": "How is translation quality assured?",
-        "answer": "We use OpenAI's GPT model for translation, ensuring accuracy of technical terms and natural language expression. We also support custom dictionary functionality to maintain consistency of specific terminology."
-      },
-      {
-        "question": "Is there a file size limit?",
-        "answer": "Single JSON file size is limited to 10MB. For larger files, it's recommended to split them and translate in batches."
-      }
-    ]
+  "uploadSection": {
+    "title": "Upload JSON File",
+    "description": "Upload your JSON file for translation",
+    "dragText": "Drag files here or click to upload",
+    "supportText": "Supports .json format files, up to 10MB",
+    "apiKeyTip": "Tips: OpenAI API Key is required for translation",
+    "errors": {
+      "selectFile": "Please select a file",
+      "jsonExtension": "Please upload a file with a .json extension",
+      "fileSize": "File size cannot exceed 10MB",
+      "jsonFormat": "Invalid JSON format, please check the file content",
+      "emptyJson": "JSON file cannot be empty"
+    },
+    "success": {
+      "uploaded": "File uploaded successfully"
+    },
+    "apiKeyTitle": "OpenAI API Key",
+    "apiKeyPlaceholder": "sk-...",
+    "errorTitle": "Error",
+    "successTitle": "Success"
   },
-  "cta": {
-    "title": "Start Using AI Translation Tool Now",
-    "description": "Quickly and accurately translate your JSON language files into multiple languages",
-    "button": "Try Now",
-    "features": [
-      "No Registration Required",
-      "Completely Free",
-      "Real-time Translation"
-    ]
-  },
-  "footer": {
-    "creator": "Created with ❤️ by Viggo",
-    "twitter": "@viggo",
-    "coffee": "Buy Me a Coffee"
+  "translateSection": {
+    "title": "Select Target Language",
+    "description": "Choose languages to translate into"
   },
   "translatePanel": {
     "startTranslate": "Start Translation",
@@ -233,5 +188,50 @@
       "af": "Afrikaans",
       "am": "Amharic"
     }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "description": "Common questions about the JSON translation tool",
+    "items": [
+      {
+        "question": "What does this tool do?",
+        "answer": "This is an AI-powered JSON internationalization translation tool that helps developers quickly translate JSON language files into multiple languages while maintaining JSON structure integrity."
+      },
+      {
+        "question": "How to use this tool?",
+        "answer": "1. Upload your JSON file for translation\n2. Select target languages\n3. Enter your OpenAI API Key\n4. Click start translation\n5. Download results after translation is complete"
+      },
+      {
+        "question": "What languages are supported?",
+        "answer": "Currently supports multiple languages including English, Chinese (Simplified), Chinese (Traditional), Japanese, Korean, French, German, Spanish, Russian, and more."
+      },
+      {
+        "question": "Will my API Key be saved?",
+        "answer": "No. Your API Key is only used temporarily in the browser and will not be saved or transmitted to any servers."
+      },
+      {
+        "question": "How is translation quality assured?",
+        "answer": "We use OpenAI's GPT model for translation, ensuring accuracy of technical terms and natural language expression. We also support custom dictionary functionality to maintain consistency of specific terminology."
+      },
+      {
+        "question": "Is there a file size limit?",
+        "answer": "Single JSON file size is limited to 10MB. For larger files, it's recommended to split them and translate in batches."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Start Using AI Translation Tool Now",
+    "description": "Quickly and accurately translate your JSON language files into multiple languages",
+    "button": "Try Now",
+    "features": [
+      "No Registration Required",
+      "Completely Free",
+      "Real-time Translation"
+    ]
+  },
+  "footer": {
+    "creator": "Created with ❤️ by Viggo",
+    "twitter": "@viggo",
+    "coffee": "Buy Me a Coffee"
   }
 } 

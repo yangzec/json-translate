@@ -1,29 +1,4 @@
 {
-  "uploadSection": {
-    "title": "JSONファイルをアップロード",
-    "description": "翻訳したいJSONファイルをアップロードしてください",
-    "dragText": "ファイルをドラッグ＆ドロップまたはクリックしてアップロード",
-    "supportText": ".json形式のファイル（最大10MB）に対応",
-    "apiKeyTip": "ヒント：翻訳にはOpenAI API Keyが必要です",
-    "errors": {
-      "selectFile": "ファイルを選択してください",
-      "jsonExtension": ".json形式のファイルをアップロードしてください",
-      "fileSize": "ファイルサイズは10MB以下にしてください",
-      "jsonFormat": "無効なJSON形式です。ファイルの内容を確認してください",
-      "emptyJson": "JSONファイルが空です"
-    },
-    "success": {
-      "uploaded": "ファイルのアップロードが完了しました"
-    },
-    "apiKeyTitle": "OpenAI API Key",
-    "apiKeyPlaceholder": "sk-...",
-    "errorTitle": "エラー",
-    "successTitle": "成功"
-  },
-  "translateSection": {
-    "title": "対象言語を選択",
-    "description": "翻訳したい言語を選んでください"
-  },
   "hero": {
     "badge": "AI搭載",
     "title": "JSON国際化翻訳ツール",
@@ -76,50 +51,30 @@
       }
     ]
   },
-  "faq": {
-    "title": "よくある質問",
-    "description": "JSON翻訳ツールに関するよくある質問",
-    "items": [
-      {
-        "question": "このツールは何ができますか？",
-        "answer": "これはAI搭載のJSON国際化翻訳ツールで、開発者がJSONファイルの構造を維持しながら、複数の言語に素早く翻訳することができます。"
-      },
-      {
-        "question": "使い方を教えてください",
-        "answer": "1. 翻訳したいJSONファイルをアップロード\n2. 対象言語を選択\n3. OpenAI APIキーを入力\n4. 翻訳を開始\n5. 翻訳完了後、結果をダウンロード"
-      },
-      {
-        "question": "対応している言語は？",
-        "answer": "現在、英語、簡体字中国語、繁体字中国語、日本語、韓国語、フランス語、ドイツ語、スペイン語、ロシア語など、多数の言語に対応しています。"
-      },
-      {
-        "question": "APIキーは保存されますか？",
-        "answer": "いいえ。APIキーはブラウザで一時的に使用されるだけで、サーバーに保存や送信されることはありません。"
-      },
-      {
-        "question": "翻訳品質はどのように保証されていますか？",
-        "answer": "OpenAIのGPTモデルを使用して翻訳を行い、専門用語の正確性と自然な表現を確保しています。また、特定の用語の一貫性を保つためのカスタム辞書機能もサポートしています。"
-      },
-      {
-        "question": "ファイルサイズの制限はありますか？",
-        "answer": "1つのJSONファイルのサイズ制限は10MBです。より大きなファイルの場合は、分割して翻訳することをお勧めします。"
-      }
-    ]
+  "uploadSection": {
+    "title": "JSONファイルをアップロード",
+    "description": "翻訳したいJSONファイルをアップロードしてください",
+    "dragText": "ファイルをドラッグ＆ドロップまたはクリックしてアップロード",
+    "supportText": ".json形式のファイル（最大10MB）に対応",
+    "apiKeyTip": "ヒント：翻訳にはOpenAI API Keyが必要です",
+    "errors": {
+      "selectFile": "ファイルを選択してください",
+      "jsonExtension": ".json形式のファイルをアップロードしてください",
+      "fileSize": "ファイルサイズは10MB以下にしてください",
+      "jsonFormat": "無効なJSON形式です。ファイルの内容を確認してください",
+      "emptyJson": "JSONファイルが空です"
+    },
+    "success": {
+      "uploaded": "ファイルのアップロードが完了しました"
+    },
+    "apiKeyTitle": "OpenAI API Key",
+    "apiKeyPlaceholder": "sk-...",
+    "errorTitle": "エラー",
+    "successTitle": "成功"
   },
-  "cta": {
-    "title": "今すぐAI翻訳ツールを使用開始",
-    "description": "JSONファイルを素早く正確に多言語翻訳",
-    "button": "今すぐ試す",
-    "features": [
-      "登録不要",
-      "完全無料",
-      "リアルタイム翻訳"
-    ]
-  },
-  "footer": {
-    "creator": "Viggoが❤️を込めて作成",
-    "twitter": "@viggo",
-    "coffee": "コーヒーを奢る"
+  "translateSection": {
+    "title": "対象言語を選択",
+    "description": "翻訳したい言語を選んでください"
   },
   "translatePanel": {
     "startTranslate": "翻訳開始",
@@ -233,5 +188,50 @@
       "af": "アフリカーンス語",
       "am": "アムハラ語"
     }
+  },
+  "faq": {
+    "title": "よくある質問",
+    "description": "JSON翻訳ツールに関するよくある質問",
+    "items": [
+      {
+        "question": "このツールは何ができますか？",
+        "answer": "これはAI搭載のJSON国際化翻訳ツールで、開発者がJSONファイルの構造を維持しながら、複数の言語に素早く翻訳することができます。"
+      },
+      {
+        "question": "使い方を教えてください",
+        "answer": "1. 翻訳したいJSONファイルをアップロード\n2. 対象言語を選択\n3. OpenAI APIキーを入力\n4. 翻訳を開始\n5. 翻訳完了後、結果をダウンロード"
+      },
+      {
+        "question": "対応している言語は？",
+        "answer": "現在、英語、簡体字中国語、繁体字中国語、日本語、韓国語、フランス語、ドイツ語、スペイン語、ロシア語など、多数の言語に対応しています。"
+      },
+      {
+        "question": "APIキーは保存されますか？",
+        "answer": "いいえ。APIキーはブラウザで一時的に使用されるだけで、サーバーに保存や送信されることはありません。"
+      },
+      {
+        "question": "翻訳品質はどのように保証されていますか？",
+        "answer": "OpenAIのGPTモデルを使用して翻訳を行い、専門用語の正確性と自然な表現を確保しています。また、特定の用語の一貫性を保つためのカスタム辞書機能もサポートしています。"
+      },
+      {
+        "question": "ファイルサイズの制限はありますか？",
+        "answer": "1つのJSONファイルのサイズ制限は10MBです。より大きなファイルの場合は、分割して翻訳することをお勧めします。"
+      }
+    ]
+  },
+  "cta": {
+    "title": "今すぐAI翻訳ツールを使用開始",
+    "description": "JSONファイルを素早く正確に多言語翻訳",
+    "button": "今すぐ試す",
+    "features": [
+      "登録不要",
+      "完全無料",
+      "リアルタイム翻訳"
+    ]
+  },
+  "footer": {
+    "creator": "Viggoが❤️を込めて作成",
+    "twitter": "@viggo",
+    "coffee": "コーヒーを奢る"
   }
 } 
