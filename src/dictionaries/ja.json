@@ -233,5 +233,10 @@
     "creator": "Viggoが❤️を込めて作成",
     "twitter": "@viggo",
     "coffee": "コーヒーを奢る"
+  },
+  "metadata": {
+    "title": "JSON翻訳ツール - AI搭載の多言語翻訳ソリューション",
+    "description": "AI技術で素早く正確にJSONファイルを多言語に翻訳。JSON構造、変数プレースホルダー、HTMLタグをサポート。",
+    "keywords": "JSON翻訳,AI翻訳,国際化,i18n,多言語翻訳,OpenAI"
   }
 } 

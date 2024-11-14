@@ -233,5 +233,10 @@
     "creator": "Created with ❤️ by Viggo",
     "twitter": "@viggo",
     "coffee": "Buy Me a Coffee"
+  },
+  "metadata": {
+    "title": "JSON Translator - AI-Powered Multilingual Translation Solution",
+    "description": "Quickly and accurately translate JSON language files into multiple languages using AI technology. Supports JSON structure, variable placeholders, and HTML tags.",
+    "keywords": "JSON translation,AI translation,internationalization,i18n,multilingual translation,OpenAI"
   }
 } 

@@ -24,9 +24,52 @@ const geistMono = localFont({
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
   const lang = params.lang
   
+  // 导入对应语言的字典
+  const dict = await import(`@/dictionaries/${params.lang}.json`).then(
+    (module) => module.default
+  );
+
+  // 构建语言替代链接对象
+  const languageAlternates = {
+    'en': '/en',
+    'zh': '/zh',
+    'zh-TW': '/zh-TW',
+    'ja': '/ja',
+    'ko': '/ko',
+    'fr': '/fr',
+    'de': '/de',
+    'es': '/es',
+    'pt': '/pt',
+    'it': '/it',
+    'ru': '/ru',
+    'ar': '/ar',
+    'el': '/el',
+    'nl': '/nl',
+    'id': '/id',
+    'pl': '/pl',
+    'th': '/th',
+    'tr': '/tr',
+    'vi': '/vi'
+  }
+
   return {
-    title: 'JSON Translater',
-    description: 'A JSON translation tool powered by AI'
+    title: dict.metadata.title,
+    description: dict.metadata.description,
+    keywords: dict.metadata.keywords,
+    openGraph: {
+      title: dict.metadata.title,
+      description: dict.metadata.description,
+      locale: params.lang,
+      type: 'website'
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: dict.metadata.title,
+      description: dict.metadata.description
+    },
+    alternates: {
+      languages: languageAlternates
+    }
   }
 }
 

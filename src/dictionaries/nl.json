@@ -233,5 +233,10 @@
     "creator": "Gemaakt met ❤️ door Viggo",
     "twitter": "@viggo",
     "coffee": "Koop Me een Koffie"
+  },
+  "metadata": {
+    "title": "JSON Vertaler - AI-Aangedreven Meertalige Vertaaloplossing",
+    "description": "Vertaal JSON-taalbestanden snel en nauwkeurig naar meerdere talen met AI-technologie. Ondersteunt JSON-structuur, variabele plaatshouders en HTML-tags.",
+    "keywords": "JSON vertaling,AI vertaling,internationalisatie,i18n,meertalige vertaling,OpenAI"
   }
 }

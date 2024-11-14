@@ -233,5 +233,10 @@
     "creator": "Créé avec ❤️ par Viggo",
     "twitter": "@viggo",
     "coffee": "Offrez-moi un café"
+  },
+  "metadata": {
+    "title": "Traducteur JSON - Solution de Traduction Multilingue Propulsée par l'IA",
+    "description": "Traduisez rapidement et précisément des fichiers JSON en plusieurs langues grâce à la technologie IA. Prend en charge la structure JSON, les variables et les balises HTML.",
+    "keywords": "traduction JSON,traduction IA,internationalisation,i18n,traduction multilingue,OpenAI"
   }
 }

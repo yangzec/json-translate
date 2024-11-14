@@ -19,7 +19,7 @@ export default function Footer({ dict }: FooterProps) {
           
           <div className="flex items-center gap-4">
             <a
-              href="https://twitter.com/viggojs"
+              href="https://x.com/decohack"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1"

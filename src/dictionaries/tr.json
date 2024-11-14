@@ -233,5 +233,10 @@
     "creator": "❤️ ile oluşturuldu Viggo tarafından",
     "twitter": "@viggo",
     "coffee": "Bana Bir Kahve Al"
+  },
+  "metadata": {
+    "title": "JSON Çevirmen - AI Destekli Çok Dilli Çeviri Çözümü",
+    "description": "JSON dil dosyalarını AI teknolojisi ile hızlı ve doğru bir şekilde birden çok dile çevirin. JSON yapısını, değişken yer tutucularını ve HTML etiketlerini destekler.",
+    "keywords": "JSON çeviri,AI çeviri,uluslararasılaştırma,i18n,çok dilli çeviri,OpenAI"
   }
 }

@@ -233,5 +233,10 @@
     "creator": "Stworzone z ❤️ przez Viggo",
     "twitter": "@viggo",
     "coffee": "Postaw mi kawę"
+  },
+  "metadata": {
+    "title": "Tłumacz JSON - Wielojęzyczne rozwiązanie tłumaczeniowe oparte na AI",
+    "description": "Szybko i dokładnie tłumacz pliki językowe JSON na wiele języków za pomocą technologii AI. Obsługuje strukturę JSON, zmienne i tagi HTML.",
+    "keywords": "tłumaczenie JSON,tłumaczenie AI,internacjonalizacja,i18n,tłumaczenie wielojęzyczne,OpenAI"
   }
 }

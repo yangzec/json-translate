@@ -233,5 +233,10 @@
     "creator": "Erstellt mit ❤️ von Viggo",
     "twitter": "@viggo",
     "coffee": "Kauf mir einen Kaffee"
+  },
+  "metadata": {
+    "title": "JSON-Übersetzer - KI-gestützte mehrsprachige Übersetzungslösung",
+    "description": "Übersetzen Sie JSON-Sprachdateien schnell und präzise in mehrere Sprachen mit KI-Technologie. Unterstützt JSON-Struktur, Variablen-Platzhalter und HTML-Tags.",
+    "keywords": "JSON-Übersetzung,KI-Übersetzung,Internationalisierung,i18n,mehrsprachige Übersetzung,OpenAI"
   }
 }

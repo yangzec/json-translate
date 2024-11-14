@@ -233,5 +233,10 @@
     "creator": "由 Viggo 用 ❤️ 创建",
     "twitter": "@viggo",
     "coffee": "请我喝咖啡"
+  },
+  "metadata": {
+    "title": "JSON翻译工具 - AI驱动的多语言翻译解决方案",
+    "description": "使用AI技术快速准确地将JSON语言文件翻译成多种语言。支持保持JSON结构、变量占位符和HTML标签。",
+    "keywords": "JSON翻译,AI翻译,国际化,i18n,多语言翻译,OpenAI"
   }
 } 

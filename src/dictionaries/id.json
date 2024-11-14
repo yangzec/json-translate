@@ -233,5 +233,10 @@
     "creator": "Dibuat dengan ❤️ oleh Viggo",
     "twitter": "@viggo",
     "coffee": "Beli Saya Secangkir Kopi"
+  },
+  "metadata": {
+    "title": "Penerjemah JSON - Solusi Terjemahan Multibahasa Berbasis AI",
+    "description": "Terjemahkan file bahasa JSON ke berbagai bahasa dengan cepat dan akurat menggunakan teknologi AI. Mendukung struktur JSON, placeholder variabel, dan tag HTML.",
+    "keywords": "terjemahan JSON,terjemahan AI,internasionalisasi,i18n,terjemahan multibahasa,OpenAI"
   }
 }
