@@ -107,18 +107,26 @@ export interface LayoutProps {
   params: { lang: string };
 }
 
-export default async function LocaleLayout(props: {
-  children: React.ReactNode;
-  params: { lang: string };
-}) {
-  const { children, params } = props;
+type LayoutParams = {
+  lang: string;
+};
 
-  if (!locales.includes(params.lang)) {
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<LayoutParams>;
+}) {
+  const resolvedParams = await params;
+  const { lang } = resolvedParams;
+
+  if (!locales.includes(lang)) {
     notFound()
   }
 
   return (
-    <html lang={params.lang} suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
       <body className={cn(
         geistSans.variable,
         geistMono.variable,
