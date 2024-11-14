@@ -104,21 +104,24 @@ export async function generateStaticParams() {
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
-  params: {
+  params: Promise<{
     lang: string;
-  };
+  }>;
 }
 
 export default async function LocaleLayout({
   children,
-  params: { lang },
-}: LocaleLayoutProps) {
-  if (!locales.includes(lang)) {
+  params,
+}: {
+  children: React.ReactNode;
+  params: { lang: string }
+}) {
+  if (!locales.includes(params.lang)) {
     notFound()
   }
 
   return (
-    <html lang={lang} suppressHydrationWarning>
+    <html lang={params.lang} suppressHydrationWarning>
       <body className={cn(
         geistSans.variable,
         geistMono.variable,
