@@ -22,7 +22,9 @@ const geistMono = localFont({
 
 // ... metadata 配置保持不变 ...
 
-export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: { lang: string } }
+): Promise<Metadata> {
   const lang = params.lang
   
   // 导入对应语言的字典
