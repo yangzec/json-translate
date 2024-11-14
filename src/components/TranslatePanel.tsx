@@ -42,6 +42,13 @@ interface TranslatePanelProps {
       translationCompleted: string;
       translationCancelled: string;
       cancelled: string;
+      completedSegments: string;
+      tip: string;
+      allLanguagesTranslated: string;
+      foundUnfinished: string;
+      continueTranslation: string;
+      overallProgress: string;
+      translatingLanguage: string;
       bytes: string;
       kb: string;
       mb: string;
@@ -100,14 +107,18 @@ export function TranslatePanel({ dict }: TranslatePanelProps) {
     translationCompleted: dict?.translatePanel?.translationCompleted || "翻译完成！",
     translationCancelled: dict?.translatePanel?.translationCancelled || "翻译已取消",
     cancelled: dict?.translatePanel?.cancelled || "已取消",
+    tip: dict?.translatePanel?.tip || "提示",
+    allLanguagesTranslated: dict?.translatePanel?.allLanguagesTranslated || "所有选定的语言已经翻译完成",
+    foundUnfinished: dict?.translatePanel?.foundUnfinished || "发现未完成的翻译",
+    continueTranslation: dict?.translatePanel?.continueTranslation || "继续翻译",
+    overallProgress: dict?.translatePanel?.overallProgress || "总体进度",
+    translatingLanguage: dict?.translatePanel?.translatingLanguage || "正在翻译语言",
+    completedSegments: dict?.translatePanel?.completedSegments || "已完成片段",
     languages: dict?.jsonPreview?.languages || {},  // 从 jsonPreview 中获取语言映射
-    tip: "提示",
-    allLanguagesTranslated: "所有选定的语言已经翻译完成",
-    foundUnfinished: "发现未完成的翻译",
-    continueTranslation: "继续翻译",
-    overallProgress: "总体进度",
-    completedSegments: "已完成片段",
-    translatingLanguage: "正在翻译语言"
+    bytes: "B",
+    kb: "KB",
+    mb: "MB",
+    gb: "GB"
   }
 
   // Common languages (top 20 most common languages)
@@ -467,13 +478,13 @@ export function TranslatePanel({ dict }: TranslatePanelProps) {
   }, []);
 
   const formatFileSize = (bytes: number): string => {
-    if (bytes === 0) return `0 ${dict.translatePanel.bytes}`
+    if (bytes === 0) return `0 ${translations.bytes}`
     const k = 1024
     const sizes = [
-      dict.translatePanel.bytes,
-      dict.translatePanel.kb,
-      dict.translatePanel.mb,
-      dict.translatePanel.gb
+      translations.bytes,
+      translations.kb,
+      translations.mb,
+      translations.gb
     ]
     const i = Math.floor(Math.log(bytes) / Math.log(k))
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
@@ -526,7 +537,7 @@ export function TranslatePanel({ dict }: TranslatePanelProps) {
         {/* Expand/collapse button */}
         <Button
           variant="outline"
-          className="mt-2 w-full"
+          className="mt-4 w-full rounded-full shadow-none border-none"
           onClick={() => setShowMoreLanguages(!showMoreLanguages)}
         >
           {showMoreLanguages 
@@ -594,7 +605,7 @@ export function TranslatePanel({ dict }: TranslatePanelProps) {
 
       <div className="flex gap-2">
         <Button 
-          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-6 text-lg font-medium" 
+          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-6 text-lg font-medium rounded-full shadow-none" 
           onClick={() => {
             if (!file) {
               toast({
@@ -635,7 +646,7 @@ export function TranslatePanel({ dict }: TranslatePanelProps) {
           <Button 
             variant="outline"
             onClick={handleCancel}
-            className="w-24 py-6 shadow-none"
+            className="w-24 py-6 shadow-none rounded-full"
           >
             {translations.cancel}
           </Button>

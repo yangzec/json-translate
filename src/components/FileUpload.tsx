@@ -11,15 +11,13 @@ interface FileUploadProps {
   dict: {
     title: string;
     description: string;
-    uploadSection?: {
-      dragText: string;
-      supportText: string;
-      apiKeyTip: string;
-      apiKeyTitle: string;
-      apiKeyPlaceholder: string;
-      errorTitle: string;
-      successTitle: string;
-    };
+    dragText: string;
+    supportText: string;
+    apiKeyTip: string;
+    apiKeyTitle: string;
+    apiKeyPlaceholder: string;
+    errorTitle: string;
+    successTitle: string;
     errors?: {
       selectFile: string;
       jsonExtension: string;
@@ -45,7 +43,7 @@ export function FileUpload({ dict }: FileUploadProps) {
     if (!files || !files[0]) {
       toast({
         variant: "destructive",
-        title: dict.uploadSection?.errorTitle || "Error",
+        title: dict.errorTitle || "Error",
         description: dict.errors?.selectFile || "Please select a file"
       })
       return
@@ -91,7 +89,7 @@ export function FileUpload({ dict }: FileUploadProps) {
       })
       resetTranslation()
       toast({
-        title: dict.uploadSection?.successTitle || "Success",
+        title: dict.successTitle || "Success",
         description: dict.success?.uploaded || "File uploaded successfully"
       })
       
@@ -135,7 +133,7 @@ export function FileUpload({ dict }: FileUploadProps) {
       <div>
         <label 
           htmlFor="dropzone-file" 
-          className={`flex flex-col items-center justify-center w-full py-16 border border-dashed rounded-2xl cursor-pointer transition-colors
+          className={`flex flex-col items-center justify-center w-full p-16 border border-dashed rounded-2xl cursor-pointer transition-colors
             ${isUploaded 
               ? 'border-blue-500 bg-blue-50 hover:bg-blue-100/50' 
               : 'border-blue-300 bg-blue-50 hover:bg-blue-100/50'
@@ -162,10 +160,10 @@ export function FileUpload({ dict }: FileUploadProps) {
           ) : (
             <>
               <span className="text-center text-gray-400 text-xs font-normal leading-4 mb-1">
-                {dict.uploadSection?.supportText || "Supports .json format files, up to 10MB"}
+                {dict.supportText}
               </span>
               <h6 className="text-center text-gray-900 text-sm font-medium leading-5">
-                {dict.uploadSection?.dragText || "Drag files here or click to upload"}
+                {dict.dragText}
               </h6>
             </>
           )}
@@ -182,14 +180,14 @@ export function FileUpload({ dict }: FileUploadProps) {
       <div>
         <h2 className="text-xl font-semibold flex items-center gap-2">
           <KeyIcon className="w-5 h-5" />
-          {dict.uploadSection?.apiKeyTitle || "OpenAI API Key"}
+          {dict.apiKeyTitle || "OpenAI API Key"}
         </h2>
         <p className="text-xs text-muted-foreground pb-2">
-          {dict.uploadSection?.apiKeyTip || "Tips: OpenAI API Key is required for translation."}
+          {dict.apiKeyTip || "Tips: OpenAI API Key is required for translation."}
         </p>
         <Input 
           type="password" 
-          placeholder={dict.uploadSection?.apiKeyPlaceholder || "sk-..."} 
+          placeholder={dict.apiKeyPlaceholder || "sk-..."} 
           className="mt-1 shadow-none"
           value={apiKey}
           onChange={(e) => setApiKey(e.target.value)}

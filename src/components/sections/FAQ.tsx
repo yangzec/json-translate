@@ -36,7 +36,7 @@ export default function FAQ({ dict }: FAQProps) {
               className="bg-white rounded-2xl overflow-hidden"
             >
               <button
-                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50"
+                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 <span className="font-semibold">{faq.question}</span>
