@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "AI 驱动",
-    "title": "JSON 国际化翻译工具",
+    "title": "i18n JSON 国际化翻译工具",
     "description": "使用 AI 技术快速翻译您的 JSON 语言文件。快速、准确、易用。",
     "features": {
       "multilanguage": "多语言支持",
@@ -109,7 +109,7 @@
     "title": "预览",
     "empty": "JSON 预览将显示在这里",
     "copied": "已复制到剪贴板",
-    "originalJson": "原始 JSON",
+    "originalJson": "��始 JSON",
     "translatedJson": "翻译后的 JSON",
     "tips": "提示：支持实时预览和格式化 JSON 文件，您可以直接复制内容",
     "placeholder": {
@@ -147,7 +147,7 @@
       "nl": "荷兰语",
       "id": "印尼语",
       "ko": "韩语",
-      "th": "泰语",
+      "th": "泰��",
       "vi": "越南语",
       "fa": "波斯语",
       "uk": "乌克兰语",

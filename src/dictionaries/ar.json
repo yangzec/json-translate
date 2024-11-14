@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "مدعوم بالذكاء الاصطناعي",
-    "title": "أداة ترجمة JSON",
+    "title": "i18n أداة ترجمة JSON",
     "description": "ترجم ملفات لغة JSON الخاصة بك بسرعة باستخدام تقنية الذكاء الاصطناعي. سريع ودقيق وسهل الاستخدام.",
     "features": {
       "multilanguage": "دعم متعدد اللغات",
@@ -83,7 +83,7 @@
     "uploadFirst": "يرجى تحميل ملف أولاً",
     "enterApiKey": "يرجى إدخال مفتاح API",
     "foundUnfinished": "تم العثور على ترجمة غير مكتملة",
-    "continueTranslation": "تابع الترجمة",
+    "continueTranslation": "تابع التر��مة",
     "translationCancelled": "تم إلغاء الترجمة",
     "invalidApiKey": "تنسيق مفتاح API غير صالح",
     "errorTitle": "خطأ",

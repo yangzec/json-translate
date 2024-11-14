@@ -56,16 +56,30 @@ export async function generateMetadata({ params }: { params: { lang: string } })
     title: dict.metadata.title,
     description: dict.metadata.description,
     keywords: dict.metadata.keywords,
+    icons: {
+      icon: '/favicon.png',
+      shortcut: '/favicon.png',
+      apple: '/favicon.png',
+    },
     openGraph: {
       title: dict.metadata.title,
       description: dict.metadata.description,
       locale: params.lang,
-      type: 'website'
+      type: 'website',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: dict.metadata.title
+        }
+      ]
     },
     twitter: {
       card: 'summary_large_image',
       title: dict.metadata.title,
-      description: dict.metadata.description
+      description: dict.metadata.description,
+      images: ['/og-image.png']
     },
     alternates: {
       languages: languageAlternates

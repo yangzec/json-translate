@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "AI 驅動",
-    "title": "JSON 翻譯工具",
+    "title": "i18n JSON 翻譯工具",
     "description": "使用 AI 技術快速翻譯您的 JSON 語言文件。快速、準確且易於使用。",
     "features": {
       "multilanguage": "多語言支持",
@@ -207,7 +207,7 @@
       },
       "3": {
         "question": "我的 API 金鑰會被保存嗎？",
-        "answer": "不會。您的 API 金鑰僅��瀏覽器中暫時使用，不會被保存或傳輸到任何伺服器。"
+        "answer": "不會。您的 API 金鑰僅在瀏覽器中暫時使用，不會被保存或傳輸到任何伺服器。"
       },
       "4": {
         "question": "如何確保翻譯質量？",

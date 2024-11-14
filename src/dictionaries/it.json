@@ -1,242 +1,242 @@
 {
   "hero": {
-    "badge": "AI 驱动",
-    "title": "JSON 翻译工具",
-    "description": "快速使用 AI 技术翻译您的 JSON 语言文件。快速、准确且易于使用。",
+    "badge": "Basato su IA",
+    "title": "Strumento di Traduzione JSON i18n",
+    "description": "Traduci rapidamente i tuoi file JSON utilizzando la tecnologia IA. Veloce, accurato e facile da usare.",
     "features": {
-      "multilanguage": "多语言支持",
-      "realtime": "实时翻译"
+      "multilanguage": "Supporto Multilingue",
+      "realtime": "Traduzione in Tempo Reale"
     }
   },
   "workflow": {
-    "title": "四个简单步骤完成翻译",
-    "description": "我们简化了 JSON 文件翻译过程，以帮助您快速获得高质量的翻译结果",
-    "steps": {
-      "0": {
-        "title": "上传 JSON 文件",
-        "description": "支持拖放或点击选择文件"
+    "title": "Completa la Traduzione in Quattro Semplici Passaggi",
+    "description": "Abbiamo semplificato il processo di traduzione dei file JSON per aiutarti a ottenere rapidamente risultati di alta qualità",
+    "steps": [
+      {
+        "title": "Carica File JSON",
+        "description": "Supporta il trascinamento o il clic per selezionare il file"
       },
-      "1": {
-        "title": "选择目标语言",
-        "description": "选择翻译的目标语言"
+      {
+        "title": "Seleziona Lingua di Destinazione",
+        "description": "Scegli la lingua di destinazione per la traduzione"
       },
-      "2": {
-        "title": "开始翻译",
-        "description": "输入 API 密钥并开始 AI 翻译"
+      {
+        "title": "Avvia Traduzione",
+        "description": "Inserisci la Chiave API e avvia la traduzione IA"
       },
-      "3": {
-        "title": "下载结果",
-        "description": "下载翻译后的 JSON 文件"
+      {
+        "title": "Scarica Risultati",
+        "description": "Scarica il file JSON tradotto"
       }
-    }
+    ]
   },
   "features": {
-    "title": "强大的翻译功能",
-    "items": {
-      "0": {
-        "title": "保留 JSON 结构",
-        "description": "智能识别并保持原始 JSON 文件的结构、缩进和格式"
+    "title": "Potenti Funzionalità di Traduzione",
+    "items": [
+      {
+        "title": "Preserva Struttura JSON",
+        "description": "Riconosce e mantiene intelligentemente la struttura, l'indentazione e il formato del file JSON originale"
       },
-      "1": {
-        "title": "多语言支持",
-        "description": "支持多种语言之间的翻译，包括英语、中文、日语等"
+      {
+        "title": "Supporto Multilingue",
+        "description": "Supporta la traduzione tra più lingue inclusi inglese, cinese, giapponese e altri"
       },
-      "2": {
-        "title": "AI 驱动翻译",
-        "description": "利用 OpenAI GPT 模型确保技术术语的准确性和自然表达"
+      {
+        "title": "Traduzione Basata su IA",
+        "description": "Utilizza i modelli GPT di OpenAI per garantire l'accuratezza dei termini tecnici e l'espressione naturale"
       },
-      "3": {
-        "title": "安全可靠",
-        "description": "API 密钥仅在浏览器中临时使用，绝不保存或传输到服务器"
+      {
+        "title": "Sicuro e Affidabile",
+        "description": "Le chiavi API vengono utilizzate solo temporaneamente nel browser e non vengono mai salvate o trasmesse ai server"
       }
-    }
+    ]
   },
   "uploadSection": {
-    "title": "上传 JSON 文件",
-    "description": "上传您的 JSON 文件以进行翻译",
-    "dragText": "将文件拖到这里或点击上传",
-    "supportText": "支持 .json 格式文件，最大 10MB",
-    "apiKeyTip": "提示：翻译需要 OpenAI API 密钥",
+    "title": "Carica File JSON",
+    "description": "Carica il tuo file JSON per la traduzione",
+    "dragText": "Trascina i file qui o clicca per caricare",
+    "supportText": "Supporta file in formato .json, fino a 10MB",
+    "apiKeyTip": "Suggerimento: È necessaria una chiave API OpenAI per la traduzione",
     "errors": {
-      "selectFile": "请选择一个文件",
-      "jsonExtension": "请上传一个 .json 扩展名的文件",
-      "fileSize": "文件大小不能超过 10MB",
-      "jsonFormat": "无效的 JSON 格式，请检查文件内容",
-      "emptyJson": "JSON 文件不能为空"
+      "selectFile": "Seleziona un file",
+      "jsonExtension": "Carica un file con estensione .json",
+      "fileSize": "La dimensione del file non può superare 10MB",
+      "jsonFormat": "Formato JSON non valido, controlla il contenuto del file",
+      "emptyJson": "Il file JSON non può essere vuoto"
     },
     "success": {
-      "uploaded": "文件上传成功"
+      "uploaded": "File caricato con successo"
     },
-    "apiKeyTitle": "OpenAI API 密钥",
+    "apiKeyTitle": "Chiave API OpenAI",
     "apiKeyPlaceholder": "sk-...",
-    "errorTitle": "错误",
-    "successTitle": "成功"
+    "errorTitle": "Errore",
+    "successTitle": "Successo"
   },
   "translateSection": {
-    "title": "选择目标语言",
-    "description": "选择要翻译成的语言"
+    "title": "Seleziona Lingua di Destinazione",
+    "description": "Scegli le lingue in cui tradurre"
   },
   "translatePanel": {
-    "startTranslate": "开始翻译",
-    "translating": "翻译中...",
-    "cancel": "取消",
-    "uploadFirst": "请先上传文件",
-    "enterApiKey": "请输入 API 密钥",
-    "foundUnfinished": "发现未完成的翻译",
-    "continueTranslation": "继续翻译",
-    "translationCancelled": "翻译已取消",
-    "invalidApiKey": "无效的 API 密钥格式",
-    "errorTitle": "错误",
-    "successTitle": "成功",
-    "translationCompleted": "翻译完成！",
-    "showMoreLanguages": "显示更多语言",
-    "hideMoreLanguages": "隐藏更多语言",
-    "overallProgress": "整体进度",
-    "completedSegments": "已完成的部分",
-    "translatingLanguage": "翻译中",
-    "allLanguagesTranslated": "所有选择的语言已翻译",
-    "pleaseUploadAndEnterKey": "请上传文件并输入API密钥",
-    "tip": "提示",
-    "cancelled": "已取消",
-    "translationFailed": "翻译失败",
-    "pleaseSelectLanguage": "请选择至少一种目标语言",
-    "bytes": "字节",
-    "kb": "千字节",
-    "mb": "兆字节",
-    "gb": "千兆字节"
+    "startTranslate": "Avvia Traduzione",
+    "translating": "Traduzione in corso...",
+    "cancel": "Annulla",
+    "uploadFirst": "Carica prima un file",
+    "enterApiKey": "Inserisci la Chiave API",
+    "foundUnfinished": "Trovata traduzione incompleta",
+    "continueTranslation": "Continua traduzione",
+    "translationCancelled": "Traduzione annullata",
+    "invalidApiKey": "Formato Chiave API non valido",
+    "errorTitle": "Errore",
+    "successTitle": "Successo",
+    "translationCompleted": "Traduzione completata!",
+    "showMoreLanguages": "Mostra più lingue",
+    "hideMoreLanguages": "Nascondi più lingue",
+    "overallProgress": "Progresso Complessivo",
+    "completedSegments": "Segmenti Completati",
+    "translatingLanguage": "Traduzione in corso",
+    "allLanguagesTranslated": "Tutte le lingue selezionate sono state tradotte",
+    "pleaseUploadAndEnterKey": "Carica un file e inserisci la Chiave API",
+    "tip": "Suggerimento",
+    "cancelled": "Annullato",
+    "translationFailed": "Traduzione fallita",
+    "pleaseSelectLanguage": "Seleziona almeno una lingua di destinazione",
+    "bytes": "Byte",
+    "kb": "KB",
+    "mb": "MB",
+    "gb": "GB"
   },
   "jsonPreview": {
-    "title": "预览",
-    "empty": "JSON预览将在此处显示",
-    "copied": "已复制到剪贴板",
-    "originalJson": "原始JSON",
-    "translatedJson": "翻译后的JSON",
-    "tips": "提示：支持JSON文件的实时预览和格式化，您可以直接复制内容",
+    "title": "Anteprima",
+    "empty": "L'anteprima JSON apparirà qui",
+    "copied": "Copiato negli appunti",
+    "originalJson": "JSON Originale",
+    "translatedJson": "JSON Tradotto",
+    "tips": "Suggerimenti: Supporta l'anteprima in tempo reale e la formattazione dei file JSON, puoi copiare direttamente il contenuto",
     "placeholder": {
-      "upload": "请上传JSON文件",
-      "translation": "翻译结果将在此处显示"
+      "upload": "Carica un file JSON",
+      "translation": "I risultati della traduzione verranno visualizzati qui"
     },
     "actions": {
-      "copy": "复制",
-      "download": "下载",
-      "downloadAll": "下载所有翻译",
-      "downloadFormat": "下载{lang}翻译"
+      "copy": "Copia",
+      "download": "Scarica",
+      "downloadAll": "Scarica tutte le traduzioni",
+      "downloadFormat": "Scarica traduzione in {lang}"
     },
     "toast": {
-      "copySuccess": "内容已复制到剪贴板",
-      "copyError": "复制失败，请手动复制",
-      "downloadSuccess": "{lang}翻译文件已下载",
-      "downloadAllSuccess": "所有翻译文件已下载",
-      "downloadError": "下载失败，请重试"
+      "copySuccess": "Contenuto copiato negli appunti",
+      "copyError": "Copia fallita, copia manualmente",
+      "downloadSuccess": "File di traduzione {lang} scaricato",
+      "downloadAllSuccess": "Tutti i file di traduzione sono stati scaricati",
+      "downloadError": "Download fallito, riprova"
     },
     "languages": {
-      "en": "英语",
-      "zh": "中文（简体）",
-      "zh-TW": "中文（繁体）",
-      "ja": "日语",
-      "ko": "韩语",
-      "fr": "法语",
-      "de": "德语",
-      "es": "西班牙语",
-      "pt": "葡萄牙语",
-      "it": "意大利语",
-      "ru": "俄语",
-      "ar": "阿拉伯语",
-      "hi": "印地语",
-      "bn": "孟加拉语",
-      "th": "泰语",
-      "vi": "Tiếng Việt",
-      "id": "Bahasa Indonesia",
-      "ms": "Bahasa Melayu",
-      "tr": "Türkçe",
-      "nl": "Nederlands",
-      "pl": "Polski",
-      "uk": "Українська",
-      "el": "Ελληνικά",
-      "he": "עברית",
-      "sv": "Svenska",
-      "da": "Dansk",
-      "fi": "Suomi",
-      "cs": "Čeština",
-      "ro": "Română",
-      "hu": "Magyar",
-      "sk": "Slovenčina",
-      "bg": "Български",
-      "hr": "Hrvatski",
-      "lt": "Lietuvių",
-      "sl": "Slovenščina",
-      "et": "Eesti",
-      "lv": "Latviešu",
-      "sr": "Српски",
-      "mt": "Malti",
-      "fa": "فارسی",
-      "ur": "اردو",
-      "ta": "தமிழ்",
-      "te": "తెలుగు",
-      "ml": "മലയാളം",
-      "kn": "ಕನ್ನಡ",
-      "mr": "मराठी",
-      "gu": "ગુજરાતી",
-      "my": "ဗမာစာ",
-      "km": "ភាសាខ្មែរ",
-      "lo": "ລາວ",
-      "mn": "Монгол",
-      "ka": "ქართული",
-      "hy": "Հայերեն",
-      "az": "Azərbaycanca",
-      "sw": "Kiswahili",
+      "en": "Inglese",
+      "zh": "Cinese (Semplificato)",
+      "zh-TW": "Cinese (Tradizionale)",
+      "ja": "Giapponese",
+      "ko": "Coreano",
+      "fr": "Francese",
+      "de": "Tedesco",
+      "es": "Spagnolo",
+      "pt": "Portoghese",
+      "it": "Italiano",
+      "ru": "Russo",
+      "ar": "Arabo",
+      "hi": "Hindi",
+      "bn": "Bengalese",
+      "th": "Tailandese",
+      "vi": "Vietnamita",
+      "id": "Indonesiano",
+      "ms": "Malese",
+      "tr": "Turco",
+      "nl": "Olandese",
+      "pl": "Polacco",
+      "uk": "Ucraino",
+      "el": "Greco",
+      "he": "Ebraico",
+      "sv": "Svedese",
+      "da": "Danese",
+      "fi": "Finlandese",
+      "cs": "Ceco",
+      "ro": "Rumeno",
+      "hu": "Ungherese",
+      "sk": "Slovacco",
+      "bg": "Bulgaro",
+      "hr": "Croato",
+      "lt": "Lituano",
+      "sl": "Sloveno",
+      "et": "Estone",
+      "lv": "Lettone",
+      "sr": "Serbo",
+      "mt": "Maltese",
+      "fa": "Persiano",
+      "ur": "Urdu",
+      "ta": "Tamil",
+      "te": "Telugu",
+      "ml": "Malayalam",
+      "kn": "Kannada",
+      "mr": "Marathi",
+      "gu": "Gujarati",
+      "my": "Birmano",
+      "km": "Khmer",
+      "lo": "Lao",
+      "mn": "Mongolo",
+      "ka": "Georgiano",
+      "hy": "Armeno",
+      "az": "Azero",
+      "sw": "Swahili",
       "af": "Afrikaans",
-      "am": "አማርኛ"
+      "am": "Amarico"
     }
   },
   "faq": {
-    "title": "سوالات متداول",
-    "description": "سوالات رایج درباره ابزار ترجمه JSON",
-    "items": {
-      "0": {
-        "question": "این ابزار چه کاری انجام می‌دهد؟",
-        "answer": "این یک ابزار ترجمه بین‌المللی JSON مبتنی بر هوش مصنوعی است که به توسعه‌دهندگان کمک می‌کند تا به سرعت فایل‌های زبان JSON را به چندین زبان ترجمه کنند در حالی که یکپارچگی ساختار JSON را حفظ می‌کند."
+    "title": "Domande Frequenti",
+    "description": "Domande comuni sullo strumento di traduzione JSON",
+    "items": [
+      {
+        "question": "Cosa fa questo strumento?",
+        "answer": "Questo è uno strumento di traduzione JSON basato su IA che aiuta gli sviluppatori a tradurre rapidamente i file di lingua JSON in più lingue mantenendo l'integrità della struttura JSON."
       },
-      "1": {
-        "question": "چگونه از این ابزار استفاده کنیم؟",
-        "answer": "1. فایل JSON خود را برای ترجمه بارگذاری کنید\n2. زبان‌های هدف را انتخاب کنید\n3. کلید API OpenAI خود را وارد کنید\n4. روی شروع ترجمه کلیک کنید\n5. پس از اتمام ترجمه، نتایج را دانلود کنید"
+      {
+        "question": "Come si usa questo strumento?",
+        "answer": "1. Carica il tuo file JSON per la traduzione\n2. Seleziona le lingue di destinazione\n3. Inserisci la tua Chiave API OpenAI\n4. Clicca avvia traduzione\n5. Scarica i risultati dopo il completamento della traduzione"
       },
-      "2": {
-        "question": "کدام زبان‌ها پشتیبانی می‌شوند؟",
-        "answer": "در حال حاضر چندین زبان از جمله انگلیسی، چینی (ساده شده)، چینی (سنتی)، ژاپنی، کره‌ای، فرانسوی، آلمانی، اسپانیایی، روسی و غیره را پشتیبانی می‌کند."
+      {
+        "question": "Quali lingue sono supportate?",
+        "answer": "Attualmente supporta più lingue tra cui inglese, cinese (semplificato), cinese (tradizionale), giapponese, coreano, francese, tedesco, spagnolo, russo e altre."
       },
-      "3": {
-        "question": "Will my API Key be saved?",
-        "answer": "No. Your API Key is only used temporarily in the browser and will not be saved or transmitted to any servers."
+      {
+        "question": "La mia Chiave API verrà salvata?",
+        "answer": "No. La tua Chiave API viene utilizzata solo temporaneamente nel browser e non verrà mai salvata o trasmessa a nessun server."
       },
-      "4": {
-        "question": "How is translation quality assured?",
-        "answer": "We use OpenAI's GPT model for translation, ensuring accuracy of technical terms and natural language expression. We also support custom dictionary functionality to maintain consistency of specific terminology."
+      {
+        "question": "Come viene garantita la qualità della traduzione?",
+        "answer": "Utilizziamo il modello GPT di OpenAI per la traduzione, garantendo l'accuratezza dei termini tecnici e l'espressione naturale. Supportiamo anche la funzionalità di dizionario personalizzato per mantenere la coerenza della terminologia specifica."
       },
-      "5": {
-        "question": "Is there a file size limit?",
-        "answer": "Single JSON file size is limited to 10MB. For larger files, it's recommended to split them and translate in batches."
+      {
+        "question": "C'è un limite di dimensione del file?",
+        "answer": "La dimensione del singolo file JSON è limitata a 10MB. Per file più grandi, si consiglia di dividerli e tradurli in batch."
       }
-    }
+    ]
   },
   "cta": {
-    "title": "Commencez à utiliser l'outil de traduction AI maintenant",
-    "description": "Traduisez rapidement et avec précision vos fichiers de langue JSON en plusieurs langues",
-    "button": "Essayez maintenant",
-    "features": {
-      "0": "Aucune inscription requise",
-      "1": "Complètement gratuit",
-      "2": "Traduction en temps réel"
-    }
+    "title": "Inizia a Usare lo Strumento di Traduzione IA Ora",
+    "description": "Traduci rapidamente e accuratamente i tuoi file di lingua JSON in più lingue",
+    "button": "Prova Ora",
+    "features": [
+      "Nessuna Registrazione Richiesta",
+      "Completamente Gratuito",
+      "Traduzione in Tempo Reale"
+    ]
   },
   "footer": {
-    "creator": "Créé avec ❤️ par Viggo",
+    "creator": "Creato con ❤️ da Viggo",
     "twitter": "@viggo",
-    "coffee": "Offrez-moi un café"
+    "coffee": "Offrimi un Caffè"
   },
   "metadata": {
-    "title": "Traduttore JSON - Soluzione di Traduzione Multilingue Basata su AI",
-    "description": "Traduci rapidamente e accuratamente i file di lingua JSON in più lingue utilizzando la tecnologia AI. Supporta struttura JSON, segnaposto variabili e tag HTML.",
-    "keywords": "traduzione JSON,traduzione AI,internazionalizzazione,i18n,traduzione multilingue,OpenAI,strumento online"
+    "title": "Traduttore JSON - Soluzione di Traduzione Multilingue Basata su IA",
+    "description": "Traduci rapidamente e accuratamente i file di lingua JSON in più lingue utilizzando la tecnologia IA. Supporta struttura JSON, segnaposto variabili e tag HTML.",
+    "keywords": "traduzione JSON,traduzione IA,internazionalizzazione,i18n,traduzione multilingue,OpenAI"
   }
 }

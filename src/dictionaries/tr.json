@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "AI Destekli",
-    "title": "JSON Çeviri Aracı",
+    "title": "i18n JSON Çeviri Aracı",
     "description": "JSON dil dosyalarınızı hızlı bir şekilde AI teknolojisi kullanarak çevirin. Hızlı, doğru ve kullanımı kolay.",
     "features": {
       "multilanguage": "Çok Dilli Destek",

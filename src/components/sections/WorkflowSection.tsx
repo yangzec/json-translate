@@ -49,7 +49,7 @@ export function WorkflowSection({ dict }: WorkflowSectionProps) {
                 <div className="hidden lg:block absolute top-1/2 left-full w-full h-px bg-gray-200 -translate-y-1/2 z-0" />
               )}
               
-              <div className="relative z-10 bg-white rounded-2xl p-6">
+              <div className="relative z-10 bg-white rounded-2xl p-6 h-full">
                 <div className="flex justify-between items-start mb-4">
                   <div className="p-3 bg-blue-50 rounded-xl text-blue-600">
                     {icons[index]}

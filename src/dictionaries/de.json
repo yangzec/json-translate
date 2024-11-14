@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "KI-gestützt",
-    "title": "JSON Übersetzungstool",
+    "title": "i18n JSON Übersetzungstool",
     "description": "Übersetzen Sie Ihre JSON-Sprachdateien schnell mit KI-Technologie. Schnell, genau und einfach zu bedienen.",
     "features": {
       "multilanguage": "Mehrsprachige Unterstützung",

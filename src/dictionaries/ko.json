@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "AI 기반",
-    "title": "JSON 번역 도구",
+    "title": "i18n JSON 번역 도구",
     "description": "AI 기술을 사용하여 JSON 언어 파일을 빠르게 번역하세요. 빠르고 정확하며 사용하기 쉽습니다.",
     "features": {
       "multilanguage": "다국어 지원",

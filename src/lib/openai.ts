@@ -92,4 +92,35 @@ export async function translate(
     
     throw error
   }
+}
+
+export async function validateApiKey(apiKey: string): Promise<boolean> {
+  if (!apiKey.startsWith('sk-')) {
+    throw new Error('Invalid API Key format')
+  }
+
+  const openai = new OpenAI({ 
+    apiKey,
+    dangerouslyAllowBrowser: true
+  })
+
+  try {
+    // Send a minimal request to validate the API key
+    await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [{ role: "user", content: "test" }],
+      max_tokens: 1
+    })
+    return true
+  } catch (error) {
+    if (error instanceof OpenAI.APIError) {
+      if (error.status === 401) {
+        throw new Error('Invalid or expired API Key')
+      }
+      if (error.status === 429) {
+        throw new Error('API call limit reached')
+      }
+    }
+    throw error
+  }
 } 

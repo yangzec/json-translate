@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "Alimenté par l'IA",
-    "title": "Outil de Traduction JSON",
+    "title": "i18n Outil de Traduction JSON",
     "description": "Traduisez rapidement vos fichiers de langue JSON en utilisant la technologie IA. Rapide, précis et facile à utiliser.",
     "features": {
       "multilanguage": "Support Multilingue",
@@ -90,7 +90,7 @@
     "successTitle": "Succès",
     "translationCompleted": "Traduction terminée !",
     "showMoreLanguages": "Afficher plus de langues",
-    "hideMoreLanguages": "Masquer plus de langues",
+    "hideMoreLanguages": "Masquer les langues",
     "overallProgress": "Progrès global",
     "completedSegments": "Segments complétés",
     "translatingLanguage": "Traduction",

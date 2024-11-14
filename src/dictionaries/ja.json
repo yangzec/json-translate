@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "AI搭載",
-    "title": "JSON国際化翻訳ツール",
+    "title": "i18n JSON国際化翻訳ツール",
     "description": "AI技術で素早くJSONファイルを翻訳。高速、正確、使いやすい。",
     "features": {
       "multilanguage": "多言語対応",

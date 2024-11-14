@@ -15,7 +15,7 @@ export default async function Home({
 }: {
   params: { lang: string }
 }) {
-  const lang = params.lang
+  const lang = await params.lang
   const dict = await getDictionary(lang)
   
   return (
@@ -53,7 +53,31 @@ export default async function Home({
 
               <div className="md:col-span-8">
                 <div className="w-full">
-                  <JsonPreview dict={dict} />
+                  <JsonPreview dict={{
+                    jsonPreview: dict.jsonPreview as {
+                      originalJson: string;
+                      translatedJson: string;
+                      tips: string;
+                      placeholder: {
+                        upload: string;
+                        translation: string;
+                      };
+                      actions: {
+                        copy: string;
+                        download: string;
+                        downloadAll: string;
+                        downloadFormat: string;
+                      };
+                      toast: {
+                        copySuccess: string;
+                        copyError: string;
+                        downloadSuccess: string;
+                        downloadAllSuccess: string;
+                        downloadError: string;
+                      };
+                      languages: Record<string, string>;
+                    }
+                  }} />
                 </div>
               </div>
             </div>

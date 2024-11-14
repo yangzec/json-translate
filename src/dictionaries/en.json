@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "AI Powered",
-    "title": "JSON Translation Tool",
+    "title": "i18n JSON Translation Tool",
     "description": "Translate your JSON language files quickly using AI technology. Fast, accurate, and easy to use.",
     "features": {
       "multilanguage": "Multilingual Support",

@@ -12,6 +12,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { chunkJsonObject, mergeTranslatedChunks } from "@/lib/json-utils"
 import { ChevronDown, Languages, Loader2 } from "lucide-react"
 import { getDictionary } from "@/lib/getDictionary"
+import { validateApiKey } from "@/lib/openai"
 
 interface TranslatedResult {
   lang: string;
@@ -29,7 +30,7 @@ const readFileContent = (file: File): Promise<string> => {
 
 interface TranslatePanelProps {
   dict: {
-    translatePanel: {
+    translatePanel: Partial<{
       startTranslate: string;
       translating: string;
       cancel: string;
@@ -42,18 +43,20 @@ interface TranslatePanelProps {
       translationCompleted: string;
       translationCancelled: string;
       cancelled: string;
-      completedSegments: string;
+      translationFailed: string;
+      pleaseSelectLanguage: string;
       tip: string;
       allLanguagesTranslated: string;
       foundUnfinished: string;
       continueTranslation: string;
       overallProgress: string;
       translatingLanguage: string;
+      completedSegments: string;
       bytes: string;
       kb: string;
       mb: string;
       gb: string;
-    };
+    }>;
     jsonPreview: {
       languages: Record<string, string>;
     };
@@ -93,27 +96,34 @@ export function TranslatePanel({ dict }: TranslatePanelProps) {
     setEstimatedTime
   } = useTranslate()
 
+  type TranslatePanelKey = keyof typeof dict.translatePanel;
+
+  const getTranslation = (key: TranslatePanelKey, defaultValue: string) => {
+    const value = dict?.translatePanel?.[key];
+    return !value || value.trim() === "" ? defaultValue : value;
+  }
+
   // 添加默认值处理
   const translations = {
-    showMoreLanguages: dict?.translatePanel?.showMoreLanguages || "显示更多语言",
-    hideMoreLanguages: dict?.translatePanel?.hideMoreLanguages || "隐藏更多语言",
-    startTranslate: dict?.translatePanel?.startTranslate || "开始翻译",
-    translating: dict?.translatePanel?.translating || "翻译中...",
-    cancel: dict?.translatePanel?.cancel || "取消",
-    uploadFirst: dict?.translatePanel?.uploadFirst || "请先上传文件",
-    enterApiKey: dict?.translatePanel?.enterApiKey || "请输入API密钥",
-    errorTitle: dict?.translatePanel?.errorTitle || "错误",
-    successTitle: dict?.translatePanel?.successTitle || "成功",
-    translationCompleted: dict?.translatePanel?.translationCompleted || "翻译完成！",
-    translationCancelled: dict?.translatePanel?.translationCancelled || "翻译已取消",
-    cancelled: dict?.translatePanel?.cancelled || "已取消",
-    tip: dict?.translatePanel?.tip || "提示",
-    allLanguagesTranslated: dict?.translatePanel?.allLanguagesTranslated || "所有选定的语言已经翻译完成",
-    foundUnfinished: dict?.translatePanel?.foundUnfinished || "发现未完成的翻译",
-    continueTranslation: dict?.translatePanel?.continueTranslation || "继续翻译",
-    overallProgress: dict?.translatePanel?.overallProgress || "总体进度",
-    translatingLanguage: dict?.translatePanel?.translatingLanguage || "正在翻译语言",
-    completedSegments: dict?.translatePanel?.completedSegments || "已完成片段",
+    showMoreLanguages: getTranslation("showMoreLanguages", "Show More Languages"),
+    hideMoreLanguages: getTranslation("hideMoreLanguages", "Hide More Languages"),
+    startTranslate: getTranslation("startTranslate", "Start Translate"),
+    translating: getTranslation("translating", "Translating..."),
+    cancel: getTranslation("cancel", "Cancel"),
+    uploadFirst: getTranslation("uploadFirst", "Please upload a file"),
+    enterApiKey: getTranslation("enterApiKey", "Please enter API Key"),
+    errorTitle: getTranslation("errorTitle", "Error"),
+    successTitle: getTranslation("successTitle", "Success"),
+    translationCompleted: getTranslation("translationCompleted", "Translation Completed!"),
+    translationCancelled: getTranslation("translationCancelled", "Translation Cancelled"),
+    cancelled: getTranslation("cancelled", "Cancelled"),
+    tip: getTranslation("tip", "Tip"),
+    allLanguagesTranslated: getTranslation("allLanguagesTranslated", "All selected languages have been translated"),
+    foundUnfinished: getTranslation("foundUnfinished", "Found unfinished translations"),
+    continueTranslation: getTranslation("continueTranslation", "Continue Translation"),
+    overallProgress: getTranslation("overallProgress", "Overall Progress"),
+    translatingLanguage: getTranslation("translatingLanguage", "Translating Language"),
+    completedSegments: getTranslation("completedSegments", "Completed Segments"),
     languages: dict?.jsonPreview?.languages || {},  // 从 jsonPreview 中获取语言映射
     bytes: "B",
     kb: "KB",
@@ -211,6 +221,18 @@ export function TranslatePanel({ dict }: TranslatePanelProps) {
         variant: "destructive",
         title: translations.errorTitle,
         description: "Please upload a file and enter API Key"
+      });
+      return;
+    }
+
+    // 添加API密钥验证
+    try {
+      await validateApiKey(apiKey);
+    } catch (err) {
+      toast({
+        variant: "destructive",
+        title: translations.errorTitle,
+        description: err instanceof Error ? err.message : "API Key validation failed"
       });
       return;
     }
