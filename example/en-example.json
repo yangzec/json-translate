@@ -26,23 +26,6 @@
           "Supports HTML tags and Markdown format"
         ]
       }
-    },
-    "userInterface": {
-      "title": "User Interface",
-      "description": "Clean and intuitive operation interface with real-time preview and editing capabilities",
-      "components": {
-        "preview": "Side-by-side comparison preview, supporting real-time view of source and translated text",
-        "editor": "Supports JSON formatting and syntax highlighting",
-        "progress": "Displays translation progress and remaining time"
-      }
-    }
-  },
-  "security": {
-    "title": "Security Information",
-    "apiKey": {
-      "description": "API key is only used temporarily in the browser and is never saved or transmitted to servers",
-      "storage": "Not stored in local storage",
-      "transmission": "Transmitted using HTTPS encryption"
     }
   }
 }
