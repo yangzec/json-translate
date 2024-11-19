@@ -238,7 +238,8 @@
   "footer": {
     "creator": "由 Viggo 用 ❤️ 创建",
     "twitter": "@viggo",
-    "coffee": "请我喝咖啡"
+    "coffee": "请我喝咖啡",
+    "github": "GitHub"
   },
   "metadata": {
     "title": "JSON翻译工具 - AI驱动的多语言翻译解决方案",

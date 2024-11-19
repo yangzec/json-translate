@@ -238,7 +238,8 @@
   "footer": {
     "creator": "Erstellt mit ❤️ von Viggo",
     "twitter": "@viggo",
-    "coffee": "Kauf mir einen Kaffee"
+    "coffee": "Kauf mir einen Kaffee",
+    "github": "GitHub"
   },
   "metadata": {
     "title": "JSON-Übersetzer - KI-gestützte mehrsprachige Übersetzungslösung",

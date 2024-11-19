@@ -238,7 +238,8 @@
   "footer": {
     "creator": "Создано с ❤️ от Viggo",
     "twitter": "@viggo",
-    "coffee": "Купите мне кофе"
+    "coffee": "Купите мне кофе",
+    "github": "GitHub"
   },
   "metadata": {
     "title": "JSON переводчик - Решение для многоязычного перевода на базе ИИ",

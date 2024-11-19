@@ -238,7 +238,8 @@
   "footer": {
     "creator": "Dibuat dengan ❤️ oleh Viggo",
     "twitter": "@viggo",
-    "coffee": "Beli Saya Secangkir Kopi"
+    "coffee": "Beli Saya Secangkir Kopi",
+    "github": "GitHub"
   },
   "metadata": {
     "title": "Penerjemah JSON - Solusi Terjemahan Multibahasa Berbasis AI",
