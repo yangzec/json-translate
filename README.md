@@ -76,14 +76,20 @@ This project not only open-sources the code but also includes a complete [Produc
 ### Installation
 
 ```bash
+# Clone the repository
 git clone https://github.com/ViggoZ/json-translate.git
+
+# Enter the project directory
 cd json-translate
+
+# Install dependencies
 npm install
 ```
 
 ### Development
 
 ```bash
+# Start development server
 npm run dev
 ```
 Visit http://localhost:3000 to view the development environment.
@@ -91,7 +97,10 @@ Visit http://localhost:3000 to view the development environment.
 ### Build
 
 ```bash
+# Build for production
 npm run build
+
+# Start production server
 npm run start
 ```
 

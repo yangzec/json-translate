@@ -76,14 +76,20 @@
 ### 安装
 
 ```bash
+# 克隆仓库
 git clone https://github.com/ViggoZ/json-translate.git
+
+# 进入项目目录
 cd json-translate
+
+# 安装依赖
 npm install
 ```
 
 ### 开发
 
 ```bash
+# 启动开发服务器
 npm run dev
 ```
 访问 http://localhost:3000 查看开发环境。
@@ -91,7 +97,10 @@ npm run dev
 ### 构建
 
 ```bash
+# 构建生产版本
 npm run build
+
+# 启动生产服务器
 npm run start
 ```
 
