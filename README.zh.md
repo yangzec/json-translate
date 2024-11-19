@@ -37,21 +37,26 @@
 </p>
 
 <p align="center">
-  使用 Cursor AI 辅助开发的开源项目，不仅开源代码，还开源了完整的产品设计过程
+  <strong>🎯 AI 辅助开发全过程开源</strong>
 </p>
 
 <p align="center">
-  这是一个展示如何使用 AI 辅助工具进行产品开发的实践项目。我们开源了：
+  这个项目展示了一个完整的 AI 辅助开发过程，从产品设计到代码实现
 </p>
 
 <p align="center">
-  🔸 完整的产品需求文档(PRD) - 展示AI如何协助产品设计<br>
-  🔸 全部项目源代码 - 展示AI如何协助代码实现<br>
-  🔸 开发过程记录 - 帮助开发者了解AI辅助开发流程
+  <strong>开源内容包括：</strong>
 </p>
 
 <p align="center">
-  希望通过这个开源项目，帮助更多开发者和产品经理了解和利用AI工具，提高开发效率
+  🔸 <strong>产品设计</strong> - 完整的 AI 辅助产品需求文档<br>
+  🔸 <strong>源代码</strong> - 全部项目代码与 AI 功能实现<br>
+  🔸 <strong>开发记录</strong> - 详细的 AI 协作开发流程
+</p>
+
+<p align="center">
+  <em>我的使命是展示 AI 工具如何革新开发流程，<br>
+  让开发者和产品经理的工作更高效、更轻松</em>
 </p>
 
 ## ✨ 特性
@@ -159,7 +164,7 @@ npm run start
 
 ## 🤝 贡献指南
 
-我们欢迎所有形式的贡献，无论是新功能、bug修复还是文档改进。
+我欢迎所有形式的贡献，无论是新功能、bug修复还是文档改进。
 
 1. Fork 项目
 2. 创建分支 (`git checkout -b feature/YourFeature`)

@@ -37,21 +37,26 @@
 </p>
 
 <p align="center">
-  An open-source project developed with Cursor AI, sharing not just code but the entire product design process
+  <strong>🎯 An Open-Source AI Development Journey</strong>
 </p>
 
 <p align="center">
-  This project demonstrates how to use AI tools for product development. We've open-sourced:
+  This project showcases a complete AI-assisted development process, from product design to implementation
 </p>
 
 <p align="center">
-  🔸 Complete Product Requirements Document (PRD) - Showing how AI assists in product design<br>
-  🔸 Full Source Code - Demonstrating AI-assisted code implementation<br>
-  🔸 Development Process Documentation - Helping developers understand AI-assisted workflow
+  <strong>What's Included:</strong>
 </p>
 
 <p align="center">
-  Our goal is to help developers and product managers understand and utilize AI tools to improve development efficiency
+  🔸 <strong>Product Design</strong> - Complete PRD created with AI assistance<br>
+  🔸 <strong>Source Code</strong> - Full codebase with AI-powered features<br>
+  🔸 <strong>Development Logs</strong> - Detailed AI collaboration workflow
+</p>
+
+<p align="center">
+  <em>My mission is to demonstrate how AI tools can revolutionize the development process,<br>
+  making it more efficient and accessible for developers and product managers</em>
 </p>
 
 ## ✨ Features
@@ -159,7 +164,7 @@ npm run start
 
 ## 🤝 Contributing
 
-We welcome all forms of contributions, whether it's new features, bug fixes, or documentation improvements.
+I welcome all forms of contributions, whether it's new features, bug fixes, or documentation improvements.
 
 1. Fork the project
 2. Create your feature branch (`git checkout -b feature/YourFeature`)
