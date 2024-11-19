@@ -6,7 +6,8 @@ export async function translate(
   apiKey: string,
   signal?: AbortSignal,
   onProgress?: (progress: number) => void,
-  onStream?: (chunk: string) => void
+  onStream?: (chunk: string) => void,
+  baseURL?: string // 新增参数
 ) {
   if (!apiKey.startsWith('sk-')) {
     throw new Error('Invalid API Key format')
@@ -14,7 +15,8 @@ export async function translate(
 
   const openai = new OpenAI({ 
     apiKey,
-    dangerouslyAllowBrowser: true
+    dangerouslyAllowBrowser: true,
+    baseURL: baseURL // 添加 baseURL 配置
   })
 
   try {
@@ -94,14 +96,18 @@ export async function translate(
   }
 }
 
-export async function validateApiKey(apiKey: string): Promise<boolean> {
+export async function validateApiKey(
+  apiKey: string,
+  baseURL?: string // 新增参数
+): Promise<boolean> {
   if (!apiKey.startsWith('sk-')) {
     throw new Error('Invalid API Key format')
   }
 
   const openai = new OpenAI({ 
     apiKey,
-    dangerouslyAllowBrowser: true
+    dangerouslyAllowBrowser: true,
+    baseURL: baseURL // 添加 baseURL 配置
   })
 
   try {

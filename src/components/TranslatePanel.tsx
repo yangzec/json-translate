@@ -400,7 +400,8 @@ export function TranslatePanel({ dict }: TranslatePanelProps) {
                   
                   console.warn('Stream content parse error:', error)
                 }
-              }
+              },
+              "https://api.302.ai/v1"
             )
             
             // 如果翻译被取消，跳出循环
