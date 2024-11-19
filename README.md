@@ -1,11 +1,11 @@
-# JSON i18n 翻译工具
+# JSON i18n Translation Tool
 
 <p align="center">
   <img src="public/logo-blue.png" alt="JSON Translate Logo" width="200"/>
 </p>
 
 <p align="center">
-  <strong>🌐 AI驱动的JSON国际化翻译工具</strong>
+  <strong>🌐 AI-Powered JSON Internationalization Translation Tool</strong>
 </p>
 
 <p align="center">
@@ -21,29 +21,60 @@
 </p>
 
 <p align="center">
-  使用 Cursor AI 辅助开发的开源项目，展示了 AI 驱动开发的潜力
+  <a href="/README.md">English</a> | 
+  <a href="/README.zh.md">简体中文</a> | 
+  <a href="/README.zh-TW.md">繁體中文</a>
 </p>
 
-## ✨ 特性
+<p align="center">
+  An open-source project developed with Cursor AI, sharing not just code but the entire product design process
+</p>
 
-- 🤖 基于OpenAI GPT模型的智能翻译
-- 🔄 保持JSON结构完整性
-- 🌍 支持40+种语言
-- ⚡️ 实时翻译预览
-- 🛡️ API密钥本地使用,注重安全
-- 📦 支持批量导出翻译结果
-- 🎯 专业术语准确翻译
-- 💻 完全开源,代码透明
+<p align="center">
+  This project demonstrates how to use AI tools for product development. We've open-sourced:
+</p>
 
-## 🚀 快速开始
+<p align="center">
+  🔸 Complete Product Requirements Document (PRD) - Showing how AI assists in product design<br>
+  🔸 Full Source Code - Demonstrating AI-assisted code implementation<br>
+  🔸 Development Process Documentation - Helping developers understand AI-assisted workflow
+</p>
 
-### 环境要求
+<p align="center">
+  Our goal is to help developers and product managers understand and utilize AI tools to improve development efficiency
+</p>
+
+## ✨ Features
+
+- 🤖 Smart translation powered by OpenAI GPT models
+- 🔄 Maintains JSON structure integrity
+- 🌍 Supports 40+ languages
+- 🌐 Multi-language interface
+- ⚡️ Real-time translation preview
+- 🛡️ Local API key usage for security
+- 📦 Export translation results
+- 🎯 Accurate technical term translation
+- 💻 Fully open source, transparent code
+
+## 📖 AI-Driven Product Design
+
+This project not only open-sources the code but also includes a complete [Product Requirements Document (PRD)](./json-translator-prd.md). This PRD was created with the assistance of Cursor AI and serves as:
+
+### 🎯 Reference for Product Managers
+- How to conduct product requirement analysis
+- How to define target user groups
+- How to design feature modules
+- How to plan product iterations
+
+## 🚀 Quick Start
+
+### Requirements
 
 - Node.js >= 16.0.0
-- npm 或 yarn 或 pnpm
-- OpenAI API密钥
+- npm or yarn or pnpm
+- OpenAI API key
 
-### 安装
+### Installation
 
 ```bash
 git clone https://github.com/ViggoZ/json-translate.git
@@ -51,117 +82,117 @@ cd json-translate
 npm install
 ```
 
-### 开发
+### Development
 
 ```bash
 npm run dev
 ```
-访问 http://localhost:3000 查看开发环境。
+Visit http://localhost:3000 to view the development environment.
 
-### 构建
+### Build
 
 ```bash
 npm run build
 npm run start
 ```
 
-## 📖 使用指南
+## 📖 Usage Guide
 
-1. **准备工作**
-   - 准备需要翻译的JSON文件
-   - 获取OpenAI API密钥 (https://platform.openai.com)
+1. **Preparation**
+   - Prepare your JSON file for translation
+   - Get your OpenAI API key (https://platform.openai.com)
 
-2. **开始使用**
-   - 访问网站
-   - 上传JSON文件 (支持拖拽上传)
-   - 选择目标语言
-   - 输入API密钥
-   - 点击开始翻译
+2. **Getting Started**
+   - Visit the website
+   - Upload JSON file (drag & drop supported)
+   - Select target language
+   - Enter API key
+   - Start translation
 
-3. **功能说明**
-   - 支持单个JSON文件翻译
-   - 实时预览翻译结果
-   - 支持导出JSON格式
+3. **Features**
+   - Single JSON file translation
+   - Real-time translation preview
+   - Export in JSON format
 
-## 💡 最佳实践
+## 💡 Best Practices
 
-- 建议将大文件拆分成小文件翻译
-- 翻译前检查JSON格式是否正确
-- 使用预览功能确认翻译质量
-- 定期备份重要的翻译文件
+- Split large files into smaller ones for translation
+- Verify JSON format before translation
+- Use preview feature to confirm translation quality
+- Regularly backup important translation files
 
-## 🛠 技术栈
+## 🛠 Tech Stack
 
-- **开发工具**: 
-  - Cursor (AI辅助开发)
-- **框架**: Next.js 14
+- **Development Tool**: 
+  - Cursor (AI-assisted development)
+- **Framework**: Next.js 14
 - **UI**: 
   - React 18
   - Tailwind CSS
   - Radix UI
   - HeadlessUI
-- **语言**: TypeScript
+- **Language**: TypeScript
 - **API**: OpenAI API
-- **工具库**:
-  - JSZip (文件处理)
-  - React Syntax Highlighter (代码高亮)
-  - React Window (虚拟列表)
+- **Libraries**:
+  - JSZip (file handling)
+  - React Syntax Highlighter
+  - React Window (virtual list)
 
-## 🤝 贡献指南
+## 🤝 Contributing
 
-我们欢迎所有形式的贡献，无论是新功能、bug修复还是文档改进。
+We welcome all forms of contributions, whether it's new features, bug fixes, or documentation improvements.
 
-1. Fork 项目
-2. 创建分支 (`git checkout -b feature/YourFeature`)
-3. 提交更改 (`git commit -m 'Add some feature'`)
-4. 推送到分支 (`git push origin feature/YourFeature`)
-5. 提交 Pull Request
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/YourFeature`)
+5. Open a Pull Request
 
-### 开发指南
-- 遵循项目现有的代码风格
-- 确保代码通过 `npm run lint` 检查
-- 提交前测试功能是否正常工作
+### Development Guidelines
+- Follow existing code style
+- Ensure code passes `npm run lint`
+- Test functionality before submitting
 
-## 📝 开源协议
+## 📝 License
 
-本项目采用 MIT 协议 - 查看 [LICENSE](LICENSE) 文件了解详情
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-## 🙋 常见问题
+## 🙋 FAQ
 
-**Q: API密钥安全吗？**  
-A: 是的。API密钥仅在浏览器中临时使用，不会保存或传输到服务器。
+**Q: Is the API key secure?**  
+A: Yes. API keys are only used temporarily in the browser and are never saved or transmitted to servers.
 
-**Q: 支持哪些语言？**  
-A: 支持40+种主流语言，包括但不限于：
-- 中文(简体/繁体)
-- 英语
-- 日语
-- 韩语
-- 法语
-- 德语
-- 西班牙语
-- 俄语
-等
+**Q: Which languages are supported?**  
+A: 40+ major languages including but not limited to:
+- Chinese (Simplified/Traditional)
+- English
+- Japanese
+- Korean
+- French
+- German
+- Spanish
+- Russian
+etc.
 
-**Q: 文件大小有限制吗？**  
-A: 单个文件限制为10MB。
+**Q: Is there a file size limit?**  
+A: Single files are limited to 10MB.
 
-## 📞 联系方式
+## 📞 Contact
 
-- 作者：Viggo
-- Email：viggo.zw@gmail.com
-- Twitter：[@viggo](https://twitter.com/decohack)
+- Author: Viggo
+- Email: viggo.zw@gmail.com
+- Twitter: [@viggo](https://twitter.com/decohack)
 
-## 🌟 致谢
+## 🌟 Acknowledgments
 
-感谢所有为这个项目提供反馈的用户。特别感谢：
+Thanks to all users who provided feedback. Special thanks to:
 
-- OpenAI 团队提供的强大API支持
-- Next.js 团队的出色框架
-- 所有项目贡献者
+- OpenAI team for their powerful API
+- Next.js team for the excellent framework
+- All project contributors
 
 ---
 
-如果这个项目对你有帮助，欢迎 star ⭐️ 支持一下！
+If this project helps you, please give it a star ⭐️!
 
-<p align="center">用 ❤️ 制作</p>
+<p align="center">Made with ❤️ by [@viggo](https://twitter.com/decohack)</p>
