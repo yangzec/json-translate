@@ -1,241 +1,167 @@
-# 网站PRD文档
+# JSON i18n 翻译工具
 
-## 项目背景与痛点分析
+<p align="center">
+  <img src="public/logo-blue.png" alt="JSON Translate Logo" width="200"/>
+</p>
 
-### 现状问题
-1. **手动翻译效率低**
-   - 开发者在进行国际化(i18n)时需要手动翻译大量语言文件
-   - 翻译过程繁琐耗时,特别是需要支持多种语言时
-   - 人工翻译容易出现疏漏和不一致
+<p align="center">
+  <strong>🌐 AI驱动的JSON国际化翻译工具</strong>
+</p>
 
-2. **JSON文件处理难度大**
-   - 语言文件通常采用复杂的JSON结构(深层嵌套、数组等)
-   - 手动编辑容易破坏JSON格式
-   - 缺乏文件结构可视化工具
-   - 大型JSON文件处理困难
+<p align="center">
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
+  </a>
+  <a href="package.json">
+    <img src="https://img.shields.io/badge/version-0.1.0-green.svg" alt="Version">
+  </a>
+  <a href="https://cursor.sh">
+    <img src="https://img.shields.io/badge/Built%20with-Cursor-blue?style=flat" alt="Built with Cursor">
+  </a>
+</p>
 
-3. **翻译质量与成本的矛盾**
-   - 专业翻译服务成本高昂
-   - 普通机器翻译质量不稳定
-   - 缺乏行业术语的统一管理
+<p align="center">
+  使用 Cursor AI 辅助开发的开源项目，展示了 AI 驱动开发的潜力
+</p>
 
-4. **工具链不完整**
-   - 现有工具功能分散
-   - 缺乏一站式解决方案
-   - 协作效率低下
-   - 版本管理困难
+## ✨ 特性
 
-### 解决方案价值
+- 🤖 基于OpenAI GPT模型的智能翻译
+- 🔄 保持JSON结构完整性
+- 🌍 支持40+种语言
+- ⚡️ 实时翻译预览
+- 🛡️ API密钥本地使用,注重安全
+- 📦 支持批量导出翻译结果
+- 🎯 专业术语准确翻译
+- 💻 完全开源,代码透明
 
-1. **提升开发效率**
-   - 自动化翻译流程
-   - 批量处理能力
-   - 保持JSON结构完整性
-   - 可视化编辑界面
+## 🚀 快速开始
 
-2. **保证翻译质量**
-   - 利用OpenAI API提供高质量翻译
-   - 自定义术语管理
-   - 多人协作校对
+### 环境要求
 
-3. **降低使用成本**
-   - 提供免费基础功能
-   - 按需付费模式
-   - 减少人工校对成本
+- Node.js >= 16.0.0
+- npm 或 yarn 或 pnpm
+- OpenAI API密钥
 
-4. **优化用户体验**
-   - 简单直观的操作界面
-   - 实时预览对比
-   - 进度保存功能
-   - 完整的错误提示
+### 安装
 
-## 目标用户
+```bash
+git clone https://github.com/ViggoZ/json-translate.git
+cd json-translate
+npm install
+```
 
-1. **开发者**
-   - 前端工程师
-   - 全栈开发者
-   - 独立开发者
+### 开发
 
-2. **企业用户**
-   - 需要本地化的产品团队
-   - 跨国企业
-   - 软件开发公司
+```bash
+npm run dev
+```
+访问 http://localhost:3000 查看开发环境。
 
-3. **内容创作者**
-   - 技术文档作者
-   - 内容运营团队
-   - 本地化团队
+### 构建
 
-## 核心功能
+```bash
+npm run build
+npm run start
+```
 
-1. **JSON文件上传**
-   - 用户可以在界面上上传需要翻译的JSON文件。
-   - 支持拖拽和点击上传。
+## 📖 使用指南
 
-2. **语言选择**
-   - 提供多种目标语言选项，用户可以选择需要翻译的语言。
+1. **准备工作**
+   - 准备需要翻译的JSON文件
+   - 获取OpenAI API密钥 (https://platform.openai.com)
 
-3. **OpenAI API集成**
-   - 用户需输入自己的OpenAI API Key。
-   - 使用GPT模型进行智能翻译。
+2. **开始使用**
+   - 访问网站
+   - 上传JSON文件 (支持拖拽上传)
+   - 选择目标语言
+   - 输入API密钥
+   - 点击开始翻译
 
-4. **翻译结果预览**
-   - 翻译完成后，用户可以在界面上预览翻译结果。
-   - 支持查看原文和译文的对比。
+3. **功能说明**
+   - 支持单个JSON文件翻译
+   - 实时预览翻译结果
+   - 支持导出JSON格式
 
-5. **下载翻译文件**
-   - 用户可以下载翻译后的JSON文件。
+## 💡 最佳实践
 
-6. **用户界面**
-   - 简洁易用的界面，支持响应式设计。
-   - 提供API Key输入入口，确保安全性。
+- 建议将大文件拆分成小文件翻译
+- 翻译前检查JSON格式是否正确
+- 使用预览功能确认翻译质量
+- 定期备份重要的翻译文件
 
-7. **JSON文件处理**
-   - 支持嵌套结构的JSON文件
-   - 支持数组类型的JSON结构
-   - 保持原始JSON文件的格式和缩进
-   - 支持注释的保留（如果有）
-   - 支持特殊字符和Unicode编码
+## 🛠 技术栈
 
-8. **翻译处理**
-   - 智能识别需要翻译的文本内容
-   - 保留变量占位符（如 {name}, {year} 等）
-   - 保持HTML标签和Markdown格式
-   - 支持批量翻译多个文件
-   - 支持翻译进度保存和断点续传
+- **开发工具**: 
+  - Cursor (AI辅助开发)
+- **框架**: Next.js 14
+- **UI**: 
+  - React 18
+  - Tailwind CSS
+  - Radix UI
+  - HeadlessUI
+- **语言**: TypeScript
+- **API**: OpenAI API
+- **工具库**:
+  - JSZip (文件处理)
+  - React Syntax Highlighter (代码高亮)
+  - React Window (虚拟列表)
 
-9. **文件对比功能**
-   - 提供原文和译文的并排对比视图
-   - 支持差异高亮显示
-   - 支持按层级展开/折叠
+## 🤝 贡献指南
 
-## 技术栈
+我们欢迎所有形式的贡献，无论是新功能、bug修复还是文档改进。
 
-- **前端框架**: Next.js 14
-  - 提供服务端渲染和静态网站生成能力
-  - App Router架构
-  - React Server Components
+1. Fork 项目
+2. 创建分支 (`git checkout -b feature/YourFeature`)
+3. 提交更改 (`git commit -m 'Add some feature'`)
+4. 推送到分支 (`git push origin feature/YourFeature`)
+5. 提交 Pull Request
 
-- **UI组件库**: shadcn/ui
-  - 基于 Radix UI 的高质量组件库
-  - 使用 Tailwind CSS 样式系统
-  - 主要使用组件:
-    - Button - 用于文件上传和操作按钮
-    - Input - 用于API Key输入
-    - Select - 用于语言选择
-    - Toast - 用于操作反馈
-    - Card - 用于JSON预览展示
-    - Tabs - 用于切换不同的翻译设置
-    - Dialog - 用于显示帮助信息
-    - Progress - 用于显示翻译进度
+### 开发指南
+- 遵循项目现有的代码风格
+- 确保代码通过 `npm run lint` 检查
+- 提交前测试功能是否正常工作
 
-- **样式方案**: 
-  - Tailwind CSS - 原子化CSS框架
-  - CSS Variables - 主题定制
-  - New York Style - shadcn/ui视觉风格
+## 📝 开源协议
 
-- **部署平台**: Vercel
-  - 提供无缝的Next.js部署体验
-  - 自动化的CI/CD流程
+本项目采用 MIT 协议 - 查看 [LICENSE](LICENSE) 文件了解详情
 
-- **域名管理**: Cloudflare
-  - 负责域名购买、DNS管理和安全防护
+## 🙋 常见问题
 
-- **API集成**: 
-  - OpenAI API - 提供GPT-4翻译能力
-  - 支持自定义API Key
+**Q: API密钥安全吗？**  
+A: 是的。API密钥仅在浏览器中临时使用，不会保存或传输到服务器。
 
-## 组件结构
+**Q: 支持哪些语言？**  
+A: 支持40+种主流语言，包括但不限于：
+- 中文(简体/繁体)
+- 英语
+- 日语
+- 韩语
+- 法语
+- 德语
+- 西班牙语
+- 俄语
+等
 
-1. **FileUpload组件**
-   - 使用shadcn/ui的Button和Input组件
-   - 支持拖拽上传
-   - 文件类型验证
-   - 上传反馈Toast提示
+**Q: 文件大小有限制吗？**  
+A: 单个文件限制为10MB。
 
-2. **TranslatePanel组件**
-   - 使用Select组件进行语言选择
-   - 使用Input组件输入API Key
-   - 使用Progress组件显示翻译进度
-   - 使用Button组件触发翻译
+## 📞 联系方式
 
-3. **JsonPreview组件**
-   - 使用Card组件展示JSON内容
-   - 支持代码高亮
-   - 支持折叠/展开
-   - 并排对比视图
+- 作者：Viggo
+- Email：viggo.zw@gmail.com
+- Twitter：[@viggo](https://twitter.com/decohack)
 
-4. **SettingsDialog组件**
-   - 使用Dialog组件
-   - 包含翻译设置选项
-   - 自定义词典管理
+## 🌟 致谢
 
-## 非功能性需求
+感谢所有为这个项目提供反馈的用户。特别感谢：
 
-1. **性能**
-   - 确保翻译过程高效，响应时间短。
+- OpenAI 团队提供的强大API支持
+- Next.js 团队的出色框架
+- 所有项目贡献者
 
-2. **安全性**
-   - 保护用户的API Key和上传文件的隐私。
-   - 使用HTTPS进行数据传输。
+---
 
-3. **可用性**
-   - 确保网站在高流量情况下的稳定性。
+如果这个项目对你有帮助，欢迎 star ⭐️ 支持一下！
 
-4. **可扩展性**
-   - 未来可以增加更多语言和文件格式支持。
-
-5. **兼容性**
-   - 支持不同编码格式的JSON文件（UTF-8, UTF-16等）
-   - 支持不同的换行符格式（LF, CRLF）
-   - 支持大文件处理（>10MB的JSON文件）
-
-6. **翻译质量**
-   - 保持专业术语的一致性
-   - 支持自定义翻译词典
-   - 提供机器翻译质量评估
-
-7. **错误处理**
-   - JSON格式校验和错误提示
-   - 翻译失败的回滚机制
-   - 自动保存和恢复机制
-
-## 用户界面设计
-
-1. **主页**
-   - 简介和使用说明。
-   - JSON文件上传区域。
-   - 语言选择下拉菜单。
-   - OpenAI API Key输入框。
-
-2. **翻译结果页面**
-   - 显示翻译进度。
-   - 原文和译文对比展示。
-   - 下载按钮。
-
-3. **翻译设置面板**
-   - 源语言和目标语言选择
-   - 翻译引擎选择（OpenAI/其他）
-   - 自定义词典管理
-
-4. **高级功能区**
-   - 批量文件处理
-   - 项目管理功能
-   - 统计分析面板
-
-## 部署与维护
-
-- 使用Vercel进行持续集成和部署。
-- 定期更新和维护，确保API的正常调用和界面的流畅运行。
-
-## 未来计划
-
-- 增加对其他文件格式的支持，如XML、CSV等。
-- 提供用户注册和登录功能，保存用户的API Key和翻译历史。
-- 集成更多AI服务，扩展网站功能。
-- 支持更多文件格式（YAML, Properties等）
-- 添加协同翻译功能
-- 提供API接口供其他服务调用
-- 集成更多翻译服务商
-- 添加自动化测试功能
-- 支持自定义翻译规则
+<p align="center">用 ❤️ 制作</p>
