@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <strong>🔗 <a href="https://json.uiboy.com">https://json.uiboy.com</a></strong><br>
+  <strong>🔗 <a href="https://json.uiboy.com">json.uiboy.com</a></strong><br>
   Free online JSON translation tool powered by AI, supporting 40+ languages
 </p>
 
@@ -79,20 +79,20 @@ This project includes complete Product Requirements Documents in both English an
 ### Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/ViggoZ/json-translate.git
+```
 
-# Enter the project directory
+```bash
 cd json-translate
+```
 
-# Install dependencies
+```bash
 npm install
 ```
 
 ### Development
 
 ```bash
-# Start development server
 npm run dev
 ```
 Visit http://localhost:3000 to view the development environment.
@@ -100,10 +100,10 @@ Visit http://localhost:3000 to view the development environment.
 ### Build
 
 ```bash
-# Build for production
 npm run build
+```
 
-# Start production server
+```bash
 npm run start
 ```
 

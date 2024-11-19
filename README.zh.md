@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <strong>🔗 <a href="https://json.uiboy.com">https://json.uiboy.com</a></strong><br>
+  <strong>🔗 <a href="https://json.uiboy.com">json.uiboy.com</a></strong><br>
   免费在线JSON翻译工具，支持40+种语言，由AI驱动
 </p>
 
@@ -79,20 +79,20 @@
 ### 安装
 
 ```bash
-# 克隆仓库
 git clone https://github.com/ViggoZ/json-translate.git
+```
 
-# 进入项目目录
+```bash
 cd json-translate
+```
 
-# 安装依赖
+```bash
 npm install
 ```
 
 ### 开发
 
 ```bash
-# 启动开发服务器
 npm run dev
 ```
 访问 http://localhost:3000 查看开发环境。
@@ -100,10 +100,10 @@ npm run dev
 ### 构建
 
 ```bash
-# 构建生产版本
 npm run build
+```
 
-# 启动生产服务器
+```bash
 npm run start
 ```
 
