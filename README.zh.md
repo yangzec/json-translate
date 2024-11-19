@@ -73,13 +73,9 @@
 
 ## 📖 AI驱动的产品设计
 
-本项目不仅开源了代码，还开源了一份完整的[产品需求文档(PRD)](./json-translator-prd.md)。这份PRD是在 Cursor AI 的协助下完成的，可以作为:
-
-### 🎯 产品经理参考
-- 如何进行产品需求分析
-- 如何定义目标用户群
-- 如何设计功能模块
-- 如何规划产品迭代
+本项目包含完整的产品需求文档（提供中英文版本）：
+- [English PRD](./json-translator-prd.md)
+- [中文 PRD](./json-translator-prd.zh.md)
 
 ## 🚀 快速开始
 

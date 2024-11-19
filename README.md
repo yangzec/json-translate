@@ -73,13 +73,9 @@
 
 ## 📖 AI-Driven Product Design
 
-This project not only open-sources the code but also includes a complete [Product Requirements Document (PRD)](./json-translator-prd.md). This PRD was created with the assistance of Cursor AI and serves as:
-
-### 🎯 Reference for Product Managers
-- How to conduct product requirement analysis
-- How to define target user groups
-- How to design feature modules
-- How to plan product iterations
+This project includes complete Product Requirements Documents in both English and Chinese:
+- [English PRD](./json-translator-prd.md)
+- [中文 PRD](./json-translator-prd.zh.md)
 
 ## 🚀 Quick Start
 
