@@ -49,14 +49,8 @@
 </p>
 
 <p align="center">
-  🔸 <strong>产品设计</strong> - 完整的 AI 辅助产品需求文档<br>
-  🔸 <strong>源代码</strong> - 全部项目代码与 AI 功能实现<br>
-  🔸 <strong>开发记录</strong> - 详细的 AI 协作开发流程
-</p>
-
-<p align="center">
-  <em>我的使命是展示 AI 工具如何革新开发流程，<br>
-  让开发者和产品经理的工作更高效、更轻松</em>
+  🔸 <strong>产品需求文档</strong> - 完整的 AI 辅助产品需求文档<br>
+  🔸 <strong>源代码</strong> - 全部项目代码与 AI 功能实现
 </p>
 
 ## ✨ 特性

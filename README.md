@@ -49,14 +49,8 @@
 </p>
 
 <p align="center">
-  🔸 <strong>Product Design</strong> - Complete PRD created with AI assistance<br>
-  🔸 <strong>Source Code</strong> - Full codebase with AI-powered features<br>
-  🔸 <strong>Development Logs</strong> - Detailed AI collaboration workflow
-</p>
-
-<p align="center">
-  <em>My mission is to demonstrate how AI tools can revolutionize the development process,<br>
-  making it more efficient and accessible for developers and product managers</em>
+  🔸 <strong>Product Requirements Document</strong> - Complete PRD created with AI assistance<br>
+  🔸 <strong>Source Code</strong> - Full codebase with AI-powered features
 </p>
 
 ## ✨ Features
